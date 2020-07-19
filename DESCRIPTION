@@ -1,0 +1,19 @@
+Package: ces
+Type: Package
+Title: Makes Accessing the 2019 CES Datasets a Little Easier.
+Version: 0.1.0
+Author: Paul A. Hodgetts
+Maintainer: Paul A. Hodgetts <hodgetts.paul@outlook.com>
+Description: Constantly having to locate datasets, download datasets, load in datasets of varying types,
+    and change working directories can be frustrating. The ces package makes available both
+    the online and phone surveys from the 2019 Canadian Election Survey.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    here,
+    haven,
+    tools
+RoxygenNote: 7.1.1
+Suggests: 
+    testthat
