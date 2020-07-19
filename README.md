@@ -19,8 +19,8 @@ https://doi.org/10.7910/DVN/8RHLG1, Harvard Dataverse, V1, UNF:6:eyR28qaoYlHj9qw
 
 ## Installation
 
-You can install the released version of ces from [CRAN](https://CRAN.R-project.org) with:
+You can install the current version of this package using:
 
 ``` r
-install.packages("ces")
+devtools::install_github("hodgettsp/ces")
 ```
