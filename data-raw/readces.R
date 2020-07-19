@@ -3,15 +3,6 @@
 #library(here)
 #library(tools)
 
-##UNCOMMENT ONCE GIT SETUP
-#if(!file.exists("data-raw/dataverse_files_main.zip")){
-#  tmp <- tempfile(fileext = ".zip")
-#  download.file("enter git url here", tmp, quiet = TRUE)
-#  unzip(tmp, exdir = "data-raw")
-#  unlink(tmp)
-#}
-
-
 # directory where the .dta files will be created.
 indir <- here::here("data-raw")
 
