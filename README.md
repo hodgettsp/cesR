@@ -30,7 +30,7 @@ https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/8RHLG1
 
 The `ces package` provides access to the 2019 CES Phone Survey and 2019 Online Survey by loading in both survey datasets under the names `phonesurvey` and `onlinesurvey` respectively. The datasets have not automatically been assigned to variable names to avoid possible confusion with other variable names.
 
-To load in either dataset, assign the desired dataset a variable name, e.g.:
+To load in either dataset, assign the desired dataset a variable name, e.g.
 ```
 online_ces <- onlinesurvey
 phone_ces <- phonesurvey
