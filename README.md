@@ -14,6 +14,8 @@ https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1
 Documentation for the 2019 CES Online Survey can be accessed from here:
 https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V
 
+---
+
 * `phonesurvey`:
 
 Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, "2019 Canadian Election Study - Phone Survey",
@@ -22,6 +24,7 @@ https://doi.org/10.7910/DVN/8RHLG1, Harvard Dataverse, V1, UNF:6:eyR28qaoYlHj9qw
 Documentation for the 2019 CES Phone Survey can be accessed from here:
 https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/8RHLG1
 
+---
 
 ## Using the Package
 
@@ -33,12 +36,11 @@ online_ces <- onlinesurvey
 phone_ces <- phonesurvey
 ```
 
-Alternatively, specific variables can be accessed without having to assign the whole dataset via the format below:
-datasetname$variablename, e.g. 
+Alternatively, specific variables can be accessed without having to assign the whole dataset via the format datasetname$variablename, e.g. 
 ```
 onlinesurvey$cps19_imp_iss_party
 ```
-
+---
 
 ## Installation
 
