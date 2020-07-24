@@ -36,7 +36,6 @@ datasetname$variablename, e.g.
 `onlinesurvey$cps19_imp_iss_party`
 
 
-
 ## Installation
 
 You can install the current version of this package using:
