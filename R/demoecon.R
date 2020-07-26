@@ -8,9 +8,9 @@
 ## income, income cat (category), marital, econ_retro (past economic effects), econ_fed (effect of federal policies),
 ## and econ_self (personal economic situation)
 
-library(tidyverse)
+#library(tidyverse)
 
-demoecon <- onlinesurvey %>%
+demoecon <- ces::onlinesurvey %>%
   select(5:6, 8:10, 69,76, 194, 223:227, 245, 250:251, 258, 123:125) %>%        # Select columns 5 through 6, 8 through 10, 69 through 76, 194, 223 through 227, 245, 250 and 251, 258,
                                                                                 # and 123 through 125 from the CES 2019 Online Survey
   rename(citizenship = 1,                                                       # rename column 1 to citizenship
