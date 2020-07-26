@@ -8,9 +8,9 @@
 # income, income cat (category), marital, econ_retro (past economic effects), econ_fed (effect of federal policies),
 # and econ_self (personal economic situation)
 
-library(tidyverse)
+#library(tidyverse)
 
-decon <- dplyr::select(onlinesurvey, c(5:6, 8:10, 69,76, 194, 223:227, 245, 250:251, 258, 123:125))
+decon <- dplyr::select(ces::onlinesurvey, c(5:6, 8:10, 69,76, 194, 223:227, 245, 250:251, 258, 123:125))
 decon <- dplyr::rename(decon,
                         citizenship = 1,                                                       # rename column 1 to citizenship
                         yob = 2,                                                               # rename column 2 to yob
