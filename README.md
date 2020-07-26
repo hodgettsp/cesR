@@ -30,16 +30,52 @@ https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/8RHLG1
 
 The `ces package` provides access to the 2019 CES Phone Survey and 2019 Online Survey by loading in both survey datasets under the names `phonesurvey` and `onlinesurvey` respectively. The datasets have not automatically been assigned to variable names to avoid possible confusion with other variable names.
 
-To load in either dataset, assign the desired dataset a variable name, e.g.
+To call either dataset, assign the desired dataset a variable name, e.g.
 ```
-online_ces <- onlinesurvey
-phone_ces <- phonesurvey
+onlinesurvey <- onlinesurvey
+phonesurvey <- phonesurvey
 ```
 
 Alternatively, specific variables can be accessed without having to assign the whole dataset via the format datasetname$variablename, e.g. 
 ```
 onlinesurvey$cps19_imp_iss_party
 ```
+
+The `ces package` also provides a non-exhuastive dataset consisting of 21 variables with renamed columns under the name `deccon`.
+The `deccon` dataset consists of the following variables:
+* citzenship: Canadian citizenship status
+* yob: year of birth (recoded from survey entry code to actual year of birth)
+* gender: identified gender of the respondent
+* province_territory: Province or Territory of current residence (recoded as the internationally approved alpha codes)
+* education: highest level of education completed
+* lr: united column of lr_bef and lr_aft values; whether the respondent identifies on the political spectrum
+* lr_bef: where the respodent identifies on the political spectrum; asked before party identification questions
+* lr_aft: where the respondent identifies on the political spectrum; asked after party identification questions
+* religion: religion of respondent
+* sexuality: sexual identity
+* sexuality_other: sexual identity; written answers
+* language_eng: language learned as child and still understand; selected response English
+* language_fr: language learned as a child and still understand; selected response French
+* language_abgl: langauge learned as a child and still understand; specified Aboriginal language
+* employment: employment status
+* income: total household income, before taxes, for the year 2018
+* income_cat: selected household income category (recoded from the survey code to the actual income category)
+* marital: marital status
+* econ_retro: response to question, 'over the past year, has Canada's economy:'
+* econ_fed: response to question, 'have the policies of the federal government made Canada's economy...'
+* econ_self: response to question, have the policies of the federal government made your financial situation...'
+
+The `decon` dataset can be called by assigning it to a variable name, e.g.
+```
+decon <- decon
+```
+
+Alternatively, specific variable can be called without assigning the whole dataset with the format datasetname$variablename, e.g.
+```
+decon$education
+```
+
+
 ---
 
 ## Installation
