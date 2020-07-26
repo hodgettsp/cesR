@@ -23,7 +23,7 @@ NULL
 #' \url{https://doi.org/10.7910/DVN/8RHLG1}, Harvard Dataverse, V1, UNF:6:eyR28qaoYlHj9qwPWZmmVQ== [fileUNF]
 "phonesurvey"
 #'
-#' Demo
+#' Demoecon
 #'
 #' A non-exhaustive dataframe of 21 variables with renamed columns.
 #' Consists of variables from the demographic, ideology, and economic sections
@@ -57,4 +57,4 @@ NULL
 #' For further details, see \url{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V}
 #' Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, "2019 Canadian Election Study - Online Survey",
 #' \url{https://doi.org/10.7910/DVN/DUS88V}, Harvard Dataverse, V1
-'demo'
+'demoecon'
