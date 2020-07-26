@@ -13,7 +13,8 @@ LazyData: true
 Imports: 
     here,
     haven,
-    tools
+    tools,
+    tidyverse
 RoxygenNote: 7.1.1
 Suggests: 
     testthat
