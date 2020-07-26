@@ -52,6 +52,7 @@ NULL
 #' \item{\code{econ_fed}}{response to question, 'have the policies of the federal government made Canada's economy...'}
 #' \item{\code{econ_self}}{response to question, have the policies of the federal government made your financial situation...'}
 #' }
+#'
 #' For further details, see \url{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V}
 #' Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, "2019 Canadian Election Study - Online Survey",
 #' \url{https://doi.org/10.7910/DVN/DUS88V}, Harvard Dataverse, V1

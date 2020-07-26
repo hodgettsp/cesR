@@ -5,7 +5,7 @@
 \alias{onlinesurvey}
 \title{2019 Canadian Election Online Survey.}
 \format{
-A data frame with 620 variables and 37822 observations.
+A data frame with 620 variables.
 
 For further details, see \url{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V}
 Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, "2019 Canadian Election Study - Online Survey",
