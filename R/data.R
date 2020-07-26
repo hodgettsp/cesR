@@ -5,7 +5,7 @@ NULL
 #'
 #' The online survey dataset from the 2019 Canadian Election Study (CES)
 #'
-#' @format A data frame with 620 variables and 37822 observations.
+#' @format A data frame with 620 variables.
 #'
 #' For further details, see \url{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V}
 #' Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, "2019 Canadian Election Study - Online Survey",
@@ -16,7 +16,7 @@ NULL
 #'
 #' The phone survey dataset from the 2019 Canadian Election Study (CES)
 #'
-#' @format A data frame with 273 variables and 4021 observations.
+#' @format A data frame with 273 variables.
 #'
 #' For further details, see \url{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/8RHLG1}
 #' Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, "2019 Canadian Election Study - Phone Survey",
@@ -28,7 +28,7 @@ NULL
 #' A non-exhaustive dataset consisting of 21 variables with renamed columns
 #' from the demographics, ideology, and economy sections of the 2019 CES online survey
 #'
-#' @format A data frame with 21 variables and 37822 observations
+#' @format A data frame with 21 variables.
 #' \describe{
 #' \item{\code{citizenship}}{Canadian citizenship status}
 #' \item{\code{yob}}{year of birth}
