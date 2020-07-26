@@ -15,6 +15,6 @@ Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020
 onlinesurvey
 }
 \description{
-Both the online and phone survey datasets from the 2019 Canadian Election Survey (CES)
+The online survey dataset from the 2019 Canadian Election Study (CES)
 }
 \keyword{datasets}
