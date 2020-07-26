@@ -22,14 +22,14 @@ NULL
 #' Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, "2019 Canadian Election Study - Phone Survey",
 #' \url{https://doi.org/10.7910/DVN/8RHLG1}, Harvard Dataverse, V1, UNF:6:eyR28qaoYlHj9qwPWZmmVQ== [fileUNF]
 "phonesurvey"
-#'
+
 #' Demoecon
 #'
 #' A non-exhaustive dataframe of 21 variables with renamed columns.
-#' Consists of variables from the demographic, ideology, and economic sections
-#' of the 2019 Canadian Election Study online survey.
+#' Consists of variables from the demographic, ideology, and economic sections of the 2019 Canadian Election Study online survey.
 #'
-#' @format
+#' @format A dataframe with 21 variables
+#'
 #' \describe{
 #' \item\code{citizenship}{Canadian citizenship status}
 #' \item\code{yob}{year of birth}
