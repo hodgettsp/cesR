@@ -11,10 +11,11 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    here,
+    dplyr,
     haven,
-    tools,
-    tidyverse
+    here,
+    tidyr,
+    tools
 RoxygenNote: 7.1.1
 Suggests: 
     testthat
