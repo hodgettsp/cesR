@@ -41,8 +41,8 @@ Alternatively, specific variables can be accessed without having to assign the w
 onlinesurvey$cps19_imp_iss_party
 ```
 
-The `ces package` also provides a non-exhuastive dataset consisting of 21 variables with renamed columns under the name `deccon`.
-The `deccon` dataset consists of the following variables:
+The `ces package` also provides a non-exhuastive dataset consisting of 21 variables with renamed columns under the name `decon`.
+The `decon` dataset consists of the following variables:
 * citzenship: Canadian citizenship status
 * yob: year of birth (recoded from survey entry code to actual year of birth)
 * gender: identified gender of the respondent
