@@ -36,6 +36,10 @@ for(i in 1:length(files)){
   rm(inp)
 }
 
+# factorize tables
+onlinesurvey <- labelled::to_factor(onlinesurvey)
+phonesurvey <- labelled::to_factor(phonesurvey)
+
 # set working directory to the out directory.
 setwd(outdir)
 
