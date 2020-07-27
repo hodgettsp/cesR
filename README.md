@@ -42,7 +42,7 @@ onlinesurvey$cps19_imp_iss_party
 ```
 
 The `ces package` also provides a non-exhuastive dataset consisting of 21 variables with renamed columns under the name `decon`.
-The variables in this dataset have also been converted to factors so that they display the actual values of the survey responses
+The variables in this dataset have been converted to factors so that they display the actual values of the survey responses
 and not just the survey code responses.
 
 The `decon` dataset consists of the following variables:
