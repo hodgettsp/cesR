@@ -42,11 +42,14 @@ onlinesurvey$cps19_imp_iss_party
 ```
 
 The `ces package` also provides a non-exhuastive dataset consisting of 21 variables with renamed columns under the name `decon`.
+The variables in this dataset have also been converted to factors so that they display the actual values of the survey responses
+and not just the survey code responses.
+
 The `decon` dataset consists of the following variables:
 * citzenship: Canadian citizenship status
-* yob: year of birth (recoded from survey entry code to actual year of birth)
+* yob: year of birth 
 * gender: identified gender of the respondent
-* province_territory: Province or Territory of current residence (recoded as the internationally approved alpha codes)
+* province_territory: Province or Territory of current residence
 * education: highest level of education completed
 * lr: united column of lr_bef and lr_aft values; whether the respondent identifies on the political spectrum
 * lr_bef: where the respodent identifies on the political spectrum; asked before party identification questions
@@ -59,7 +62,7 @@ The `decon` dataset consists of the following variables:
 * language_abgl: langauge learned as a child and still understand; specified Aboriginal language
 * employment: employment status
 * income: total household income, before taxes, for the year 2018
-* income_cat: selected household income category (recoded from the survey code to the actual income category)
+* income_cat: selected household income category
 * marital: marital status
 * econ_retro: response to question, 'over the past year, has Canada's economy:'
 * econ_fed: response to question, 'have the policies of the federal government made Canada's economy...'
