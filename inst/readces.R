@@ -30,15 +30,12 @@ setwd(indir_main)
 
 # for the length of the file name read out as a dataset.
 # remove placehoder dataset
-# factorise datasets
 for(i in 1:length(files)){
   inp <- haven::read_dta(file = files[i])
   cat("Read:", files[i], "\trows: ", nrow(inp), " cols: ", ncol(inp), "\n")
   cname <- name <- sub(".dta", "", files[i])
   assign(name, inp)
   rm(inp)
-  onlinesurvey <- labelled::to_factor(onlinesurvey)
-  phonesurvey <- labelled::to_factor(phonesurvey)
 }
 
 # set working directory to the out directory.
