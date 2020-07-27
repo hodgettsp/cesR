@@ -2,6 +2,7 @@
 #library(haven)
 #library(here)
 #library(tools)
+#library(labelled)
 
 # directory where the .dta files will be created.
 indir <- here::here("inst/extdata")
