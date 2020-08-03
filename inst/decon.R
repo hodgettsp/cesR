@@ -39,3 +39,7 @@ decon <- dplyr::mutate(decon, lr_aft = as.character(lr_aft))                    
 decon <- tidyr::unite(decon, "lr", lr_bef:lr_aft, na.rm = TRUE, remove = FALSE)               # unite lr_bef and lr_aft columns into new column lr
 decon <- dplyr::mutate_if(decon, is.character, list(~dplyr::na_if(., "")))                    # replaces empty cells in new lr column with NA
 
+expodir <- here::here("data")
+setwd(expodir)
+save(decon, file = "decon.RData")
+
