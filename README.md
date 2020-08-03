@@ -73,7 +73,7 @@ The `decon` dataset can be called by assigning it to a variable name, e.g.
 decon <- decon
 ```
 
-Alternatively, specific variable can be called without assigning the whole dataset with the format datasetname$variablename, e.g.
+Alternatively, a specific variable can be called without assigning the whole dataset with the format datasetname$variablename, e.g.
 ```
 decon$education
 ```
