@@ -4,7 +4,6 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-This package contains both the Canadian Election Survey datasets:
 
 * `ces2019_web`: 2019 CES Online Survey
 
@@ -182,18 +181,24 @@ Converse, P, Meisel, J, Pinard, M, Regenstreif, P and Schwartz, M. 1966. Canadia
 
 ## Using the Package
 
-The `ces package` provides access to the 2019 CES Online Survey and 2019 Phone Survey by loading in both survey datasets under the names `ces2019_web` and `ces2019_phone` respectively. The datasets have not automatically been assigned to variable names to avoid possible confusion with other variable names.
+The `ces package` provides access to the CES Surveys by loading in each survey as data objects under the names listed above. 
 
-To call either dataset, assign the desired dataset a variable name, e.g.
+The easiest way to call a dataset is to assign the desired dataset a variable name, e.g.
+
 ```
 ces2019_web <- ces2019_web
 ces2019_phone <- ces2019_phone
+ces_1965 <- ces1965
 ```
 
 Alternatively, specific variables can be accessed without having to assign the whole dataset via the format datasetname$variablename, e.g. 
 ```
 ces2019_web$cps19_imp_iss_party
 ```
+
+The datasets are loaded in the labelled format. The variables can be quickly converted to a factory type by using the `to_factor()` function from the `labelled` package.
+
+---
 
 The `ces package` also provides a non-exhuastive dataset consisting of 21 variables with renamed columns under the name `decon`.
 The variables in this dataset have been converted to factors so that they display the actual values of the survey responses
