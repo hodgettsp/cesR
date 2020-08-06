@@ -6,7 +6,7 @@
 
 This package contains both the phone and online datasets from the 2019 Canadian Election Survey:
 
-* `onlinesurvey`:
+* `ces2019_web`:
 
 Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, "2019 Canadian Election Study - Online Survey",
 https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1
@@ -16,7 +16,7 @@ https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V
 
 ---
 
-* `phonesurvey`:
+* `ces2019_phone`:
 
 Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, "2019 Canadian Election Study - Phone Survey",
 https://doi.org/10.7910/DVN/8RHLG1, Harvard Dataverse, V1, UNF:6:eyR28qaoYlHj9qwPWZmmVQ== [fileUNF]
@@ -28,17 +28,17 @@ https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/8RHLG1
 
 ## Using the Package
 
-The `ces package` provides access to the 2019 CES Phone Survey and 2019 Online Survey by loading in both survey datasets under the names `phonesurvey` and `onlinesurvey` respectively. The datasets have not automatically been assigned to variable names to avoid possible confusion with other variable names.
+The `ces package` provides access to the 2019 CES Online Survey and 2019 Phone Survey by loading in both survey datasets under the names `ces2019_web` and `ces2019_phone` respectively. The datasets have not automatically been assigned to variable names to avoid possible confusion with other variable names.
 
 To call either dataset, assign the desired dataset a variable name, e.g.
 ```
-onlinesurvey <- onlinesurvey
-phonesurvey <- phonesurvey
+ces2019_web <- ces2019_web
+ces2019_phone <- ces2019_phone
 ```
 
 Alternatively, specific variables can be accessed without having to assign the whole dataset via the format datasetname$variablename, e.g. 
 ```
-onlinesurvey$cps19_imp_iss_party
+ces2019_web$cps19_imp_iss_party
 ```
 
 The `ces package` also provides a non-exhuastive dataset consisting of 21 variables with renamed columns under the name `decon`.
