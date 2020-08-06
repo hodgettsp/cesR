@@ -4,9 +4,9 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-This package contains both the phone and online datasets from the 2019 Canadian Election Survey:
+This package contains both the Canadian Election Survey datasets:
 
-* `ces2019_web`:
+* `ces2019_web`: 2019 CES Online Survey
 
 Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, "2019 Canadian Election Study - Online Survey",
 https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1
@@ -16,13 +16,89 @@ https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V
 
 ---
 
-* `ces2019_phone`:
+* `ces2019_phone`: 2019 CES Phone Survey
 
 Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, "2019 Canadian Election Study - Phone Survey",
 https://doi.org/10.7910/DVN/8RHLG1, Harvard Dataverse, V1, UNF:6:eyR28qaoYlHj9qwPWZmmVQ== [fileUNF]
 
 Documentation for the 2019 CES Phone Survey can be accessed from here:
 https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/8RHLG1
+
+---
+
+* `ces2015_web`: 2015 CES Online Survey
+
+---
+
+* `ces2015_phone`: 2015 CES Phone Survey
+
+---
+
+* `ces2015_combo`: 2015 CES Online/Phone Surveys
+
+---
+
+* `ces2011`: 2011 CES Survey
+
+---
+
+* `ces2008`: 2008 CES Survey
+
+---
+
+* `ces2004`: 2004 CES Survey
+
+---
+
+* `ces0411`: 2004-2011 CES Survey
+
+---
+
+* `ces0406`: 2004-2006 CES Survey
+
+---
+
+* `ces2000`: 2000 CES Survey
+
+---
+
+* `ces1997`: 1997 CES Survey
+
+---
+
+* `ces1993`: 1993 CES Survey
+
+---
+
+* `ces1988`: 1988 CES Survey
+
+---
+
+* `ces1984`: 1984 CES Survey
+
+---
+
+* `ces1974`: 1974 CES Survey
+
+---
+
+* `ces72_jnjl`: 1972, June-July CES Curvey
+
+---
+
+* `ces72_sep`: 1972, September CES Survey
+
+---
+
+* `ces72_nov`: 1972, November CES Survey
+
+---
+
+* `ces1968`: 1968 CES Survey
+
+---
+
+* `ces1965`: 1965 CES Survey
 
 ---
 

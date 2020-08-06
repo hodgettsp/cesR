@@ -11,7 +11,7 @@ instdir <- here::here("inst/extdata")
 # directory where the .RData files will be created.
 expodir <- here::here("data")
 
-#### Script for 2105 web survey starts here ####
+#### Script for 2015 web survey starts here ####
 
 # set working directory to 'instdir'.
 setwd(instdir)
