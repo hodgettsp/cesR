@@ -11,7 +11,7 @@
 #library(dplyr)
 #library(labelled)
 
-decon <- dplyr::select(ces::onlinesurvey, c(5:6, 8:10, 69,76, 194, 223:227, 245, 250:251, 258, 123:125))
+decon <- dplyr::select(ces::ces2019_web, c(5:6, 8:10, 69,76, 194, 223:227, 245, 250:251, 258, 123:125))
 decon <- dplyr::rename(decon,
                        citizenship = 1,                                                       # rename column 1 to citizenship
                        yob = 2,                                                               # rename column 2 to yob
@@ -33,7 +33,7 @@ decon <- dplyr::rename(decon,
                        econ_retro = 18,                                                       # rename column 18 to econ_retro
                        econ_fed = 19,                                                         # rename column 19 to econ_fed
                        econ_self = 20)                                                        # rename column 20 to econ_self
-decon <- labelled::to_factor(decon)                                                           # convert table to factors
+decon <- labelled::to_factor(decon)                                                           # convert variables to factors
 decon <- dplyr::mutate(decon, lr_bef = as.character(lr_bef))                                  # reassign values in lr_bef column as characters for uniting
 decon <- dplyr::mutate(decon, lr_aft = as.character(lr_aft))                                  # reassign values in lr_aft column as characters for uniting
 decon <- tidyr::unite(decon, "lr", lr_bef:lr_aft, na.rm = TRUE, remove = FALSE)               # unite lr_bef and lr_aft columns into new column lr
@@ -42,4 +42,4 @@ decon <- dplyr::mutate_if(decon, is.character, list(~dplyr::na_if(., "")))      
 expodir <- here::here("data")
 setwd(expodir)
 save(decon, file = "decon.RData")
-
+tools::resaveRdaFiles((here::here("data")), compress = "gzip")
