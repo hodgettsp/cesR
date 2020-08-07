@@ -35,7 +35,7 @@ Alternatively, specific variables can be accessed without having to assign the w
 ces2019_web$cps19_imp_iss_party
 ```
 
-The datasets are loaded in the labelled format. The variables can be quickly converted to a factory type by using the `to_factor()` function from the `labelled` package.
+The datasets are loaded in the labelled format. The variables can be quickly converted to a factor type by using the `to_factor()` function from the `labelled` package.
 
 ---
 
