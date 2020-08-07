@@ -38,6 +38,9 @@ decon <- dplyr::mutate(decon, lr_bef = as.character(lr_bef))                    
 decon <- dplyr::mutate(decon, lr_aft = as.character(lr_aft))                                  # reassign values in lr_aft column as characters for uniting
 decon <- tidyr::unite(decon, "lr", lr_bef:lr_aft, na.rm = TRUE, remove = FALSE)               # unite lr_bef and lr_aft columns into new column lr
 decon <- dplyr::mutate_if(decon, is.character, list(~dplyr::na_if(., "")))                    # replaces empty cells in new lr column with NA
+decon <- dplyr::mutate(decon, ces_code = "ces2019_web", .before = 1)
+
+
 
 expodir <- here::here("data")
 setwd(expodir)
