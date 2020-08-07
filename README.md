@@ -14,7 +14,7 @@ You can install the current version of this package using:
 devtools::install_github("hodgettsp/ces")
 ```
 
-_**Warning:**_ *The current organization of the ces package makes it quite a large package and may take some time to install.* 
+_**Warning:**_ *The current organization of the ces package makes it quite large and may lead to long install times.* 
 
 ---
 
