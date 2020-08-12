@@ -40,7 +40,6 @@ ces_codes <- (c("ces2019_web", "ces2019_phone", "ces2015_web", "ces2015_phone", 
 
 # 'get_ces' function, uses one variable 'srvy'
 # code for function is commented here; all following else if statements work functionally the same as this if statement
-#'@export
 get_ces <- function(srvy){
   # if 'srvy' is in 'ces_codese' vector
   if(srvy %in% ces_codes){
