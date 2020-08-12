@@ -41,4 +41,8 @@ decon
 A non-exhaustive dataset consisting of 21 variables with renamed columns
 from the demographics, ideology, and economy sections of the 2019 CES online survey
 }
+\details{
+## Subsection Header Test
+This is just a test
+}
 \keyword{datasets}
