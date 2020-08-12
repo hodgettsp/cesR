@@ -68,9 +68,3 @@ get_decon <- function(){
         stop("Warning: File already exists.")
     }
 }
-get_decon()
-
-expodir <- here::here("data")
-setwd(expodir)
-save(decon, file = "decon.RData")
-tools::resaveRdaFiles((here::here("data")), compress = "gzip")
