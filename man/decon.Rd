@@ -3,7 +3,7 @@
 \docType{data}
 \name{decon}
 \alias{decon}
-\title{Decon.}
+\title{decon}
 \format{
 A data frame with 21 variables.
 \describe{

@@ -11,6 +11,8 @@
 #library(dplyr)
 #library(labelled)
 
+# function to create 'decon' dataset
+# does not use any variable calls
 get_decon <- function(){
     # if object does not exist in global environment
     if(exists("decon") == FALSE){
