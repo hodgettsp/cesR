@@ -391,4 +391,3 @@ get_ces <- function(srvy){
     stop("Warning: Code not in table.")
   }
 }
-get_ces("ces2019_web")
