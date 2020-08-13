@@ -1,7 +1,7 @@
 #' Create a dataframe object from CES survey.
 #'
 #' @description
-#' `get_ces()`` creates a dataframe for a requested Canadian Election Study
+#' `get_ces()` creates a dataframe for a requested Canadian Election Study
 #' survey using an associated survey code to call and download
 #' the survey dataset. Prints out the associated citation for use with
 #' the requested dataset.
@@ -17,7 +17,7 @@
 #' `labelled::to_factor()` on the dataset.
 #'
 #' ## Survey Code Calls
-#' * ces2019_web` calls 2019 CES online survey dataset.
+#' *`ces2019_web` calls 2019 CES online survey dataset.
 #' *`ces2019_phone` calls 2019 CES phone survey dataset.
 #' *`ces2015_web` calls 2015 CES online survey dataset.
 #' *`ces2015_phone` calls 2015 CES phone survey dataset.
@@ -31,11 +31,11 @@
 #' *`ces1997` calls 1997 CES survey dataset.
 #' *`ces1993` calls 1993 CES survey dataset.
 #' *`ces1988` calls 1988 CES survey dataset.
-#' * ces1984` calls 1984 CES survey dataset.
+#' *`ces1984` calls 1984 CES survey dataset.
 #' *`ces1974` calls 1974 CES survey dataset.
 #' *`ces7480` calls 1974-1980 CES survey dataset.
 #' *`ces72_jnjl` calls 1972 June-July CES survey dataset.
-#' * `ces72_sep` calls 1972 September CES survey dataset.
+#' *`ces72_sep` calls 1972 September CES survey dataset.
 #' *`ces72_nov` calls 1972 November CES survey dataset.
 #' *`ces1968` calls 1968 CES survey dataset.
 #' *`ces1965` calls 1965 CES survey dataset.
