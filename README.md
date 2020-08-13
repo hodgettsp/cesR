@@ -13,9 +13,6 @@ You can install the current version of this package using:
 ``` r
 devtools::install_github("hodgettsp/ces")
 ```
-
-_**Warning:**_ *The current organization of the ces package makes it quite large and may lead to long install times.* 
-
 ---
 
 ## Using the Package
@@ -25,11 +22,14 @@ The `ces package` provides access to the CES Surveys through the use of a functi
 ### Examples
 
 ```
-get_ces("ces2019_web")
-MESSAGE: TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Online Survey', https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1
+devtools::install_github("hodegttsp/ces")
 
-get_ces("ces0411")
-MESSAGE: TO CITE THIS SURVEY FILE: Fournier, P, Stolle, D, Soroka, S, Cutler, F, Blais, A, Everitt, J, Gidengil, E and Nevitte, N. 2011. The 2004-2011 Merged Canadian Election Study [dataset]. Toronto, Ontario, Canada: Institute for Social Research [producer and distributor].> ```
+library(ces)
+library(labelled)
+
+get_ces("ces2019_web")
+ces2019_web <- to_factor(ces2019_web)
+head(ces2019_web)
 ```
 
 ### Details
@@ -85,8 +85,8 @@ Error in get_decon() : Warning: File already exists.
 
 |year  |  code         |  name                         | citation                    |   documentation  |
 |:----:|:-------------:|:-----------------------------:|:---------------------------:|:----------------:|
-|2019  | `ces2019_web`   |  2019  CES Online surveys     | Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, "2019 Canadian Election Study - Online Survey", https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1 |[CES 2019 Web](https://github.com/hodgettsp/ces/blob/master/inst/survey_documentation/ces2019/Canadian%20Election%20Study%2C%202019%2C%20Online%20Survey.pdf) 
-|2019  | `ces2019_phone` |  2019 CES Phone Survey        | Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, "2019 Canadian Election Study - Phone Survey", https://doi.org/10.7910/DVN/8RHLG1, Harvard Dataverse, V1, UNF:6:eyR28qaoYlHj9qwPWZmmVQ== [fileUNF] | [CES 2019 Phone](https://github.com/hodgettsp/ces/blob/master/inst/survey_documentation/ces2019/Canadian%20Election%20Study%2C%202019%2C%20Phone%20Survey.pdf) 
+|2019  | `ces2019_web`   |  2019  CES Online surveys     | Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, "2019 Canadian Election Study - Online Survey", https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1 |[CES 2019 Web](https://github.com/hodgettsp/ces_data/blob/master/documentation/ces2019/Canadian%20Election%20Study%2C%202019%2C%20Online%20Survey.pdf) 
+|2019  | `ces2019_phone` |  2019 CES Phone Survey        | Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, "2019 Canadian Election Study - Phone Survey", https://doi.org/10.7910/DVN/8RHLG1, Harvard Dataverse, V1, UNF:6:eyR28qaoYlHj9qwPWZmmVQ== [fileUNF] | [CES 2019 Phone](https://github.com/hodgettsp/ces_data/blob/master/documentation/ces2019/Canadian%20Election%20Study%2C%202019%2C%20Phone%20Survey.pdf) 
 |2015  | `ces2015_web`   |  2015 CES Online Survey       |  Fournier, Patrick, Fred Cutler, Stuart Soroka and Dietlind Stolle. 2015. The 2015 Canadian Election Study. [dataset]                     | [CES 2015 Combined](https://github.com/hodgettsp/ces/blob/master/inst/survey_documentation/ces2015web/CES2015_Combined_Data_Codebook.pdf)
 |2015  | `ces2015_phone` |  2015 CES Phone Survey        |  Fournier, Patrick, Fred Cutler, Stuart Soroka and Dietlind Stolle. 2015. The 2015 Canadian Election Study. [dataset] | [CPS Phone Clean](https://github.com/hodgettsp/ces/blob/master/inst/survey_documentation/ces2015phone/CES15_CPS_phone-clean.pdf); [Mailback French](https://github.com/hodgettsp/ces/blob/master/inst/survey_documentation/ces2015phone/CES15_MBS_mailback-fre.pdf); [Mailback English](https://github.com/hodgettsp/ces/blob/master/inst/survey_documentation/ces2015phone/CES15_MBS_mailback-eng.pdf); [PES Phone Clean](https://github.com/hodgettsp/ces/blob/master/inst/survey_documentation/ces2015phone/CES15_PES_phone-clean.pdf)
 |2015  | `ces2015_combo` |  2015 CES Online/Phone Surveys|  Fournier, Patrick, Fred Cutler, Stuart Soroka and Dietlind Stolle. 2015. The 2015 Canadian Election Study. [dataset] | [CES 2015 Combined](https://github.com/hodgettsp/ces/blob/master/inst/survey_documentation/ces2015combined/CES2015_Combined_Data_Codebook.pdf)
