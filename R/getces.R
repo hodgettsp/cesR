@@ -130,12 +130,12 @@ get_ces <- function(srvy){
       }
     }
     else if(srvy == "ces2015_web"){
-      if(!file.exists("inst/extdata/ces2015_web/ces2015_web.dta")){
+      if(!file.exists("inst/extdata/ces2015_web/CES15_CPS+PES_Web_SSI Full.SAV")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES15_CPSPES_Web_SSI-Full-SPSS.zip"
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2015_web")
-        assign("ces2015_web", haven::read_dta(hldr), envir = .GlobalEnv)
+        assign("ces2015_web", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces2015_web", recursive = TRUE)
         cat(ref2015web)
@@ -143,7 +143,7 @@ get_ces <- function(srvy){
     }
     else if(srvy == "ces2015_phone"){
       if(!file.exists("inst/extdata/ces2015_phone/CES2015_CPS-PES-MBS_complete-v2.dta")){
-        cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2015-phone-SPSS.zip"
+        cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES15_CPSPES_Web_SSI-Full-SPSS.zip"
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2015_phone")
@@ -159,7 +159,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2015_combo")
-        assign("ces2015_combo", haven::read_dta(hldr), envir = .GlobalEnv)
+        assign("ces2015_combo", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces2015_combo", recursive = TRUE)
         cat(ref2015combo)
@@ -171,7 +171,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2011")
-        assign("ces2011", haven::read_dta(hldr), envir = .GlobalEnv)
+        assign("ces2011", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces2011", recursive = TRUE)
         cat(ref2011)
