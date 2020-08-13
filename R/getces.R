@@ -112,22 +112,14 @@ get_ces <- function(srvy){
   if(srvy %in% ces_codes){
     # if 'srvy' is equal to 'ces2019_web'
     if(srvy == "ces2019_web"){
-      # if file does not exist in given directory
-      if(!file.exists("inst/extdata/ces2019_web/ces2019_web.dta")){
-        # assign url to 'cesfile'
-        cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2019-web.zip"
-        # assign temporary file with .zip extension to placeholder variable
+      if(!file.exists("inst/extdata/ces2019_phone/ces2019_web.dta")){
+        cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2019-phone.zip"
         hldr <- tempfile(fileext = ".zip")
-        # download the file from url assigned to 'cesfile' with file extension from the temporary placeholder
         download.file(cesfile, hldr, quiet = TRUE)
-        # unzip the placeholder file to given directory
         unzip(hldr, exdir = "inst/extdata/ces2019_web")
-        # assign data file to data object
         assign("ces2019_web", haven::read_dta(hldr), envir = .GlobalEnv)
-        # unlink the temporary placeholder and downloaded folder
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces2019_web", recursive = TRUE)
-        # print out a concatenation of the survey citation
         cat(ref2019web)
       }
     }
