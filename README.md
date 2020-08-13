@@ -89,6 +89,8 @@ ces2019_web|Canadian citizen|1998|A man|Ontario|Some university|7|7|NA|Jewish/ J
 
 ---
 
+## Survey Code Table
+
 |year  |  code         |  name                         | citation                    |   documentation  |
 |:----:|:-------------:|:-----------------------------:|:---------------------------:|:----------------:|
 |2019  | `ces2019_web`   |  2019  CES Online surveys     | Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, "2019 Canadian Election Study - Online Survey", https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1 |[CES 2019 Web](https://raw.github.com/hodgettsp/ces_data/master/documentation/ces2019/Canadian%20Election%20Study%2C%202019%2C%20Online%20Survey.pdf) 

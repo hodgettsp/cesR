@@ -21,8 +21,8 @@
 #'   \item{\code{lr_aft}}{where the respondent identifies on the political
 #'   spectrum; asked after party identification questions}
 #'   \item{\code{religion}}{religion of respondent}
-#'   \item{\code{sexuality}}{sexual identity}
-#'   \item{\code{sexuality_other}}{sexual identity; written answers}
+#'   \item{\code{sexuality_selected}}{sexual identity}
+#'   \item{\code{sexuality_text}}{sexual identity; written answers}
 #'   \item{\code{language_eng}}{language learned as child and still understand;
 #'   selected response English} \item{\code{language_fr}}{language learned as a
 #'   child and still understand; selected response French}
@@ -39,11 +39,12 @@
 #'   federal government made your financial situation...'} }
 #'
 #' @examples
-#' get_decon()
-#' MESSAGE: TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Online Survey', https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1
+#' devtools::install_github("hodgettsp/ces")
+#'
+#' library(ces)
 #'
 #' get_decon()
-#' Error in get_decon() : Warning: File already exists.
+#' head(decon)
 #'
 #' @seealso For further details, see
 #'   \url{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V}
@@ -83,8 +84,8 @@ get_decon <- function(){
                               lr_bef = 6,                                                             # rename column 6 to lr_bef
                               lr_aft = 7,                                                             # rename column 7 to lr_aft
                               religion = 8,                                                           # rename column 8 to religion
-                              sexuality = 9,                                                          # rename column 9 to sexuality
-                              sexuality_other = 10,                                                   # rename column 10 to sexuality_other
+                              sexuality_selected = 9,                                                 # rename column 9 to sexuality_selected
+                              sexuality_text = 10,                                                    # rename column 10 to sexuality_text
                               language_eng = 11,                                                      # rename column 11 to language_eng
                               language_fr = 12,                                                       # rename column 12 to language_fr
                               language_abgl = 13,                                                     # rename column 13 to language_abgl
@@ -108,8 +109,8 @@ get_decon <- function(){
        # remove temporary directory
        unlink("inst/extdata/ces2019_hldr", recursive = TRUE, force = TRUE)
        # print out a concatenation of the survey citation
-       cat("MESSAGE: TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Online Survey', https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1"
-)
+       cat("TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Online Survey',
+           https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1\nLINK: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V")
     }
     else{
         # if the file does exist stop process and print this message
