@@ -57,8 +57,8 @@ The `decon` dataset consists of the following variables:
 * lr_bef: where the respodent identifies on the political spectrum; asked before party identification questions
 * lr_aft: where the respondent identifies on the political spectrum; asked after party identification questions
 * religion: religion of respondent
-* sexuality: sexual identity
-* sexuality_other: sexual identity; written answers
+* sexuality_selected: sexual identity
+* sexuality_text: sexual identity; written answers
 * language_eng: language learned as child and still understand; selected response English
 * language_fr: language learned as a child and still understand; selected response French
 * language_abgl: langauge learned as a child and still understand; specified Aboriginal language
@@ -79,7 +79,11 @@ devtools::install_github("hodgettsp/ces")
 library(ces)
 
 get_decon()
+head(decon)
 ```
+ ces_code | citizenship | yob | gender | province_territory | education | lr | lr_bef | lr_aft | regligion | sexuality_select | sexuality_text | language_eng | language_fr | langauge_abgi | employment | income | income_cat| marital | econ_retro | econ_fed | econ_self |
+----------|-------------|-----|--------|--------------------|-----------|----|--------|--------|-----------|------------------|----------------|--------------|-------------|---------------|------------|--------|-----------|----------|------------|----------|-----------
+
 ---
 
 |year  |  code         |  name                         | citation                    |   documentation  |
