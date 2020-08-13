@@ -20,26 +20,30 @@ _**Warning:**_ *The current organization of the ces package makes it quite large
 
 ## Using the Package
 
-The `ces package` provides access to the CES Surveys by loading in each survey as data objects under the names listed above. 
+The `ces package` provides access to the CES Surveys through the use of a function call `get_ces(srvy)`. Where variable `srvy` is an associated survey code entered as a caharacter string. On a call, the `ces package` wiil create a data object for the requested survey. Survey code calls can be found in the table provided below. On a call, the `ces package` will additonally print out the citation for the called survey dataset.
 
-The easiest way to call a dataset is to assign the desired dataset a variable name, e.g.
+### Examples
 
 ```
-ces2019_web <- ces2019_web
-ces2019_phone <- ces2019_phone
-ces_1965 <- ces1965
+get_ces("ces2019_web")
+MESSAGE: TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Online Survey', https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1
+
+get_ces("ces0411")
+MESSAGE: TO CITE THIS SURVEY FILE: Fournier, P, Stolle, D, Soroka, S, Cutler, F, Blais, A, Everitt, J, Gidengil, E and Nevitte, N. 2011. The 2004-2011 Merged Canadian Election Study [dataset]. Toronto, Ontario, Canada: Institute for Social Research [producer and distributor].> ```
 ```
 
-Alternatively, specific variables can be accessed without having to assign the whole dataset via the format datasetname$variablename, e.g. 
-```
-ces2019_web$cps19_imp_iss_party
-```
+### Details
 
 The datasets are loaded in the labelled format. The variables can be quickly converted to a factor type by using the `to_factor()` function from the `labelled` package.
 
+A survey can be called more than once and will replace the data object with an unaltered version of the survey.
+
+All downloaded files and directories are removed with a call so that data files are not saved on your computer.
+
 ---
 
-The `ces package` also provides a non-exhuastive dataset consisting of 21 variables with renamed columns under the name `decon`.
+The `ces package` also provides a non-exhuastive dataset consisting of 21 variables with renamed columns available with the function call `get_decon()`.
+
 The variables in this dataset have been converted to factors so that they display the actual values of the survey responses
 and not just the survey code responses.
 
@@ -66,15 +70,18 @@ The `decon` dataset consists of the following variables:
 * econ_fed: response to question, 'have the policies of the federal government made Canada's economy...'
 * econ_self: response to question, have the policies of the federal government made your financial situation...'
 
-The `decon` dataset can be called by assigning it to a variable name, e.g.
-```
-decon <- decon
-```
+The `get_decon()` function uses no variables and will only run if the `decon` data object does not already exist.
 
-Alternatively, a specific variable can be called without assigning the whole dataset with the format datasetname$variablename, e.g.
+### Examples
 ```
-decon$education
+get_decon()
+MESSAGE: TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Online Survey', https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1
+
+get_decon()
+Error in get_decon() : Warning: File already exists.
+
 ```
+---
 
 |year  |  code         |  name                         | citation                    |   documentation  |
 |:----:|:-------------:|:-----------------------------:|:---------------------------:|:----------------:|
