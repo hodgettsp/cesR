@@ -84,7 +84,7 @@ get_ces <- function(srvy){
         # unzip the placeholder file to given directory
         unzip(hldr, exdir = "inst/extdata/ces2019_web")
         # assign data file to data object
-        ces2019_web <<- haven::read_dta(hldr)
+        assign("ces2019_web", haven::read_dta(hldr), envir = .GlobalEnv)
         # unlink the temporary placeholder
         unlink(hldr, recursive = TRUE)
         # print out a concatenation of the survey citation
@@ -101,7 +101,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2019_phone")
-        ces2019_phone <<- haven::read_dta(hldr)
+        assign("ces2019_phone", haven::read_dta(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref2019phone)
       }
@@ -115,7 +115,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2015_web")
-        ces2015_web <<- haven::read_sav(hldr)
+        assign("ces2015_web", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref2015web)
       }
@@ -129,7 +129,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2015_phone")
-        ces2015_phone <<- haven::read_dta(hldr)
+        assign("ces2015_phone", haven::read_dta(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref2015phone)
       }
@@ -143,7 +143,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2015_combined")
-        ces2015_combo <<- haven::read_sav(hldr)
+        assign("ces2015_combo", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref2015combo)
       }
@@ -157,7 +157,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2011")
-        ces2011 <<- haven::read_sav(hldr)
+        assign("ces2011", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref2011)
       }
@@ -171,7 +171,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2008")
-        ces2008 <<- haven::read_sav(hldr)
+        assign("ces2008", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref2008)
       }
@@ -185,7 +185,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2004")
-        ces2004 <<- haven::read_sav(hldr)
+        assign("ces2004", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref2004)
       }
@@ -199,7 +199,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces0411")
-        ces0411 <<- haven::read_dta(hldr)
+        assign("ces0411", haven::read_dta(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref0411)
       }
@@ -213,7 +213,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces0406")
-        ces0406 <<- haven::read_sav(hldr)
+        assign("ces0406", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref0406)
       }
@@ -227,7 +227,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2000")
-        ces2000 <<- haven::read_sav(hldr)
+        assign("ces2000", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref2000)
       }
@@ -241,7 +241,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces1997")
-        ces1997 <<- haven::read_sav(hldr)
+        assign("ces1997", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref1997)
       }
@@ -255,7 +255,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces1993")
-        ces1993 <<- haven::read_sav(hldr)
+        assign("ces1993", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref1993)
       }
@@ -269,7 +269,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces1988")
-        ces1988 <<- haven::read_sav(hldr)
+        assign("ces1988", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref1988)
       }
@@ -283,7 +283,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces1984")
-        ces1984 <<- haven::read_sav(hldr)
+        assign("ces1984", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref1984)
       }
@@ -297,7 +297,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces1974")
-        ces1974 <<- haven::read_sav(hldr)
+        assign("ces1974", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref1974)
       }
@@ -311,7 +311,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces7480")
-        ces7480 <<- haven::read_sav(hldr)
+        assign("ces7480", haven::read_sav(hldr), .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref7480)
       }
@@ -325,7 +325,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces72_jnjl")
-        ces72_jnjl <<- haven::read_sav(hldr)
+        assign("ces72_jnjl", haven::read_sav(hldr), .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref72jnjl)
       }
@@ -339,7 +339,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces72_sep")
-        ces72_sep <<- haven::read_sav(hldr)
+        assign("ces72_sep", haven::read_sav(hldr), .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref72sep)
       }
@@ -353,7 +353,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces72_nov")
-        ces72_nov <<- haven::read_sav(hldr)
+        assign("ces72_nov", haven::read_sav(hldr), .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref72nov)
       }
@@ -367,7 +367,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces1968")
-        ces1968 <<- haven::read_sav(hldr)
+        assign("ces1968", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref1968)
         cat("\n\nMESSAGE: It is recommended to download the codebook for this dataset to better understand the column names.")
@@ -382,7 +382,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces1965")
-        ces1965 <<- haven::read_sav(hldr)
+        assign("ces1965", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         cat(ref1965)
         cat("\n\nMESSAGE: It is recommended to download the codebook for this dataset to better understand the column names.")
