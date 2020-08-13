@@ -74,12 +74,11 @@ The `get_decon()` function uses no variables and will only run if the `decon` da
 
 ### Examples
 ```
-get_decon()
-MESSAGE: TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Online Survey', https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1
+devtools::install_github("hodgettsp/ces")
+
+library(ces)
 
 get_decon()
-Error in get_decon() : Warning: File already exists.
-
 ```
 ---
 
