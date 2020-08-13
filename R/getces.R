@@ -85,14 +85,11 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces2019_web")
         # assign data file to data object
         assign("ces2019_web", haven::read_dta(hldr), envir = .GlobalEnv)
-        # unlink the temporary placeholder
+        # unlink the temporary placeholder and downloaded folder
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces2019_web", recursive = TRUE)
         # print out a concatenation of the survey citation
         cat(ref2019web)
-      }
-      else{
-        # if the file does exist stop process and print this message
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces2019_phone"){
@@ -103,10 +100,8 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces2019_phone")
         assign("ces2019_phone", haven::read_dta(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces2019_phone", recursive = TRUE)
         cat(ref2019phone)
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces2015_web"){
@@ -117,10 +112,8 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces2015_web")
         assign("ces2015_web", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces2015_web", recursive = TRUE)
         cat(ref2015web)
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces2015_phone"){
@@ -131,10 +124,8 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces2015_phone")
         assign("ces2015_phone", haven::read_dta(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces2015_phone", recursive = TRUE)
         cat(ref2015phone)
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces2015_combo"){
@@ -145,10 +136,8 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces2015_combined")
         assign("ces2015_combo", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces2015_combo", recursive = TRUE)
         cat(ref2015combo)
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces2011"){
@@ -159,10 +148,8 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces2011")
         assign("ces2011", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces2011", recursive = TRUE)
         cat(ref2011)
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces2008"){
@@ -173,10 +160,8 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces2008")
         assign("ces2008", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces2008", recursive = TRUE)
         cat(ref2008)
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces2004"){
@@ -187,10 +172,8 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces2004")
         assign("ces2004", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces2004", recursive = TRUE)
         cat(ref2004)
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces0411"){
@@ -201,10 +184,8 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces0411")
         assign("ces0411", haven::read_dta(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces0411", recursive = TRUE)
         cat(ref0411)
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces0406"){
@@ -215,10 +196,8 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces0406")
         assign("ces0406", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces0406", recursive = TRUE)
         cat(ref0406)
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces2000"){
@@ -229,10 +208,8 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces2000")
         assign("ces2000", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces2000", recursive = TRUE)
         cat(ref2000)
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces1997"){
@@ -243,10 +220,8 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces1997")
         assign("ces1997", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces1997", recursive = TRUE)
         cat(ref1997)
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces1993"){
@@ -257,10 +232,8 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces1993")
         assign("ces1993", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces1993", recursive = TRUE)
         cat(ref1993)
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces1988"){
@@ -271,10 +244,8 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces1988")
         assign("ces1988", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces1988", recursive = TRUE)
         cat(ref1988)
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces1984"){
@@ -285,10 +256,8 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces1984")
         assign("ces1984", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces1984", recursive = TRUE)
         cat(ref1984)
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces1974"){
@@ -299,10 +268,8 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces1974")
         assign("ces1974", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces1974", recursive = TRUE)
         cat(ref1974)
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces7480"){
@@ -313,10 +280,8 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces7480")
         assign("ces7480", haven::read_sav(hldr), .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces7480", recursive = TRUE)
         cat(ref7480)
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces72_jnjl"){
@@ -327,10 +292,8 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces72_jnjl")
         assign("ces72_jnjl", haven::read_sav(hldr), .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces72_jnjl", recursive = TRUE)
         cat(ref72jnjl)
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces72_sep"){
@@ -341,10 +304,8 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces72_sep")
         assign("ces72_sep", haven::read_sav(hldr), .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces72_sep", recursive = TRUE)
         cat(ref72sep)
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces72_nov"){
@@ -355,10 +316,8 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces72_nov")
         assign("ces72_nov", haven::read_sav(hldr), .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces72_nov", recursive = TRUE)
         cat(ref72nov)
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces1968"){
@@ -369,11 +328,9 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces1968")
         assign("ces1968", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces1968", recursive = TRUE)
         cat(ref1968)
         cat("\n\nMESSAGE: It is recommended to download the codebook for this dataset to better understand the column names.")
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
     else if(srvy == "ces1965"){
@@ -384,11 +341,9 @@ get_ces <- function(srvy){
         unzip(hldr, exdir = "inst/extdata/ces1965")
         assign("ces1965", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
+        unlink("inst/extdata/ces1965", recursive = TRUE)
         cat(ref1965)
         cat("\n\nMESSAGE: It is recommended to download the codebook for this dataset to better understand the column names.")
-      }
-      else{
-        stop("Warning: File already exists.")
       }
     }
   }
@@ -397,3 +352,4 @@ get_ces <- function(srvy){
     stop("Warning: Code not in table.")
   }
 }
+get_ces("ces2019_web")
