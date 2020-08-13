@@ -87,9 +87,6 @@ ref72nov <- "MESSAGE: TO CITE THIS SURVEY FILE: Ruban, C. 1972. The 1972 Canadia
 ref1968 <- "MESSAGE: TO CITE THIS SURVEY FILE: Meisel, J. 1968. The 1968 Canadian Election Study [dataset]. Inter-University Consortium for Political and Social Research, University of Michigan, Ann Arbor MI [Producer and distributor]."
 ref1965 <- "MESSAGE: TO CITE THIS SURVEY FILE: Converse, P, Meisel, J, Pinard, M, Regenstreif, P and Schwartz, M. 1966. Canadian Election Survey, 1965. [Microdata File]. Inter-University Consortium for Political and Social Research, University of Michigan, Ann Arbor MI [Producer]."
 
-
-
-
 # ces data frame codes
 ces_codes <- (c("ces2019_web", "ces2019_phone", "ces2015_web", "ces2015_phone", "ces2015_combo",
                 "ces2011", "ces2008", "ces2004", "ces0411", "ces0406", "ces2000", "ces1997", "ces1993",
@@ -100,9 +97,6 @@ ces_codes <- (c("ces2019_web", "ces2019_phone", "ces2015_web", "ces2015_phone", 
 # function to call in CES survey from github repository
 
 # 'get_ces' function, uses one variable 'srvy'
-# code for function is commented here; all following else if statements work functionally the same as this if statement
-
-## Objects for use with get_ces function
 
 # create data frame from ces code vector
 #ces_codetable <- as.data.frame(ces_codes)
@@ -112,8 +106,8 @@ get_ces <- function(srvy){
   if(srvy %in% ces_codes){
     # if 'srvy' is equal to 'ces2019_web'
     if(srvy == "ces2019_web"){
-      if(!file.exists("inst/extdata/ces2019_phone/ces2019_web.dta")){
-        cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2019-phone.zip"
+      if(!file.exists("inst/extdata/ces2019_web/ces2019_web.dta")){
+        cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2019-web.zip"
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2019_web")
@@ -136,12 +130,12 @@ get_ces <- function(srvy){
       }
     }
     else if(srvy == "ces2015_web"){
-      if(!file.exists("inst/extdata/ces2015_web/CES15_CPS+PES_Web_SSI Full.SAV")){
+      if(!file.exists("inst/extdata/ces2015_web/ces2015_web.dta")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES15_CPSPES_Web_SSI-Full-SPSS.zip"
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2015_web")
-        assign("ces2015_web", haven::read_sav(hldr), envir = .GlobalEnv)
+        assign("ces2015_web", haven::read_dta(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces2015_web", recursive = TRUE)
         cat(ref2015web)
@@ -160,12 +154,12 @@ get_ces <- function(srvy){
       }
     }
     else if(srvy == "ces2015_combo"){
-      if(!file.exists("inst/extdata/ces2015_combined/CES2015_Combined_SPSS.SAV")){
+      if(!file.exists("inst/extdata/ces2015_combo/CES2015_Combined_SPSS.SAV")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2015_Combined_SPSS.zip"
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces2015_combined")
-        assign("ces2015_combo", haven::read_sav(hldr), envir = .GlobalEnv)
+        unzip(hldr, exdir = "inst/extdata/ces2015_combo")
+        assign("ces2015_combo", haven::read_dta(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces2015_combo", recursive = TRUE)
         cat(ref2015combo)
@@ -177,7 +171,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2011")
-        assign("ces2011", haven::read_sav(hldr), envir = .GlobalEnv)
+        assign("ces2011", haven::read_dta(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces2011", recursive = TRUE)
         cat(ref2011)
