@@ -11,6 +11,8 @@
 #library(dplyr)
 #library(labelled)
 
+ref2019web <- "MESSAGE: TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Online Survey', https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1"
+
 # function to create 'decon' dataset
 # does not use any variable calls
 get_decon <- function(){
@@ -27,9 +29,9 @@ get_decon <- function(){
        # assign data file to temporary data object
        ces2019_hldr <- haven::read_dta(hldr)
        # create new data object with selected columns from temporary data object
-       decon <<- dplyr::select(ces2019_hldr, c(5:6, 8:10, 69,76, 194, 223:227, 245, 250:251, 258, 123:125))
+       decon <- dplyr::select(ces2019_hldr, c(5:6, 8:10, 69,76, 194, 223:227, 245, 250:251, 258, 123:125))
        # rename columns in new data object
-       decon <<- dplyr::rename(decon,
+       decon <- dplyr::rename(decon,
                               citizenship = 1,                                                        # rename column 1 to citizenship
                               yob = 2,                                                                # rename column 2 to yob
                               gender = 3,                                                             # rename column 3 to gender
@@ -50,18 +52,18 @@ get_decon <- function(){
                               econ_retro = 18,                                                        # rename column 18 to econ_retro
                               econ_fed = 19,                                                          # rename column 19 to econ_fed
                               econ_self = 20)                                                         # rename column 20 to econ_self
-       decon <<- labelled::to_factor(decon)                                                           # convert variables to factors
-       decon <<- dplyr::mutate(decon, lr_bef = as.character(lr_bef))                                  # reassign values in lr_bef column as characters for uniting
-       decon <<- dplyr::mutate(decon, lr_aft = as.character(lr_aft))                                  # reassign values in lr_aft column as characters for uniting
-       decon <<- tidyr::unite(decon, "lr", lr_bef:lr_aft, na.rm = TRUE, remove = FALSE)               # unite lr_bef and lr_aft columns into new column lr
-       decon <<- dplyr::mutate_if(decon, is.character, list(~dplyr::na_if(., "")))                    # replaces empty cells in new lr column with NA
-       decon <<- dplyr::mutate(decon, ces_code = "ces2019_web", .before = 1)
+       decon <- labelled::to_factor(decon)                                                           # convert variables to factors
+       decon <- dplyr::mutate(decon, lr_bef = as.character(lr_bef))                                  # reassign values in lr_bef column as characters for uniting
+       decon <- dplyr::mutate(decon, lr_aft = as.character(lr_aft))                                  # reassign values in lr_aft column as characters for uniting
+       decon <- tidyr::unite(decon, "lr", lr_bef:lr_aft, na.rm = TRUE, remove = FALSE)               # unite lr_bef and lr_aft columns into new column lr
+       decon <- dplyr::mutate_if(decon, is.character, list(~dplyr::na_if(., "")))                    # replaces empty cells in new lr column with NA
+       assign("decon", dplyr::mutate(decon, ces_code = "ces2019_web", .before = 1), envir = .GlobalEnv)
        # remove temporary data object
        rm(ces2019_hldr)
        # remove the temporary placeholder
        unlink(hldr, recursive = TRUE, force = TRUE)
        # remove temporary directory
-       unlink("inst/ces2019_hldr", recursive = TRUE, force = TRUE)
+       unlink("inst/extdata/ces2019_hldr", recursive = TRUE, force = TRUE)
        # print out a concatenation of the survey citation
        cat(ref2019web)
     }
