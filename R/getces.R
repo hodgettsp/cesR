@@ -1,7 +1,7 @@
 #' Create a dataframe object from CES survey.
 #'
 #' @description
-#' get_ces() creates a dataframe for a requested Canadian Election Study
+#' `get_ces()`` creates a dataframe for a requested Canadian Election Study
 #' survey using an associated survey code to call and download
 #' the survey dataset. Prints out the associated citation for use with
 #' the requested dataset.
@@ -13,32 +13,32 @@
 #'
 #' ## Datasets
 #' Datasets are loaded using either .dta or .sav file types.
-#' To quickly convert a datasets values to factor type use
+#' To quickly convert a dataset's values to factor type use
 #' `labelled::to_factor()` on the dataset.
 #'
 #' ## Survey Code Calls
-#' * `ces2019_web` calls 2019 CES online survey dataset.
-#' * `ces2019_phone` calls 2019 CES phone survey dataset.
-#' * `ces2015_web` calls 2015 CES online survey dataset.
-#' * `ces2015_phone` calls 2015 CES phone survey dataset.
-#' * `ces2015_combo` calls 2015 CES combined (online/phone) dataset.
-#' * `ces2011` calls 2011 CES survey dataset.
-#' * `ces2008` calls 2008 CES survey dataset.
-#' * `ces2004` calls 2004 CES survey dataset.
-#' * `ces0411` calls 2004-2011 CES survey dataset.
-#' * `ces0406` calls 2004-2006 CES survey dataset.
-#' * `ces2000` calls 2000 CES survey dataset.
-#' * `ces1997` calls 1997 CES survey dataset.
-#' * `ces1993` calls 1993 CES survey dataset.
-#' * `ces1988` calls 1988 CES survey dataset.
-#' * `ces1984` calls 1984 CES survey dataset.
-#' * `ces1974` calls 1974 CES survey dataset.
-#' * `ces7480` calls 1974-1980 CES survey dataset.
-#' * `ces72_jnjl` calls 1972 June-July CES survey dataset.
+#' * ces2019_web` calls 2019 CES online survey dataset.
+#' *`ces2019_phone` calls 2019 CES phone survey dataset.
+#' *`ces2015_web` calls 2015 CES online survey dataset.
+#' *`ces2015_phone` calls 2015 CES phone survey dataset.
+#' *`ces2015_combo` calls 2015 CES combined (online/phone) dataset.
+#' *`ces2011` calls 2011 CES survey dataset.
+#' *`ces2008` calls 2008 CES survey dataset.
+#' *`ces2004` calls 2004 CES survey dataset.
+#' *`ces0411` calls 2004-2011 CES survey dataset.
+#' *`ces0406` calls 2004-2006 CES survey dataset.
+#' *`ces2000` calls 2000 CES survey dataset.
+#' *`ces1997` calls 1997 CES survey dataset.
+#' *`ces1993` calls 1993 CES survey dataset.
+#' *`ces1988` calls 1988 CES survey dataset.
+#' * ces1984` calls 1984 CES survey dataset.
+#' *`ces1974` calls 1974 CES survey dataset.
+#' *`ces7480` calls 1974-1980 CES survey dataset.
+#' *`ces72_jnjl` calls 1972 June-July CES survey dataset.
 #' * `ces72_sep` calls 1972 September CES survey dataset.
-#' * `ces72_nov` calls 1972 November CES survey dataset.
-#' * `ces1968` calls 1968 CES survey dataset.
-#' * `ces1965` calls 1965 CES survey dataset.
+#' *`ces72_nov` calls 1972 November CES survey dataset.
+#' *`ces1968` calls 1968 CES survey dataset.
+#' *`ces1965` calls 1965 CES survey dataset.
 #'
 #' ## Incorrect/Repeated Code Calls
 #' Incorrect (a non-existent survey code) or repeated (calling a code twice)
@@ -54,10 +54,6 @@
 #' MESSAGE: TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel;
 #' Loewen, Peter John, 2020, '2019 Canadian Election Study - Phone Survey',
 #' https://doi.org/10.7910/DVN/8RHLG1, Harvard Dataverse, V1, UNF:6:eyR28qaoYlHj9qwPWZmmVQ== [fileUNF]
-#'
-#' get_ces("ces2019_phone")
-#'
-#' Error in get_ces("ces2019_phone") : Warning: File already exists.
 #'
 #' get_ces("ces2005")
 #'
