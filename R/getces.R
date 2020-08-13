@@ -63,8 +63,7 @@
 #'
 #' Error in get_ces("ces2005") : Warning: Code not in table.
 
-#-----------------------------------------------------------------------
-
+#'@export
 # function to call in CES survey from github repository
 
 # 'get_ces' function, uses one variable 'srvy'
