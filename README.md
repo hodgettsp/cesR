@@ -46,7 +46,7 @@ head(ces2019_phone)
 ```
 
 ```
-devtools::isntall_github("hodgettsp/ces")
+devtools::install_github("hodgettsp/ces")
 
 library(ces)
 library(labelled)
