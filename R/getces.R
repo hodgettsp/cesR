@@ -84,12 +84,12 @@ get_ces <- function(srvy){
       }
     }
     else if(srvy == "ces2019_phone"){
-      if(!file.exists("inst/extdata/ces2019_phone/ces2019_phone.dta")){
+      if(!file.exists("inst/extdata/ces2019_phone/CES-E-2019-phone_F1.sav")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2019-phone.zip"
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2019_phone")
-        assign("ces2019_phone", haven::read_dta(hldr), envir = .GlobalEnv)
+        assign("ces2019_phone", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces2019_phone", recursive = TRUE)
         cat(ref2019phone)
