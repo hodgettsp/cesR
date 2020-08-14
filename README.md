@@ -28,10 +28,19 @@ library(ces)
 library(labelled)
 
 get_ces("ces2019_web")
+
+#check if the dataset was loaded
+head(ces2019_web)
+
 ces2019_web <- to_factor(ces2019_web)
 head(ces2019_web)
 
+# use index to call survey dataset
 get_ces(ces_codes[2])
+
+# check if the dataset was loaded
+head(ces2019_phone)
+
 ces2019_phone <- tofactor(ces2019_phone)
 head(ces2019_phone)
 ```
