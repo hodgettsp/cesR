@@ -14,7 +14,6 @@ LazyData: true
 Imports: 
     dplyr,
     haven,
-    here,
     labelled,
     tidyr,
     tools,
