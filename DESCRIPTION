@@ -7,6 +7,7 @@ Maintainer: Paul A. Hodgetts <hodgetts.paul@outlook.com>
 Description: Constantly having to locate datasets, download datasets, load in datasets of varying types,
     and change working directories can be frustrating. The ces package makes available both
     the online and phone surveys from the 2019 Canadian Election Survey.
+Depends: R(>= 3.5.0)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
