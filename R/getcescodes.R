@@ -8,76 +8,76 @@
 #' Items under the *Survey Code Calls* and *Index Code Calls* can be copied and used with the `get_ces()` function.
 #'
 #' ## Survey Codes
-#' *`ces2019_web` 2019 CES online survey dataset.
-#' *`ces2019_phone` 2019 CES phone survey dataset.
-#' *`ces2015_web` 2015 CES online survey dataset.
-#' *`ces2015_phone` 2015 CES phone survey dataset.
-#' *`ces2015_combo` 2015 CES combined (online/phone) dataset.
-#' *`ces2011` 2011 CES survey dataset.
-#' *`ces2008` 2008 CES survey dataset.
-#' *`ces2004` 2004 CES survey dataset.
-#' *`ces0411` 2004-2011 CES survey dataset.
-#' *`ces0406` 2004-2006 CES survey dataset.
-#' *`ces2000` 2000 CES survey dataset.
-#' *`ces1997` 1997 CES survey dataset.
-#' *`ces1993` 1993 CES survey dataset.
-#' *`ces1988` 1988 CES survey dataset.
-#' *`ces1984` 1984 CES survey dataset.
-#' *`ces1974` 1974 CES survey dataset.
-#' *`ces7480` 1974-1980 CES survey dataset.
-#' *`ces72_jnjl` 1972 June-July CES survey dataset.
-#' *`ces72_sep` 1972 September CES survey dataset.
-#' *`ces72_nov` 1972 November CES survey dataset.
-#' *`ces1968` 1968 CES survey dataset.
-#' *`ces1965` 1965 CES survey dataset.
+#' * `ces2019_web` 2019 CES online survey dataset.
+#' * `ces2019_phone` 2019 CES phone survey dataset.
+#' * `ces2015_web` 2015 CES online survey dataset.
+#' * `ces2015_phone` 2015 CES phone survey dataset.
+#' * `ces2015_combo` 2015 CES combined (online/phone) dataset.
+#' * `ces2011` 2011 CES survey dataset.
+#' * `ces2008` 2008 CES survey dataset.
+#' * `ces2004` 2004 CES survey dataset.
+#' * `ces0411` 2004-2011 CES survey dataset.
+#' * `ces0406` 2004-2006 CES survey dataset.
+#' * `ces2000` 2000 CES survey dataset.
+#' * `ces1997` 1997 CES survey dataset.
+#' * `ces1993` 1993 CES survey dataset.
+#' * `ces1988` 1988 CES survey dataset.
+#' * `ces1984` 1984 CES survey dataset.
+#' * `ces1974` 1974 CES survey dataset.
+#' * `ces7480` 1974-1980 CES survey dataset.
+#' * `ces72_jnjl` 1972 June-July CES survey dataset.
+#' * `ces72_sep` 1972 September CES survey dataset.
+#' * `ces72_nov` 1972 November CES survey dataset.
+#' * `ces1968` 1968 CES survey dataset.
+#' * `ces1965` 1965 CES survey dataset.
 #'
 #' ## Survey Code Calls
-#' *`"ces2019_web"` calls 2019 CES online survey dataset.
-#' *`"ces2019_phone"` calls 2019 CES phone survey dataset.
-#' *`"ces2015_web"` calls 2015 CES online survey dataset.
-#' *`"ces2015_phone"` calls 2015 CES phone survey dataset.
-#' *`"ces2015_combo"` calls 2015 CES combined (online/phone) dataset.
-#' *`"ces2011"` calls 2011 CES survey dataset.
-#' *`"ces2008"` calls 2008 CES survey dataset.
-#' *`"ces2004"` calls 2004 CES survey dataset.
-#' *`"ces0411"` calls 2004-2011 CES survey dataset.
-#' *`"ces0406"` calls 2004-2006 CES survey dataset.
-#' *`"ces2000"` calls 2000 CES survey dataset.
-#' *`"ces1997"` calls 1997 CES survey dataset.
-#' *`"ces1993"` calls 1993 CES survey dataset.
-#' *`"ces1988"` calls 1988 CES survey dataset.
-#' *`"ces1984"` calls 1984 CES survey dataset.
-#' *`"ces1974"` calls 1974 CES survey dataset.
-#' *`"ces7480"` calls 1974-1980 CES survey dataset.
-#' *`"ces72_jnjl"` calls 1972 June-July CES survey dataset.
-#' *`"ces72_sep"` calls 1972 September CES survey dataset.
-#' *`"ces72_nov"` calls 1972 November CES survey dataset.
-#' *`"ces1968"` calls 1968 CES survey dataset.
-#' *`"ces1965"` calls 1965 CES survey dataset.
+#' * `"ces2019_web"` calls 2019 CES online survey dataset.
+#' * `"ces2019_phone"` calls 2019 CES phone survey dataset.
+#' * `"ces2015_web"` calls 2015 CES online survey dataset.
+#' * `"ces2015_phone"` calls 2015 CES phone survey dataset.
+#' * `"ces2015_combo"` calls 2015 CES combined (online/phone) dataset.
+#' * `"ces2011"` calls 2011 CES survey dataset.
+#' * `"ces2008"` calls 2008 CES survey dataset.
+#' * `"ces2004"` calls 2004 CES survey dataset.
+#' * `"ces0411"` calls 2004-2011 CES survey dataset.
+#' * `"ces0406"` calls 2004-2006 CES survey dataset.
+#' * `"ces2000"` calls 2000 CES survey dataset.
+#' * `"ces1997"` calls 1997 CES survey dataset.
+#' * `"ces1993"` calls 1993 CES survey dataset.
+#' * `"ces1988"` calls 1988 CES survey dataset.
+#' * `"ces1984"` calls 1984 CES survey dataset.
+#' * `"ces1974"` calls 1974 CES survey dataset.
+#' * `"ces7480"` calls 1974-1980 CES survey dataset.
+#' * `"ces72_jnjl"` calls 1972 June-July CES survey dataset.
+#' * `"ces72_sep"` calls 1972 September CES survey dataset.
+#' * `"ces72_nov"` calls 1972 November CES survey dataset.
+#' * `"ces1968"` calls 1968 CES survey dataset.
+#' * `"ces1965"` calls 1965 CES survey dataset.
 #'
 #' #' ## Index Code Calls
-#' *`ces_codes[1]` calls 2019 CES online survey dataset.
-#' *`ces_codes[2]` calls 2019 CES phone survey dataset.
-#' *`ces_codes[3]` calls 2015 CES online survey dataset.
-#' *`ces_codes[4]` calls 2015 CES phone survey dataset.
-#' *`ces_codes[5]` calls 2015 CES combined (online/phone) dataset.
-#' *`ces_codes[6]` calls 2011 CES survey dataset.
-#' *`ces_codes[7]` calls 2008 CES survey dataset.
-#' *`ces_codes[8]` calls 2004 CES survey dataset.
-#' *`ces_codes[9]` calls 2004-2011 CES survey dataset.
-#' *`ces_codes[10]` calls 2004-2006 CES survey dataset.
-#' *`ces_codes[11]` calls 2000 CES survey dataset.
-#' *`ces_codes[12]` calls 1997 CES survey dataset.
-#' *`ces_codes[13]` calls 1993 CES survey dataset.
-#' *`ces_codes[14]` calls 1988 CES survey dataset.
-#' *`ces_codes[15]` calls 1984 CES survey dataset.
-#' *`ces_codes[16]` calls 1974 CES survey dataset.
-#' *`ces_codes[17]` calls 1974-1980 CES survey dataset.
-#' *`ces_codes[18]` calls 1972 June-July CES survey dataset.
-#' *`ces_codes[19]` calls 1972 September CES survey dataset.
-#' *`ces_codes[20]` calls 1972 November CES survey dataset.
-#' *`ces_codes[21]` calls 1968 CES survey dataset.
-#' *`ces_codes[22]` calls 1965 CES survey dataset.
+#' * `ces_codes[1]` calls 2019 CES online survey dataset.
+#' * `ces_codes[2]` calls 2019 CES phone survey dataset.
+#' * `ces_codes[3]` calls 2015 CES online survey dataset.
+#' * `ces_codes[4]` calls 2015 CES phone survey dataset.
+#' * `ces_codes[5]` calls 2015 CES combined (online/phone) dataset.
+#' * `ces_codes[6]` calls 2011 CES survey dataset.
+#' * `ces_codes[7]` calls 2008 CES survey dataset.
+#' * `ces_codes[8]` calls 2004 CES survey dataset.
+#' * `ces_codes[9]` calls 2004-2011 CES survey dataset.
+#' * `ces_codes[10]` calls 2004-2006 CES survey dataset.
+#' * `ces_codes[11]` calls 2000 CES survey dataset.
+#' * `ces_codes[12]` calls 1997 CES survey dataset.
+#' * `ces_codes[13]` calls 1993 CES survey dataset.
+#' * `ces_codes[14]` calls 1988 CES survey dataset.
+#' * `ces_codes[15]` calls 1984 CES survey dataset.
+#' * `ces_codes[16]` calls 1974 CES survey dataset.
+#' * `ces_codes[17]` calls 1974-1980 CES survey dataset.
+#' * `ces_codes[18]` calls 1972 June-July CES survey dataset.
+#' * `ces_codes[19]` calls 1972 September CES survey dataset.
+#' * `ces_codes[20]` calls 1972 November CES survey dataset.
+#' * `ces_codes[21]` calls 1968 CES survey dataset.
+#' * `ces_codes[22]` calls 1965 CES survey dataset.
 #'
 #' @examples
 #' devtools::install_github("hodgettsp/ces)

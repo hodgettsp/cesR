@@ -25,35 +25,36 @@ To quickly convert a dataset's values to factor type use
 }
 
 \subsection{Survey Code Calls}{
-
-*\code{ces2019_web} calls 2019 CES online survey dataset.
-*\code{ces2019_phone} calls 2019 CES phone survey dataset.
-*\code{ces2015_web} calls 2015 CES online survey dataset.
-*\code{ces2015_phone} calls 2015 CES phone survey dataset.
-*\code{ces2015_combo} calls 2015 CES combined (online/phone) dataset.
-*\code{ces2011} calls 2011 CES survey dataset.
-*\code{ces2008} calls 2008 CES survey dataset.
-*\code{ces2004} calls 2004 CES survey dataset.
-*\code{ces0411} calls 2004-2011 CES survey dataset.
-*\code{ces0406} calls 2004-2006 CES survey dataset.
-*\code{ces2000} calls 2000 CES survey dataset.
-*\code{ces1997} calls 1997 CES survey dataset.
-*\code{ces1993} calls 1993 CES survey dataset.
-*\code{ces1988} calls 1988 CES survey dataset.
-*\code{ces1984} calls 1984 CES survey dataset.
-*\code{ces1974} calls 1974 CES survey dataset.
-*\code{ces7480} calls 1974-1980 CES survey dataset.
-*\code{ces72_jnjl} calls 1972 June-July CES survey dataset.
-*\code{ces72_sep} calls 1972 September CES survey dataset.
-*\code{ces72_nov} calls 1972 November CES survey dataset.
-*\code{ces1968} calls 1968 CES survey dataset.
-*\code{ces1965} calls 1965 CES survey dataset.
+\itemize{
+\item \code{ces2019_web} calls 2019 CES online survey dataset.
+\item \code{ces2019_phone} calls 2019 CES phone survey dataset.
+\item \code{ces2015_web} calls 2015 CES online survey dataset.
+\item \code{ces2015_phone} calls 2015 CES phone survey dataset.
+\item \code{ces2015_combo} calls 2015 CES combined (online/phone) dataset.
+\item \code{ces2011} calls 2011 CES survey dataset.
+\item \code{ces2008} calls 2008 CES survey dataset.
+\item \code{ces2004} calls 2004 CES survey dataset.
+\item \code{ces0411} calls 2004-2011 CES survey dataset.
+\item \code{ces0406} calls 2004-2006 CES survey dataset.
+\item \code{ces2000} calls 2000 CES survey dataset.
+\item \code{ces1997} calls 1997 CES survey dataset.
+\item \code{ces1993} calls 1993 CES survey dataset.
+\item \code{ces1988} calls 1988 CES survey dataset.
+\item \code{ces1984} calls 1984 CES survey dataset.
+\item \code{ces1974} calls 1974 CES survey dataset.
+\item \code{ces7480} calls 1974-1980 CES survey dataset.
+\item \code{ces72_jnjl} calls 1972 June-July CES survey dataset.
+\item \code{ces72_sep} calls 1972 September CES survey dataset.
+\item \code{ces72_nov} calls 1972 November CES survey dataset.
+\item \code{ces1968} calls 1968 CES survey dataset.
+\item \code{ces1965} calls 1965 CES survey dataset.
+}
 }
 
 \subsection{Incorrect/Repeated Code Calls}{
 
-Incorrect (a non-existent survey code) or repeated (calling a code twice)
-code calls will stop the function process and return associated error messages.
+Incorrect (a non-existent survey code) will stop the function process and return associated error messages.
+Repeated code calls will load in an unaltered version of the requested table.
 }
 
 \subsection{Extra Notes}{
