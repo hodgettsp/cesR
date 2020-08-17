@@ -4,7 +4,7 @@
 #' `get_ces()` creates a dataframe for a requested Canadian Election Study
 #' survey using an associated survey code to call and download
 #' the survey dataset. Prints out the associated citation for use with
-#' the requested dataset.
+#' the requested dataset and a link to the orginal location of the data file.
 #'
 #' @param srvy A CES survey code call. See *Survey Code Calls* below.
 #' `srvy` value must be in quotations.
@@ -63,23 +63,28 @@
 # function to call in CES survey from github repository
 
 # 'get_ces' function, uses one variable 'srvy'
-
-# create data frame from ces code vector
-#ces_codetable <- as.data.frame(ces_codes)
-
 get_ces <- function(srvy){
   # if 'srvy' is in 'ces_codese' vector
   if(srvy %in% ces_codes){
     # if 'srvy' is equal to 'ces2019_web'
     if(srvy == "ces2019_web"){
+      # if the file does not exist
       if(!file.exists("inst/extdata/ces2019_web/ces2019_web.dta")){
+        # assign download url
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2019-web.zip"
+        # create temporary file name holder with extension .zip
         hldr <- tempfile(fileext = ".zip")
+        # download the file from the url and assign temporary name
         download.file(cesfile, hldr, quiet = TRUE)
+        # unzip the compressed folder to the given directory
         unzip(hldr, exdir = "inst/extdata/ces2019_web")
+        # assign the data file to a globally available variable
         assign("ces2019_web", haven::read_dta(hldr), envir = .GlobalEnv)
+        # remove the temporary file
         unlink(hldr, recursive = TRUE)
+        # remove the download directory
         unlink("inst/extdata/ces2019_web", recursive = TRUE)
+        # print citation and link
         cat(ref2019web)
       }
     }
@@ -343,6 +348,8 @@ get_ces <- function(srvy){
     stop("Warning: Code not in table.")
   }
 }
+
+#### THE FOLLOWING ARE THE PRINT STATEMENTS FOR THE CITATIONS AND A VECTOR OF THE SURVEY CALL NAMES.
 
 # citations for print calls
 ref2019web <- "TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Online Survey', https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1\n

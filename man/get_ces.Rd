@@ -14,7 +14,7 @@ get_ces(srvy)
 \code{get_ces()} creates a dataframe for a requested Canadian Election Study
 survey using an associated survey code to call and download
 the survey dataset. Prints out the associated citation for use with
-the requested dataset.
+the requested dataset and a link to the orginal location of the data file.
 }
 \details{
 \subsection{Datasets}{
