@@ -1,5 +1,5 @@
 # cesR
-#### Makes Accessing the Canadian Election Study Data Sets a Little Easier. 
+#### Makes Accessing the Canadian Election Study Datasets a Little Easier. 
 
 <!-- badges: start -->
 <!-- badges: end -->
