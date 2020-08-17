@@ -11,7 +11,7 @@
 You can install the current version of this package using:
 
 ``` r
-devtools::install_github("hodgettsp/ces")
+devtools::install_github("hodgettsp/cesR")
 ```
 ---
 
