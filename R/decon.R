@@ -39,9 +39,9 @@
 #'   federal government made your financial situation...'} }
 #'
 #' @examples
-#' devtools::install_github("hodgettsp/ces")
+#' devtools::install_github("hodgettsp/cesR")
 #'
-#' library(ces)
+#' library(cesR)
 #'
 #' get_decon()
 #' head(decon)

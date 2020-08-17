@@ -64,13 +64,12 @@ to download the associated codebook for the requested dataset.
 }
 }
 \examples{
+devtools::install_github("hodgettsp/cesR")
+
+library(cesR)
+
 get_ces("ces2019_phone")
 
-MESSAGE: TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel;
-Loewen, Peter John, 2020, '2019 Canadian Election Study - Phone Survey',
-https://doi.org/10.7910/DVN/8RHLG1, Harvard Dataverse, V1, UNF:6:eyR28qaoYlHj9qwPWZmmVQ== [fileUNF]
-
-get_ces("ces2005")
-
-Error in get_ces("ces2005") : Warning: Code not in table.
+ces2019_phone <- labelled::to_factor(ces2019_phone)
+head(ces2019_phone)
 }

@@ -56,36 +56,13 @@
 #' * `"ces1965"` calls 1965 CES survey dataset.
 #'
 #' @examples
-#' devtools::install_github("hodgettsp/ces)
+#' devtools::install_github("hodgettsp/cesR")
 #'
-#' library(ces)
+#' library(cesR)
 #'
 #' get_cescodes()
-#' index ces_dataframe_code get_ces_call_char
-#'1      1        ces2019_web     "ces2019_web"
-#'2      2      ces2019_phone   "ces2019_phone"
-#'3      3        ces2015_web     "ces2015_web"
-#'4      4      ces2015_phone   "ces2015_phone"
-#'5      5      ces2015_combo   "ces2015_combo"
-#'6      6            ces2011         "ces2011"
-#'7      7            ces2008         "ces2008"
-#'8      8            ces2004         "ces2004"
-#'9      9            ces0411         "ces0411"
-#'10    10            ces0406         "ces0406"
-#'11    11            ces2000         "ces2000"
-#'12    12            ces1997         "ces1997"
-#"13    13            ces1993         "ces1993"
-#'14    14            ces1988         "ces1988"
-#'15    15            ces1984         "ces1984"
-#'16    16            ces1974         "ces1974"
-#'17    17            ces7480         "ces7480"
-#'18    18         ces72_jnjl      "ces72_jnjl"
-#'19    19          ces72_sep       "ces72_sep"
-#'20    20          ces72_nov       "ces72_nov"
-#'21    21            ces1968         "ces1968"
-#'22    22            ces1965         "ces1965"
 #'
-#' @seealso `get_ces()` function help
+#' @seealso `get_ces()` function help.
 
 
 #'@export

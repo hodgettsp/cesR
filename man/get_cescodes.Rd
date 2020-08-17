@@ -66,6 +66,14 @@ Items under the \emph{Survey Code Calls} and \emph{Index Code Calls} can be copi
 }
 }
 }
+\examples{
+devtools::install_github("hodgettsp/cesR")
+
+library(cesR)
+
+get_cescodes()
+
+}
 \seealso{
-\code{get_ces()} function help
+\code{get_ces()} function help.
 }
