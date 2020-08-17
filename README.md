@@ -1,5 +1,5 @@
 # cesR
-#### Makes accessing the Canadian Election Study Datasets a little easier. 
+#### Access the Canadian Election Study Datasets a Little Easier. 
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -110,7 +110,7 @@ The `get_decon()` function uses no variables and will only run if the `decon` da
 
 ### Examples
 ```
-devtools::install_github("hodgettsp/ces")
+devtools::install_github("hodgettsp/cesR")
 
 library(cesR)
 

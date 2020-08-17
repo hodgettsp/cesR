@@ -1,6 +1,6 @@
 Package: cesR
 Type: Package
-Title: Makes accessing the CES Datasets a little easier.
+Title: Access the CES Datasets a Little Easier.
 Version: 0.1.0
 Authors@R: 
     c(person(given = "Paul A.", family = "Hodgetts", role = c("aut", "cre"), email = "hodgetts.paul@outlook.com"),
