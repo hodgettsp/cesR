@@ -1,6 +1,6 @@
 Package: cesR
 Type: Package
-Title: Makes Accessing the 2019 CES Datasets a Little Easier.
+Title: Makes accessing the 2019 CES Datasets a little easier.
 Version: 0.1.0
 Authors@R: 
     c(person(given = "Paul A.", family = "Hodgetts", role = c("aut", "cre"), email = "hodgetts.paul@outlook.com"),
