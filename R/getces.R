@@ -61,6 +61,8 @@
 
 #'@export
 # function to call in CES survey from github repository
+# code for the first section of the function is commented with how the function works,
+# all following sections work in the same manner.
 
 # 'get_ces' function, uses one variable 'srvy'
 get_ces <- function(srvy){
