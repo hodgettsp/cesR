@@ -1,5 +1,5 @@
-# ces
-#### Makes Accessing the CES Datasets a Little Easier. 
+# cesR
+#### Makes Accessing the Canadian Election Study Data Sets a Little Easier. 
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -17,66 +17,55 @@ devtools::install_github("hodgettsp/ces")
 
 ## Using the Package
 
-The `ces package` provides access to the CES Surveys through the use of a function call `get_ces(srvy)`. Where variable `srvy` is an associated survey code entered as either a character string or index call. On a call, the `ces package` wiil create a data object for the requested survey. Survey code calls can be found in the table provided below. On a call, the `ces package` will additonally print out the citation for the called survey dataset. Additionally, it is possible to lookup the survey codes within the package through the function call `get_cescodes()`. This function requires no variables and prints out a data frame with the survey codes and associated calls. The resulting printed data frame provides survey call codes that can be copied and used with the `get_ces()` function to create a data frame for a requested survey.
+  The `cesR package` provides access to the CES Surveys through the use of a function call `get_ces(srvy)`. Where variable `srvy` is an associated survey code entered as either a character string or index call. On a call, the `cesR package` wiil create a data object for the requested survey. Survey code calls can be found in the table provided below. On a call, the `cesR package` will additonally print out the citation for the called survey dataset. Additionally, it is possible to lookup the survey codes within the package through the function call `get_cescodes()`. This function requires no variables and prints out a data frame with the survey codes and associated calls. The resulting printed data frame provides survey call codes that can be copied and used with the `get_ces()` function to create a data frame for a requested survey.
 
 ### Examples
 
 ```
-devtools::install_github("hodgettsp/ces")
+devtools::install_github("hodgettsp/cesR")
 
-library(ces)
+library(cesR)
 library(labelled)
 
 get_ces("ces2019_web")
 
-#check if the dataset was loaded
-head(ces2019_web)
-
+# convert values to factor type
 ces2019_web <- to_factor(ces2019_web)
 head(ces2019_web)
-
-# use index to call survey dataset
-get_ces(ces_codes[2])
-
-# check if the dataset was loaded
-head(ces2019_phone)
-
-ces2019_phone <- tofactor(ces2019_phone)
-head(ces2019_phone)
 ```
 
 ```
-devtools::install_github("hodgettsp/ces")
+devtools::install_github("hodgettsp/cesR")
 
-library(ces)
-library(labelled)
+library(cesR)
 
+# call ces survey call codes
 get_cescodes()
 
 >get_cescodes()
-   index ces_survey_code get_ces_call_char get_ces_call_index
-1      1     ces2019_web     "ces2019_web"       ces_codes[1]
-2      2   ces2019_phone   "ces2019_phone"       ces_codes[2]
-3      3     ces2015_web     "ces2015_web"       ces_codes[3]
-4      4   ces2015_phone   "ces2015_phone"       ces_codes[4]
-5      5   ces2015_combo   "ces2015_combo"       ces_codes[5]
-6      6         ces2011         "ces2011"       ces_codes[6]
-7      7         ces2008         "ces2008"       ces_codes[7]
-8      8         ces2004         "ces2004"       ces_codes[8]
-9      9         ces0411         "ces0411"       ces_codes[9]
-10    10         ces0406         "ces0406"      ces_codes[10]
-11    11         ces2000         "ces2000"      ces_codes[11]
-12    12         ces1997         "ces1997"      ces_codes[12]
-13    13         ces1993         "ces1993"      ces_codes[13]
-14    14         ces1988         "ces1988"      ces_codes[14]
-15    15         ces1984         "ces1984"      ces_codes[15]
-16    16         ces1974         "ces1974"      ces_codes[16]
-17    17         ces7480         "ces7480"      ces_codes[17]
-18    18      ces72_jnjl      "ces72_jnjl"      ces_codes[18]
-19    19       ces72_sep       "ces72_sep"      ces_codes[19]
-20    20       ces72_nov       "ces72_nov"      ces_codes[20]
-21    21         ces1968         "ces1968"      ces_codes[21]
-22    22         ces1965         "ces1965"      ces_codes[22]
+   index ces_survey_code get_ces_call_char 
+1      1     ces2019_web     "ces2019_web"       
+2      2   ces2019_phone   "ces2019_phone"       
+3      3     ces2015_web     "ces2015_web"       
+4      4   ces2015_phone   "ces2015_phone"       
+5      5   ces2015_combo   "ces2015_combo"       
+6      6         ces2011         "ces2011"       
+7      7         ces2008         "ces2008"       
+8      8         ces2004         "ces2004"       
+9      9         ces0411         "ces0411"       
+10    10         ces0406         "ces0406"      
+11    11         ces2000         "ces2000"      
+12    12         ces1997         "ces1997"      
+13    13         ces1993         "ces1993"      
+14    14         ces1988         "ces1988"      
+15    15         ces1984         "ces1984"    
+16    16         ces1974         "ces1974"      
+17    17         ces7480         "ces7480"      
+18    18      ces72_jnjl      "ces72_jnjl"      
+19    19       ces72_sep       "ces72_sep"      
+20    20       ces72_nov       "ces72_nov"      
+21    21         ces1968         "ces1968"      
+22    22         ces1965         "ces1965"
 ```
 
 ### Details
@@ -89,7 +78,7 @@ All downloaded files and directories are removed with a call so that data files 
 
 ---
 
-The `ces package` also provides a non-exhuastive dataset consisting of 21 variables with renamed columns available with the function call `get_decon()`.
+The `cesR package` also provides a non-exhuastive dataset consisting of 21 variables with renamed columns available with the function call `get_decon()`.
 
 The variables in this dataset have been converted to factors so that they display the actual values of the survey responses
 and not just the survey code responses.
@@ -123,7 +112,7 @@ The `get_decon()` function uses no variables and will only run if the `decon` da
 ```
 devtools::install_github("hodgettsp/ces")
 
-library(ces)
+library(cesR)
 
 get_decon()
 head(decon)

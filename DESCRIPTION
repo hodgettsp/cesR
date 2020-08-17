@@ -1,12 +1,15 @@
-Package: ces
+Package: cesR
 Type: Package
 Title: Makes Accessing the 2019 CES Datasets a Little Easier.
 Version: 0.1.0
-Author: Paul A. Hodgetts
+Authors@R: 
+    c(person = (given = "Paul A.", family = "Hodgetts", role = c("aut", "cre"), email = "hodgetts.paul@outlook.com"),
+               (given = "Rohan", family = "Alexander", role = "aut", "cre"))
 Maintainer: Paul A. Hodgetts <hodgetts.paul@outlook.com>
 Description: Constantly having to locate datasets, download datasets, load in datasets of varying types,
-    and change working directories can be frustrating. The ces package makes available both
-    the online and phone surveys from the 2019 Canadian Election Survey.
+    and change working directories can be frustrating. The cesR package makes accessing and loading
+    the Canadian Election Study surveys less of a hassle by downloading a requested survey
+    and loading it as a data object.
 Depends: R(>= 3.5.0)
 License: MIT + file LICENSE
 Encoding: UTF-8
