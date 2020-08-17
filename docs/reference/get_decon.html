@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Creates a non-exhaustive dataframe of 21 variables with renamed columns. — get_decon • ces</title>
+<title>Creates a non-exhaustive dataframe of 21 variables with renamed columns. — get_decon • cesR</title>
 
 
 <!-- jquery -->
@@ -73,7 +73,7 @@ demographics, ideology, and economy sections of the 2019 CES online survey." />
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">ces</a>
+        <a class="navbar-link" href="../index.html">cesR</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
@@ -167,32 +167,31 @@ John, 2020, "2019 Canadian Election Study - Online Survey",
 <a href='https://doi.org/10.7910/DVN/DUS88V'>https://doi.org/10.7910/DVN/DUS88V</a>, Harvard Dataverse, V1</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw pkg'>devtools</span><span class='kw ns'>::</span><span class='fu'><a href='https://devtools.r-lib.org//reference/remote-reexports.html'>install_github</a></span>(<span class='st'>"hodgettsp/ces"</span>)</div><div class='output co'>#&gt; <span class='message'>Downloading GitHub repo hodgettsp/ces@HEAD</span></div><div class='output co'>#&gt; backports (1.1.7 -&gt; 1.1.8) [CRAN]
-#&gt; cpp11     (0.1.0 -&gt; 0.2.1) [CRAN]
-#&gt; dplyr     (1.0.0 -&gt; 1.0.1) [CRAN]
-#&gt; tidyr     (1.1.0 -&gt; 1.1.1) [CRAN]</div><div class='output co'>#&gt; <span class='message'>Installing 4 packages: backports, cpp11, dplyr, tidyr</span></div><div class='output co'>#&gt; <span class='message'>Installing packages into 'C:/Users/phodg/AppData/Local/Temp/RtmpigmYpf/temp_libpath1a2c7e6630e0'</span>
-#&gt; <span class='message'>(as 'lib' is unspecified)</span></div><div class='output co'>#&gt; 
-#&gt;   There is a binary version available but the source version is later:
-#&gt;           binary source needs_compilation
-#&gt; backports  1.1.7  1.1.8              TRUE
-#&gt; 
-#&gt; package 'cpp11' successfully unpacked and MD5 sums checked
+    <pre class="examples"><div class='input'><span class='kw pkg'>devtools</span><span class='kw ns'>::</span><span class='fu'><a href='https://devtools.r-lib.org//reference/remote-reexports.html'>install_github</a></span>(<span class='st'>"hodgettsp/ces"</span>)</div><div class='output co'>#&gt; <span class='message'>Downloading GitHub repo hodgettsp/ces@HEAD</span></div><div class='output co'>#&gt; cpp11 (0.1.0 -&gt; 0.2.1) [CRAN]
+#&gt; dplyr (1.0.0 -&gt; 1.0.1) [CRAN]
+#&gt; tidyr (1.1.0 -&gt; 1.1.1) [CRAN]</div><div class='output co'>#&gt; <span class='message'>Installing 3 packages: cpp11, dplyr, tidyr</span></div><div class='output co'>#&gt; <span class='message'>Installing packages into 'C:/Users/phodg/AppData/Local/Temp/Rtmp2BEOBl/temp_libpath9f881c5a270c'</span>
+#&gt; <span class='message'>(as 'lib' is unspecified)</span></div><div class='output co'>#&gt; package 'cpp11' successfully unpacked and MD5 sums checked
 #&gt; package 'dplyr' successfully unpacked and MD5 sums checked
 #&gt; package 'tidyr' successfully unpacked and MD5 sums checked
 #&gt; 
 #&gt; The downloaded binary packages are in
-#&gt; 	C:\Users\phodg\AppData\Local\Temp\RtmpWcY7kx\downloaded_packages</div><div class='output co'>#&gt; <span class='message'>installing the source package 'backports'</span></div><div class='output co'>#&gt;          checking for file 'C:\Users\phodg\AppData\Local\Temp\RtmpWcY7kx\remotes33dc166b3ecc\hodgettsp-ces-a63bfc4/DESCRIPTION' ...  <span style='color: #00BB00;'>v</span><span>  </span><span style='color: #555555;'>checking for file 'C:\Users\phodg\AppData\Local\Temp\RtmpWcY7kx\remotes33dc166b3ecc\hodgettsp-ces-a63bfc4/DESCRIPTION'</span><span>
-#&gt;       </span><span style='color: #555555;'>-  preparing 'ces':</span><span>
+#&gt; 	C:\Users\phodg\AppData\Local\Temp\RtmpEDTBAS\downloaded_packages
+#&gt;       <span style='color: #00BB00;'>v</span><span>  </span><span style='color: #555555;'>checking for file 'C:\Users\phodg\AppData\Local\Temp\RtmpEDTBAS\remotes86a046ee7809\hodgettsp-cesR-5b0caf6/DESCRIPTION'</span><span>
+#&gt;       </span><span style='color: #555555;'>-  preparing 'cesR':</span><span>
 #&gt;    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   </span><span style='color: #00BB00;'>v</span><span>  </span><span style='color: #555555;'>checking DESCRIPTION meta-information</span><span>
 #&gt;       </span><span style='color: #555555;'>-  checking for LF line-endings in source and make files and shell scripts</span><span>
 #&gt;   </span><span style='color: #555555;'>-  checking for empty or unneeded directories</span><span>
-#&gt;       </span><span style='color: #555555;'>-  building 'ces_0.1.0.tar.gz'</span><span>
+#&gt;       </span><span style='color: #555555;'>-  building 'cesR_0.1.0.tar.gz'</span><span>
 #&gt;      
 #&gt; </div><div class='output co'>#&gt; <span class='error'>Error: Failed to install 'ces' from GitHub:</span>
-#&gt; <span class='error'>  (converted from warning) package 'ces' is in use and will not be installed</span></div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ces</span>)
-
-<span class='fu'>get_decon</span>()</div><div class='output co'>#&gt; <span class='error'>Error in get_decon(): could not find function "get_decon"</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>decon</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 22</span><span>
+#&gt; <span class='error'>  (converted from warning) package 'cesR' is in use and will not be installed</span></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ces</span>)</div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>Attaching package: 'ces'</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from 'package:cesR':</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    get_ces, get_cescodes, get_decon</span></div><div class='input'>
+<span class='fu'>get_decon</span>()</div><div class='output co'>#&gt; TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Online Survey',
+#&gt;            https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1
+#&gt; LINK: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>decon</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 22</span><span>
 #&gt;   ces_code citizenship yob   gender province_territ~ education lr    lr_bef
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> 
 #&gt; </span><span style='color: #555555;'>1</span><span> ces2019~ Canadian c~ 1989  A wom~ Quebec           Master's~ 2     </span><span style='color: #BB0000;'>NA</span><span>    
@@ -201,10 +200,11 @@ John, 2020, "2019 Canadian Election Study - Online Survey",
 #&gt; </span><span style='color: #555555;'>4</span><span> ces2019~ Canadian c~ 1998  A man  Ontario          Some uni~ 7     7     
 #&gt; </span><span style='color: #555555;'>5</span><span> ces2019~ Canadian c~ 2000  A wom~ Ontario          Complete~ 4     4     
 #&gt; </span><span style='color: #555555;'>6</span><span> ces2019~ Canadian c~ 1999  A wom~ Ontario          Some uni~ 4     4     
-#&gt; </span><span style='color: #555555;'># ... with 14 more variables: lr_aft </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, religion </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, sexuality </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   sexuality_other </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, language_eng </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, language_fr </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   language_abgl </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, employment </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, income </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, income_cat </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   marital </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, econ_retro </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, econ_fed </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, econ_self </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span></div><div class='input'>
+#&gt; </span><span style='color: #555555;'># ... with 14 more variables: lr_aft </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, religion </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   sexuality_selected </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, sexuality_text </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, language_eng </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   language_fr </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, language_abgl </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, employment </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, income </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   income_cat </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, marital </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, econ_retro </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, econ_fed </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   econ_self </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span></div><div class='input'>
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -217,7 +217,7 @@ John, 2020, "2019 Canadian Election Study - Online Survey",
 
       <footer>
       <div class="copyright">
-  <p>Developed by Paul A. Hodgetts.</p>
+  <p>Developed by Paul A. Hodgetts, Rohan Alexander.</p>
 </div>
 
 <div class="pkgdown">

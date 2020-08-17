@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a dataframe object from CES survey. — get_ces • ces</title>
+<title>Create a dataframe object from CES survey. — get_ces • cesR</title>
 
 
 <!-- jquery -->
@@ -43,7 +43,7 @@
 <meta property="og:description" content="get_ces() creates a dataframe for a requested Canadian Election Study
 survey using an associated survey code to call and download
 the survey dataset. Prints out the associated citation for use with
-the requested dataset." />
+the requested dataset and a link to the orginal location of the data file." />
 
 
 
@@ -74,7 +74,7 @@ the requested dataset." />
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">ces</a>
+        <a class="navbar-link" href="../index.html">cesR</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
@@ -115,7 +115,7 @@ the requested dataset." />
     <p><code>get_ces()</code> creates a dataframe for a requested Canadian Election Study
 survey using an associated survey code to call and download
 the survey dataset. Prints out the associated citation for use with
-the requested dataset.</p>
+the requested dataset and a link to the orginal location of the data file.</p>
     </div>
 
     <pre class="usage"><span class='fu'>get_ces</span>(<span class='no'>srvy</span>)</pre>
@@ -142,35 +142,37 @@ To quickly convert a dataset's values to factor type use
 
 <h3>Survey Code Calls</h3>
 
+<ul>
+<li><p><code>ces2019_web</code> calls 2019 CES online survey dataset.</p></li>
+<li><p><code>ces2019_phone</code> calls 2019 CES phone survey dataset.</p></li>
+<li><p><code>ces2015_web</code> calls 2015 CES online survey dataset.</p></li>
+<li><p><code>ces2015_phone</code> calls 2015 CES phone survey dataset.</p></li>
+<li><p><code>ces2015_combo</code> calls 2015 CES combined (online/phone) dataset.</p></li>
+<li><p><code>ces2011</code> calls 2011 CES survey dataset.</p></li>
+<li><p><code>ces2008</code> calls 2008 CES survey dataset.</p></li>
+<li><p><code>ces2004</code> calls 2004 CES survey dataset.</p></li>
+<li><p><code>ces0411</code> calls 2004-2011 CES survey dataset.</p></li>
+<li><p><code>ces0406</code> calls 2004-2006 CES survey dataset.</p></li>
+<li><p><code>ces2000</code> calls 2000 CES survey dataset.</p></li>
+<li><p><code>ces1997</code> calls 1997 CES survey dataset.</p></li>
+<li><p><code>ces1993</code> calls 1993 CES survey dataset.</p></li>
+<li><p><code>ces1988</code> calls 1988 CES survey dataset.</p></li>
+<li><p><code>ces1984</code> calls 1984 CES survey dataset.</p></li>
+<li><p><code>ces1974</code> calls 1974 CES survey dataset.</p></li>
+<li><p><code>ces7480</code> calls 1974-1980 CES survey dataset.</p></li>
+<li><p><code>ces72_jnjl</code> calls 1972 June-July CES survey dataset.</p></li>
+<li><p><code>ces72_sep</code> calls 1972 September CES survey dataset.</p></li>
+<li><p><code>ces72_nov</code> calls 1972 November CES survey dataset.</p></li>
+<li><p><code>ces1968</code> calls 1968 CES survey dataset.</p></li>
+<li><p><code>ces1965</code> calls 1965 CES survey dataset.</p></li>
+</ul>
 
-<p>*<code>ces2019_web</code> calls 2019 CES online survey dataset.
-*<code>ces2019_phone</code> calls 2019 CES phone survey dataset.
-*<code>ces2015_web</code> calls 2015 CES online survey dataset.
-*<code>ces2015_phone</code> calls 2015 CES phone survey dataset.
-*<code>ces2015_combo</code> calls 2015 CES combined (online/phone) dataset.
-*<code>ces2011</code> calls 2011 CES survey dataset.
-*<code>ces2008</code> calls 2008 CES survey dataset.
-*<code>ces2004</code> calls 2004 CES survey dataset.
-*<code>ces0411</code> calls 2004-2011 CES survey dataset.
-*<code>ces0406</code> calls 2004-2006 CES survey dataset.
-*<code>ces2000</code> calls 2000 CES survey dataset.
-*<code>ces1997</code> calls 1997 CES survey dataset.
-*<code>ces1993</code> calls 1993 CES survey dataset.
-*<code>ces1988</code> calls 1988 CES survey dataset.
-*<code>ces1984</code> calls 1984 CES survey dataset.
-*<code>ces1974</code> calls 1974 CES survey dataset.
-*<code>ces7480</code> calls 1974-1980 CES survey dataset.
-*<code>ces72_jnjl</code> calls 1972 June-July CES survey dataset.
-*<code>ces72_sep</code> calls 1972 September CES survey dataset.
-*<code>ces72_nov</code> calls 1972 November CES survey dataset.
-*<code>ces1968</code> calls 1968 CES survey dataset.
-*<code>ces1965</code> calls 1965 CES survey dataset.</p>
 
 <h3>Incorrect/Repeated Code Calls</h3>
 
 
-<p>Incorrect (a non-existent survey code) or repeated (calling a code twice)
-code calls will stop the function process and return associated error messages.</p>
+<p>Incorrect (a non-existent survey code) will stop the function process and return associated error messages.
+Repeated code calls will load in an unaltered version of the requested table.</p>
 
 <h3>Extra Notes</h3>
 
@@ -192,7 +194,7 @@ to download the associated codebook for the requested dataset.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Paul A. Hodgetts.</p>
+  <p>Developed by Paul A. Hodgetts, Rohan Alexander.</p>
 </div>
 
 <div class="pkgdown">
