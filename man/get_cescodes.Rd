@@ -64,32 +64,6 @@ Items under the \emph{Survey Code Calls} and \emph{Index Code Calls} can be copi
 \item \code{"ces1968"} calls 1968 CES survey dataset.
 \item \code{"ces1965"} calls 1965 CES survey dataset.
 }
-
-#' ## Index Code Calls
-\itemize{
-\item \code{ces_codes[1]} calls 2019 CES online survey dataset.
-\item \code{ces_codes[2]} calls 2019 CES phone survey dataset.
-\item \code{ces_codes[3]} calls 2015 CES online survey dataset.
-\item \code{ces_codes[4]} calls 2015 CES phone survey dataset.
-\item \code{ces_codes[5]} calls 2015 CES combined (online/phone) dataset.
-\item \code{ces_codes[6]} calls 2011 CES survey dataset.
-\item \code{ces_codes[7]} calls 2008 CES survey dataset.
-\item \code{ces_codes[8]} calls 2004 CES survey dataset.
-\item \code{ces_codes[9]} calls 2004-2011 CES survey dataset.
-\item \code{ces_codes[10]} calls 2004-2006 CES survey dataset.
-\item \code{ces_codes[11]} calls 2000 CES survey dataset.
-\item \code{ces_codes[12]} calls 1997 CES survey dataset.
-\item \code{ces_codes[13]} calls 1993 CES survey dataset.
-\item \code{ces_codes[14]} calls 1988 CES survey dataset.
-\item \code{ces_codes[15]} calls 1984 CES survey dataset.
-\item \code{ces_codes[16]} calls 1974 CES survey dataset.
-\item \code{ces_codes[17]} calls 1974-1980 CES survey dataset.
-\item \code{ces_codes[18]} calls 1972 June-July CES survey dataset.
-\item \code{ces_codes[19]} calls 1972 September CES survey dataset.
-\item \code{ces_codes[20]} calls 1972 November CES survey dataset.
-\item \code{ces_codes[21]} calls 1968 CES survey dataset.
-\item \code{ces_codes[22]} calls 1965 CES survey dataset.
-}
 }
 }
 \seealso{

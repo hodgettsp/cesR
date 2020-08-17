@@ -3,8 +3,8 @@ Type: Package
 Title: Makes Accessing the 2019 CES Datasets a Little Easier.
 Version: 0.1.0
 Authors@R: 
-    c(person = (given = "Paul A.", family = "Hodgetts", role = c("aut", "cre"), email = "hodgetts.paul@outlook.com"),
-               (given = "Rohan", family = "Alexander", role = "aut", "cre"))
+    c(person(given = "Paul A.", family = "Hodgetts", role = c("aut", "cre"), email = "hodgetts.paul@outlook.com"),
+    person(given = "Rohan", family = "Alexander", role = c("aut")))
 Maintainer: Paul A. Hodgetts <hodgetts.paul@outlook.com>
 Description: Constantly having to locate datasets, download datasets, load in datasets of varying types,
     and change working directories can be frustrating. The cesR package makes accessing and loading
