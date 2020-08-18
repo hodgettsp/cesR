@@ -8,7 +8,7 @@
 #'
 #' @details
 #' The order of the parameters for `get_question` are data object then column name.
-#' Both must be character strings and cannot be reversed.
+#' Both pqarameters must be character strings and cannot be reversed.
 #' To return the associated survey question, the `get_question` function relies
 #' on the `var_label` function from the `labelled` package.
 #'
@@ -36,6 +36,8 @@ get_question <- function(do, q){
   if(exists(do)){                                                     # if data object exists
     if(hasName(get(do), q)){                                          # if data object has the name of the given question
       cat(labelled::var_label(get(q, get(do))))                       # print out concatenation of the column label
+                                                                      # the get function is required because it
+                                                                      # returns the object from the provided character string
     }
     else{
       cat("Warning: Variable is not in dataset")                      # else, print this warning if question does not exist

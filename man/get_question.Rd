@@ -17,7 +17,7 @@ column in a given dataset name.
 }
 \details{
 The order of the parameters for \code{get_question} are data object then column name.
-Both must be character strings and cannot be reversed.
+Both pqarameters must be character strings and cannot be reversed.
 To return the associated survey question, the \code{get_question} function relies
 on the \code{var_label} function from the \code{labelled} package.
 }
