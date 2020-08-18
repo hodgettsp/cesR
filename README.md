@@ -22,11 +22,14 @@ devtools::install_github("hodgettsp/cesR")
 ### Examples
 
 ```
+# install cesR package
 devtools::install_github("hodgettsp/cesR")
 
+# load cesR package and labelled package
 library(cesR)
 library(labelled)
 
+# call 2019 CES online survey
 get_ces("ces2019_web")
 
 # convert values to factor type
@@ -35,8 +38,10 @@ head(ces2019_web)
 ```
 
 ```
+# install cesR package
 devtools::install_github("hodgettsp/cesR")
 
+# load cesR package
 library(cesR)
 
 # call ces survey call codes
@@ -69,12 +74,16 @@ get_cescodes()
 ```
 
 ```
-devttools::install_github("hodgettsp/cesR")
+# install cesR package
+devtools::install_github("hodgettsp/cesR")
 
+# load cesR package
 library(cesR)
 
+# call 2019 CES phone survey
 get_ces("ces2019_phone")
 
+# get question for q11 of 2019 CES phone survey
 get_question("ces2019_phone", "q11")
 >Which party will you likely to vote for
 ```
