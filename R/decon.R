@@ -61,7 +61,7 @@
 # does not use any variable calls
 get_decon <- function(){
     # if object does not exist in global environment
-    if(exists("decon") == FALSE){
+    if(!exists("decon")){
        # assign url to 'cesfile'
        cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2019-web.zip"
        # assign temporary file with .zip extension to placeholder variable

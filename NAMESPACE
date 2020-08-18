@@ -3,3 +3,4 @@
 export(get_ces)
 export(get_cescodes)
 export(get_decon)
+export(get_question)
