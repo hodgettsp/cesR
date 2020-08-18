@@ -17,7 +17,7 @@ devtools::install_github("hodgettsp/cesR")
 
 ## Using the Package
 
-  The `cesR package` provides access to the CES Surveys through the use of a function call `get_ces(srvy)`. Where variable `srvy` is an associated survey code entered as either a character string or index call. On a call, the `cesR package` wiil create a data object for the requested survey. Survey code calls can be found in the table provided below. On a call, the `cesR package` will additonally print out the citation for the called survey dataset. Additionally, it is possible to lookup the survey codes within the package through the function call `get_cescodes()`. This function requires no variables and prints out a data frame with the survey codes and associated calls. The resulting printed data frame provides survey call codes that can be copied and used with the `get_ces()` function to create a data frame for a requested survey.
+  The `cesR package` provides access to the CES Surveys through the use of a function call `get_ces(srvy)`. Where variable `srvy` is an associated survey code entered as either a character string or index call. On a call, the `cesR package` wiil create a data object for the requested survey. Survey code calls can be found in the table provided below. On a call, the `cesR package` will additonally print out the citation for the called survey dataset. Additionally, it is possible to lookup the survey codes within the package through the function call `get_cescodes()`. This function requires no variables and prints out a data frame with the survey codes and associated calls. The resulting printed data frame provides survey call codes that can be copied and used with the `get_ces()` function to create a data frame for a requested survey. Lastly, the `get_question(do, q)` returns a CES survey question for a given data object and column name.
 
 ### Examples
 
@@ -67,6 +67,18 @@ get_cescodes()
 21    21         ces1968         "ces1968"      
 22    22         ces1965         "ces1965"
 ```
+
+```
+devttools::install_github("hodgettsp/cesR")
+
+library(cesR)
+
+get_ces("ces2019_phone")
+
+get_question("ces2019_phone", "q11")
+>Which party will you likely to vote for
+```
+
 
 ### Details
 
