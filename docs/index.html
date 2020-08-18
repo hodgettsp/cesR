@@ -89,22 +89,27 @@
 <div id="using-the-package" class="section level2">
 <h2 class="hasAnchor">
 <a href="#using-the-package" class="anchor"></a>Using the Package</h2>
-<p>The <code>cesR package</code> provides access to the CES Surveys through the use of a function call <code><a href="reference/get_ces.html">get_ces(srvy)</a></code>. Where variable <code>srvy</code> is an associated survey code entered as either a character string or index call. On a call, the <code>cesR package</code> wiil create a data object for the requested survey. Survey code calls can be found in the table provided below. On a call, the <code>cesR package</code> will additonally print out the citation for the called survey dataset. Additionally, it is possible to lookup the survey codes within the package through the function call <code><a href="reference/get_cescodes.html">get_cescodes()</a></code>. This function requires no variables and prints out a data frame with the survey codes and associated calls. The resulting printed data frame provides survey call codes that can be copied and used with the <code><a href="reference/get_ces.html">get_ces()</a></code> function to create a data frame for a requested survey.</p>
+<p>The <code>cesR package</code> provides access to the CES Surveys through the use of a function call <code><a href="reference/get_ces.html">get_ces(srvy)</a></code>. Where variable <code>srvy</code> is an associated survey code entered as either a character string or index call. On a call, the <code>cesR package</code> wiil create a data object for the requested survey. Survey code calls can be found in the table provided below. On a call, the <code>cesR package</code> will additonally print out the citation for the called survey dataset. Additionally, it is possible to lookup the survey codes within the package through the function call <code><a href="reference/get_cescodes.html">get_cescodes()</a></code>. This function requires no variables and prints out a data frame with the survey codes and associated calls. The resulting printed data frame provides survey call codes that can be copied and used with the <code><a href="reference/get_ces.html">get_ces()</a></code> function to create a data frame for a requested survey. Lastly, the <code><a href="reference/get_question.html">get_question(do, q)</a></code> returns a CES survey question for a given data object and column name.</p>
 <div id="examples" class="section level3">
 <h3 class="hasAnchor">
 <a href="#examples" class="anchor"></a>Examples</h3>
-<pre><code>devtools::install_github("hodgettsp/cesR")
+<pre><code># install cesR package
+devtools::install_github("hodgettsp/cesR")
 
+# load cesR package and labelled package
 library(cesR)
 library(labelled)
 
+# call 2019 CES online survey
 get_ces("ces2019_web")
 
 # convert values to factor type
 ces2019_web &lt;- to_factor(ces2019_web)
 head(ces2019_web)</code></pre>
-<pre><code>devtools::install_github("hodgettsp/cesR")
+<pre><code># install cesR package
+devtools::install_github("hodgettsp/cesR")
 
+# load cesR package
 library(cesR)
 
 # call ces survey call codes
@@ -134,6 +139,18 @@ get_cescodes()
 20    20       ces72_nov       "ces72_nov"      
 21    21         ces1968         "ces1968"      
 22    22         ces1965         "ces1965"</code></pre>
+<pre><code># install cesR package
+devtools::install_github("hodgettsp/cesR")
+
+# load cesR package
+library(cesR)
+
+# call 2019 CES phone survey
+get_ces("ces2019_phone")
+
+# get question for q11 of 2019 CES phone survey
+get_question("ces2019_phone", "q11")
+&gt;Which party will you likely to vote for</code></pre>
 </div>
 <div id="details" class="section level3">
 <h3 class="hasAnchor">
