@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# cesR <img src="man/figures/logo.png" align="right" />
+# cesR <img src="man/figures/logo.png" align="right" height="140" />
 
 #### Access the Canadian Election Study Datasets a Little Easier.
 
