@@ -191,15 +191,15 @@ to download the associated codebook for the requested dataset.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw pkg'>devtools</span><span class='kw ns'>::</span><span class='fu'><a href='https://devtools.r-lib.org//reference/remote-reexports.html'>install_github</a></span>(<span class='st'>"hodgettsp/cesR"</span>)</div><div class='output co'>#&gt; <span class='message'>Downloading GitHub repo hodgettsp/cesR@HEAD</span></div><div class='output co'>#&gt; cpp11 (0.1.0 -&gt; 0.2.1) [CRAN]
-#&gt; dplyr (1.0.0 -&gt; 1.0.1) [CRAN]
-#&gt; tidyr (1.1.0 -&gt; 1.1.1) [CRAN]</div><div class='output co'>#&gt; <span class='message'>Installing 3 packages: cpp11, dplyr, tidyr</span></div><div class='output co'>#&gt; <span class='message'>Installing packages into 'C:/Users/phodg/AppData/Local/Temp/RtmpmiSN7Y/temp_libpath5ee45b98fcd'</span>
+#&gt; dplyr (1.0.0 -&gt; 1.0.2) [CRAN]
+#&gt; tidyr (1.1.0 -&gt; 1.1.1) [CRAN]</div><div class='output co'>#&gt; <span class='message'>Installing 3 packages: cpp11, dplyr, tidyr</span></div><div class='output co'>#&gt; <span class='message'>Installing packages into 'C:/Users/phodg/AppData/Local/Temp/Rtmpa8tiKW/temp_libpath399479122617'</span>
 #&gt; <span class='message'>(as 'lib' is unspecified)</span></div><div class='output co'>#&gt; package 'cpp11' successfully unpacked and MD5 sums checked
 #&gt; package 'dplyr' successfully unpacked and MD5 sums checked
 #&gt; package 'tidyr' successfully unpacked and MD5 sums checked
 #&gt; 
 #&gt; The downloaded binary packages are in
-#&gt; 	C:\Users\phodg\AppData\Local\Temp\RtmpY5UdAH\downloaded_packages
-#&gt;       <span style='color: #00BB00;'>v</span><span>  </span><span style='color: #555555;'>checking for file 'C:\Users\phodg\AppData\Local\Temp\RtmpY5UdAH\remotes98a063393baf\hodgettsp-cesR-4a7c811/DESCRIPTION'</span><span>
+#&gt; 	C:\Users\phodg\AppData\Local\Temp\RtmpmohIKo\downloaded_packages
+#&gt;          checking for file 'C:\Users\phodg\AppData\Local\Temp\RtmpmohIKo\remotes39bc66b7761f\hodgettsp-cesR-9c5001b/DESCRIPTION' ...  <span style='color: #00BB00;'>v</span><span>  </span><span style='color: #555555;'>checking for file 'C:\Users\phodg\AppData\Local\Temp\RtmpmohIKo\remotes39bc66b7761f\hodgettsp-cesR-9c5001b/DESCRIPTION'</span><span>
 #&gt;       </span><span style='color: #555555;'>-  preparing 'cesR':</span><span>
 #&gt;    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   </span><span style='color: #00BB00;'>v</span><span>  </span><span style='color: #555555;'>checking DESCRIPTION meta-information</span><span>
 #&gt;       </span><span style='color: #555555;'>-  checking for LF line-endings in source and make files and shell scripts</span><span>
@@ -210,7 +210,7 @@ to download the associated codebook for the requested dataset.</p>
 #&gt; <span class='error'>  (converted from warning) package 'cesR' is in use and will not be installed</span></div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>cesR</span>)
 
-<span class='fu'>get_ces</span>(<span class='st'>"ces2019_phone"</span>)</div><div class='output co'>#&gt; TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Phone Survey', https://doi.org/10.7910/DVN/8RHLG1, Harvard Dataverse, V1, UNF:6:eyR28qaoYlHj9qwPWZmmVQ== [fileUNF]
+<span class='fu'><a href='https://rdrr.io/pkg/cesR/man/get_ces.html'>get_ces</a></span>(<span class='st'>"ces2019_phone"</span>)</div><div class='output co'>#&gt; TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Phone Survey', https://doi.org/10.7910/DVN/8RHLG1, Harvard Dataverse, V1, UNF:6:eyR28qaoYlHj9qwPWZmmVQ== [fileUNF]
 #&gt; 
 #&gt; LINK: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/8RHLG1</div><div class='input'>
 <span class='no'>ces2019_phone</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>labelled</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/labelled/man/to_factor.html'>to_factor</a></span>(<span class='no'>ces2019_phone</span>)
