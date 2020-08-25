@@ -90,23 +90,10 @@
 <div id="using-the-package" class="section level2">
 <h2 class="hasAnchor">
 <a href="#using-the-package" class="anchor"></a>Using the Package</h2>
-<p>The <code>cesR package</code> provides access to the CES Surveys through the use of a function call <code>get_ces(srvy)</code>. Where variable <code>srvy</code> is an associated survey code entered as either a character string or index call. On a call, the <code>cesR package</code> wiil create a data object for the requested survey. Survey code calls can be found in the table provided below. On a call, the <code>cesR package</code> will additonally print out the citation for the called survey dataset. Additionally, it is possible to lookup the survey codes within the package through the function call <code>get_cescodes()</code>. This function requires no variables and prints out a data frame with the survey codes and associated calls. The resulting printed data frame provides survey call codes that can be copied and used with the <code>get_ces()</code> function to create a data frame for a requested survey. Lastly, the <code>get_question(do, q)</code> returns a CES survey question for a given data object and column name.</p>
+<p>The <code>cesR package</code> provides access to the CES Surveys through the use of a function call <code><a href="reference/get_ces.html">get_ces(srvy)</a></code>. Where variable <code>srvy</code> is an associated survey code entered as a character string. On a call, the <code>cesR package</code> wiil create a data object for the requested survey. Survey code calls can be found in the table provided below. On a call, the <code>cesR package</code> will additonally print out the citation for the called survey dataset. Additionally, it is possible to lookup the survey codes within the package through the function call <code><a href="reference/get_cescodes.html">get_cescodes()</a></code>. This function requires no variables and prints out a data frame with the survey codes and associated calls. The resulting printed data frame provides survey call codes that can be copied and used with the <code><a href="reference/get_ces.html">get_ces()</a></code> function to create a data frame for a requested survey. To access a preview of a particular dataset, use the <code><a href="reference/get_preview.html">get_preview(srvy, x)</a></code> function. This function returns a preview of a CES survey dataset with a number of observations equal to a given numerical value in place of the variable <code>x</code>. If the variable <code>x</code> is not given the default of six observations will be returned. Lastly, the <code><a href="reference/get_question.html">get_question(do, q)</a></code> returns a CES survey question for a given data object and column name.</p>
 <div id="examples" class="section level3">
 <h3 class="hasAnchor">
 <a href="#examples" class="anchor"></a>Examples</h3>
-<pre><code># install cesR package
-devtools::install_github("hodgettsp/cesR")
-
-# load cesR package and labelled package
-library(cesR)
-library(labelled)
-
-# call 2019 CES online survey
-get_ces("ces2019_web")
-
-# convert values to factor type
-ces2019_web &lt;- to_factor(ces2019_web)
-head(ces2019_web)</code></pre>
 <pre><code># install cesR package
 devtools::install_github("hodgettsp/cesR")
 
@@ -143,6 +130,225 @@ get_cescodes()
 <pre><code># install cesR package
 devtools::install_github("hodgettsp/cesR")
 
+library(cesR)
+
+get_preview("ces2019_web", 10)</code></pre>
+<table class="table">
+<colgroup>
+<col width="9%">
+<col width="8%">
+<col width="10%">
+<col width="8%">
+<col width="10%">
+<col width="6%">
+<col width="10%">
+<col width="7%">
+<col width="9%">
+<col width="9%">
+<col width="7%">
+<col width="2%">
+</colgroup>
+<thead><tr class="header">
+<th>cps19_StartDate</th>
+<th>cps19_EndDate</th>
+<th>cps19_ResponseId</th>
+<th>cps19_consent</th>
+<th>cps19_citizensh~</th>
+<th>cps19_yob</th>
+<th>cps19_yob_2001_~</th>
+<th>cps19_gender</th>
+<th>cps19_province</th>
+<th>cps19_eduction</th>
+<th>cps19_demsat</th>
+<th>cps19_imp_iss</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><dttm></dttm></td>
+<td><dttm></dttm></td>
+<td><chr></chr></td>
+<td><fct></fct></td>
+<td><fct></fct></td>
+<td><fct></fct></td>
+<td><fct></fct></td>
+<td><fct></fct></td>
+<td><fct></fct></td>
+<td><fct></fct></td>
+<td><fct></fct></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><chr></chr></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>2019-09-13 08:09:44</td>
+<td>2019-09-13 08:36:19</td>
+<td>R_1OpYXEFGzHRUp~</td>
+<td>I consent to~</td>
+<td>Canadian citizen</td>
+<td>1989</td>
+<td>NA</td>
+<td>A woman</td>
+<td>Quebec</td>
+<td>Master’s degree</td>
+<td>Fairly sati~</td>
+<td>environnement</td>
+</tr>
+<tr class="even">
+<td>2019-09-13 08:39:09</td>
+<td>2019-09-13 08:57:06</td>
+<td>R_2qdrL3J618rxY~</td>
+<td>I consent to~</td>
+<td>Canadian citizen</td>
+<td>1998</td>
+<td>NA</td>
+<td>A woman</td>
+<td>Quebec</td>
+<td>Master’s degree</td>
+<td>Don’t know/~</td>
+<td>NA</td>
+</tr>
+<tr class="odd">
+<td>2019-09-13 10:01:19</td>
+<td>2019-09-13 10:27:29</td>
+<td>R_USWDAPcQEQiMm~</td>
+<td>I consent to~</td>
+<td>Canadian citizen</td>
+<td>2000</td>
+<td>NA</td>
+<td>A woman</td>
+<td>Ontario</td>
+<td>Some university</td>
+<td>Fairly sati~</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td>2019-09-13 10:05:37</td>
+<td>2019-09-13 10:50:53</td>
+<td>R_3IQaeDXy0tBzE~</td>
+<td>I consent to~</td>
+<td>Canadian citizen</td>
+<td>1998</td>
+<td>NA</td>
+<td>A man</td>
+<td>Ontario</td>
+<td>Some university</td>
+<td>Fairly sati~</td>
+<td>NA</td>
+</tr>
+<tr class="odd">
+<td>2019-09-13 10:05:52</td>
+<td>2019-09-13 10:32:53</td>
+<td>R_27WeMQ1asip2c~</td>
+<td>I consent to~</td>
+<td>Canadian citizen</td>
+<td>2000</td>
+<td>NA</td>
+<td>A woman</td>
+<td>Ontario</td>
+<td>Completed seco~</td>
+<td>Fairly sati~</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td>2019-09-13 10:10:20</td>
+<td>2019-09-13 10:29:45</td>
+<td>R_3LiGZcCWJEcWV~</td>
+<td>I consent to~</td>
+<td>Canadian citizen</td>
+<td>1999</td>
+<td>NA</td>
+<td>A woman</td>
+<td>Ontario</td>
+<td>Some university</td>
+<td>Fairly sati~</td>
+<td>NA</td>
+</tr>
+<tr class="odd">
+<td>2019-09-13 10:14:47</td>
+<td>2019-09-13 10:32:32</td>
+<td>R_1Iu8R1UlYzVMy~</td>
+<td>I consent to~</td>
+<td>Permanent resid~</td>
+<td>1998</td>
+<td>NA</td>
+<td>A woman</td>
+<td>Ontario</td>
+<td>Completed seco~</td>
+<td>Fairly sati~</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td>2019-09-13 10:15:39</td>
+<td>2019-09-13 10:30:59</td>
+<td>R_2EcS26hqrcVYl~</td>
+<td>I consent to~</td>
+<td>Canadian citizen</td>
+<td>1998</td>
+<td>NA</td>
+<td>A woman</td>
+<td>Ontario</td>
+<td>Some university</td>
+<td>Fairly sati~</td>
+<td>NA</td>
+</tr>
+<tr class="odd">
+<td>2019-09-13 10:15:48</td>
+<td>2019-09-13 10:37:45</td>
+<td>R_3yrt44wqQ1d4V~</td>
+<td>I consent to~</td>
+<td>Canadian citizen</td>
+<td>1998</td>
+<td>NA</td>
+<td>A woman</td>
+<td>Ontario</td>
+<td>Some university</td>
+<td>Fairly sati~</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td>2019-09-13 10:16:08</td>
+<td>2019-09-13 10:40:14</td>
+<td>R_10OBmXJyvn8fe~</td>
+<td>I consent to~</td>
+<td>Canadian citizen</td>
+<td>2000</td>
+<td>NA</td>
+<td>A man</td>
+<td>Ontario</td>
+<td>Completed seco~</td>
+<td>Fairly sati~</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<pre><code># install cesR package
+devtools::install_github("hodgettsp/cesR")
+
+# load cesR package and labelled package
+library(cesR)
+library(labelled)
+
+# call 2019 CES online survey
+get_ces("ces2019_web")
+
+# convert values to factor type
+ces2019_web &lt;- to_factor(ces2019_web)
+head(ces2019_web)</code></pre>
+<pre><code># install cesR package
+devtools::install_github("hodgettsp/cesR")
+
 # load cesR package
 library(cesR)
 
@@ -160,7 +366,7 @@ get_question("ces2019_phone", "q11")
 <p>A survey can be called more than once and will replace the data object with an unaltered version of the survey.</p>
 <p>All downloaded files and directories are removed with a call so that data files are not saved on your computer.</p>
 <hr>
-<p>The <code>cesR package</code> also provides a non-exhuastive dataset consisting of 21 variables with renamed columns available with the function call <code>get_decon()</code>.</p>
+<p>The <code>cesR package</code> also provides a non-exhuastive dataset consisting of 21 variables with renamed columns available with the function call <code><a href="reference/get_decon.html">get_decon()</a></code>.</p>
 <p>The variables in this dataset have been converted to factors so that they display the actual values of the survey responses and not just the survey code responses.</p>
 <p>The <code>decon</code> dataset consists of the following variables:</p>
 <ul>
@@ -186,7 +392,7 @@ get_question("ces2019_phone", "q11")
 <li>econ_fed: response to question, ‘have the policies of the federal government made Canada’s economy…’</li>
 <li>econ_self: response to question, have the policies of the federal government made your financial situation…’</li>
 </ul>
-<p>The <code>get_decon()</code> function uses no variables and will only run if the <code>decon</code> data object does not already exist.</p>
+<p>The <code><a href="reference/get_decon.html">get_decon()</a></code> function uses no variables and will only run if the <code>decon</code> data object does not already exist.</p>
 </div>
 <div id="examples-1" class="section level3">
 <h3 class="hasAnchor">

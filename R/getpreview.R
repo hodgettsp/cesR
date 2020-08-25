@@ -1,22 +1,27 @@
-#' Create a dataframe object from CES survey.
+#' Create a preview dataframe object of a CES survey.
 #'
 #' @description
-#' `get_ces()` creates a dataframe for a requested Canadian Election Study
+#' `get_preview()` creates a truncated dataframe for a requested Canadian Election Study
 #' survey using an associated survey code to call and download
-#' the survey dataset. Prints out the associated citation for use with
-#' the requested dataset and a link to the orginal location of the data file.
+#' the survey dataset.
 #'
 #' @param srvy A CES survey code call. See *Survey Code Calls* below.
 #' `srvy` value must be a character string.
+#' @param x A numerical value that determines the number of observations returned.
+#' If `x` is not given, then default value is 6 observations.
+#' Variable must be given as a numerical value.
 #'
 #' @details
 #'
 #' ## Datasets
-#' Datasets are loaded using either .dta or .sav file types.
-#' To quickly convert a dataset's values to factor type use
-#' `labelled::to_factor()` on the dataset.
+#' Datasets are loaded using either .dta or .sav file types
+#' and converted to factor type using the `to_factor()` function
+#' from the `labelled` package.
 #'
 #' ## Survey Code Calls
+#' `get_preview()` uses the same survey code calls as the `get_ces()` function.
+#' These survey code calls are listed below.
+#'
 #' * `ces2019_web` calls 2019 CES online survey dataset.
 #' * `ces2019_phone` calls 2019 CES phone survey dataset.
 #' * `ces2015_web` calls 2015 CES online survey dataset.
@@ -48,29 +53,23 @@
 #' Due to the naming of the columns in the 1965 and 1968 datasets it is recommended
 #' to download the associated codebook for the requested dataset.
 #'
-#' @examples
+#' #' @examples
 #' devtools::install_github("hodgettsp/cesR")
 #'
 #' library(cesR)
 #'
-#' get_ces("ces2019_phone")
-#'
-#' ces2019_phone <- labelled::to_factor(ces2019_phone)
-#' head(ces2019_phone)
-
+#' get_preview("ces2019_phone", 10)
 
 
 
 #library(haven)
-
+#library(labelled)
 
 #'@export
-# function to call in CES survey from github repository
+# function to call to create previews of the CES surveys
 # code for the first section of the function is commented with how the function works,
 # all following sections work in the same manner.
-
-# 'get_ces' function, uses one variable 'srvy'
-get_ces <- function(srvy){
+get_preview <- function(srvy, x = 6){
   # if 'srvy' is in 'ces_codese' vector
   if(srvy %in% ces_codes){
     # if 'srvy' is equal to 'ces2019_web'
@@ -85,14 +84,16 @@ get_ces <- function(srvy){
         download.file(cesfile, hldr, quiet = TRUE)
         # unzip the compressed folder to the given directory
         unzip(hldr, exdir = "inst/extdata/ces2019_web")
+        # create a locally available variable
+        survey_read <- haven::read_dta(hldr)
         # assign the data file to a globally available variable
-        assign("ces2019_web", haven::read_dta(hldr), envir = .GlobalEnv)
+        assign("ces2019_web_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         # remove the temporary file
         unlink(hldr, recursive = TRUE)
         # remove the download directory
         unlink("inst/extdata/ces2019_web", recursive = TRUE)
-        # print citation and link
-        cat(ref2019web)
+        # remove the local variable
+        rm(survey_read)
       }
     }
     else if(srvy == "ces2019_phone"){
@@ -101,10 +102,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2019_phone")
-        assign("ces2019_phone", haven::read_sav(hldr), envir = .GlobalEnv)
+        survey_read <- haven::read_sav(hldr)
+        assign("ces2019_phone_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces2019_phone", recursive = TRUE)
-        cat(ref2019phone)
+        rm(survey_read)
       }
     }
     else if(srvy == "ces2015_web"){
@@ -113,10 +115,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2015_web")
-        assign("ces2015_web", haven::read_sav(hldr), envir = .GlobalEnv)
+        survey_read <- haven::read_sav(hldr)
+        assign("ces2015_web_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces2015_web", recursive = TRUE)
-        cat(ref2015web)
+        rm(survey_read)
       }
     }
     else if(srvy == "ces2015_phone"){
@@ -125,10 +128,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2015_phone")
-        assign("ces2015_phone", haven::read_dta(hldr), envir = .GlobalEnv)
+        survey_read <- haven::read_dta(hldr)
+        assign("ces2015_phone_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces2015_phone", recursive = TRUE)
-        cat(ref2015phone)
+        rm(survey_read)
       }
     }
     else if(srvy == "ces2015_combo"){
@@ -137,10 +141,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2015_combo")
-        assign("ces2015_combo", haven::read_sav(hldr), envir = .GlobalEnv)
+        survey_read <- haven::read_sav(hldr)
+        assign("ces2015_combo_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces2015_combo", recursive = TRUE)
-        cat(ref2015combo)
+        rm(survey_read)
       }
     }
     else if(srvy == "ces2011"){
@@ -149,10 +154,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2011")
-        assign("ces2011", haven::read_sav(hldr), envir = .GlobalEnv)
+        survey_read <- haven::read_sav(hldr)
+        assign("ces2011_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces2011", recursive = TRUE)
-        cat(ref2011)
+        rm(survey_read)
       }
     }
     else if(srvy == "ces2008"){
@@ -161,10 +167,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2008")
-        assign("ces2008", haven::read_sav(hldr), envir = .GlobalEnv)
+        survey_read <- haven::read_sav(hldr)
+        assign("ces2008_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces2008", recursive = TRUE)
-        cat(ref2008)
+        rm(survey_read)
       }
     }
     else if(srvy == "ces2004"){
@@ -173,10 +180,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2004")
-        assign("ces2004", haven::read_sav(hldr), envir = .GlobalEnv)
+        survey_read <- haven::read_sav(hldr)
+        assign("ces2004_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces2004", recursive = TRUE)
-        cat(ref2004)
+        rm(survey_read)
       }
     }
     else if(srvy == "ces0411"){
@@ -185,10 +193,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces0411")
-        assign("ces0411", haven::read_dta(hldr), envir = .GlobalEnv)
+        survey_read <- haven::read_dta(hldr)
+        assign("ces0411_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces0411", recursive = TRUE)
-        cat(ref0411)
+        rm(survey_read)
       }
     }
     else if(srvy == "ces0406"){
@@ -197,10 +206,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces0406")
-        assign("ces0406", haven::read_sav(hldr), envir = .GlobalEnv)
+        survey_read <- haven::read_sav(hldr)
+        assign("ces0406_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces0406", recursive = TRUE)
-        cat(ref0406)
+        rm(survey_read)
       }
     }
     else if(srvy == "ces2000"){
@@ -209,10 +219,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2000")
-        assign("ces2000", haven::read_sav(hldr), envir = .GlobalEnv)
+        survey_read <- haven::read_sav(hldr)
+        assign("ces2000_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces2000", recursive = TRUE)
-        cat(ref2000)
+        rm(survey_read)
       }
     }
     else if(srvy == "ces1997"){
@@ -221,10 +232,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces1997")
-        assign("ces1997", haven::read_sav(hldr), envir = .GlobalEnv)
+        survey_read <- haven::read_sav(hldr)
+        assign("ces1997_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces1997", recursive = TRUE)
-        cat(ref1997)
+        rm(survey_read)
       }
     }
     else if(srvy == "ces1993"){
@@ -233,10 +245,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces1993")
-        assign("ces1993", haven::read_sav(hldr), envir = .GlobalEnv)
+        survey_read <- haven::read_sav(hldr)
+        assign("ces1993_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces1993", recursive = TRUE)
-        cat(ref1993)
+        rm(survey_read)
       }
     }
     else if(srvy == "ces1988"){
@@ -245,10 +258,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces1988")
-        assign("ces1988", haven::read_sav(hldr), envir = .GlobalEnv)
+        survey_read <- haven::read_sav(hldr)
+        assign("ces1988_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces1988", recursive = TRUE)
-        cat(ref1988)
+        rm(survey_read)
       }
     }
     else if(srvy == "ces1984"){
@@ -257,10 +271,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces1984")
-        assign("ces1984", haven::read_sav(hldr), envir = .GlobalEnv)
+        survey_read <- haven::read_sav(hldr)
+        assign("ces1984_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces1984", recursive = TRUE)
-        cat(ref1984)
+        rm(survey_read)
       }
     }
     else if(srvy == "ces1974"){
@@ -269,10 +284,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces1974")
-        assign("ces1974", haven::read_sav(hldr), envir = .GlobalEnv)
+        survey_read <- haven::read_sav(hldr)
+        assign("ces1974_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces1974", recursive = TRUE)
-        cat(ref1974)
+        rm(survey_read)
       }
     }
     else if(srvy == "ces7480"){
@@ -281,10 +297,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces7480")
-        assign("ces7480", haven::read_sav(hldr), .GlobalEnv)
+        survey_read <- haven::read_sav(hldr)
+        assign("ces7480_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces7480", recursive = TRUE)
-        cat(ref7480)
+        rm(survey_read)
       }
     }
     else if(srvy == "ces72_jnjl"){
@@ -293,10 +310,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces72_jnjl")
-        assign("ces72_jnjl", haven::read_sav(hldr), .GlobalEnv)
+        survey_read <- haven::read_sav(hldr)
+        assign("ces72_jnjl_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces72_jnjl", recursive = TRUE)
-        cat(ref72jnjl)
+        rm(survey_read)
       }
     }
     else if(srvy == "ces72_sep"){
@@ -305,10 +323,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces72_sep")
-        assign("ces72_sep", haven::read_sav(hldr), .GlobalEnv)
+        survey_read <- haven::read_sav(hldr)
+        assign("ces72_sep_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces72_sep", recursive = TRUE)
-        cat(ref72sep)
+        rm(survey_read)
       }
     }
     else if(srvy == "ces72_nov"){
@@ -317,10 +336,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces72_nov")
-        assign("ces72_nov", haven::read_sav(hldr), .GlobalEnv)
+        survey_read <- haven::read_sav(hldr)
+        assign("ces72_nov_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces72_nov", recursive = TRUE)
-        cat(ref72nov)
+        rm(survey_read)
       }
     }
     else if(srvy == "ces1968"){
@@ -329,11 +349,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces1968")
-        assign("ces1968", haven::read_sav(hldr), envir = .GlobalEnv)
+        survey_read <- haven::read_sav(hldr)
+        assign("ces1968_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces1968", recursive = TRUE)
-        cat(ref1968)
-        cat("\n\nMESSAGE: It is recommended to download the codebook for this dataset to better understand the column names.")
+        rm(survey_read)
       }
     }
     else if(srvy == "ces1965"){
@@ -342,11 +362,11 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces1965")
-        assign("ces1965", haven::read_sav(hldr), envir = .GlobalEnv)
+        survey_read <- haven::read_sav(hldr)
+        assign("ces1965_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces1965", recursive = TRUE)
-        cat(ref1965)
-        cat("\n\nMESSAGE: It is recommended to download the codebook for this dataset to better understand the column names.")
+        rm(survey_read)
       }
     }
   }
@@ -356,92 +376,9 @@ get_ces <- function(srvy){
   }
 }
 
-#### THE FOLLOWING ARE THE PRINT STATEMENTS FOR THE CITATIONS AND A VECTOR OF THE SURVEY CALL NAMES.
-
-# citations for print calls
-ref2019web <- "TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Online Survey', https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1\n
-LINK: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V"
-
-ref2019phone <- "TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Phone Survey', https://doi.org/10.7910/DVN/8RHLG1, Harvard Dataverse, V1, UNF:6:eyR28qaoYlHj9qwPWZmmVQ== [fileUNF]\n
-LINK: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/8RHLG1"
-
-ref2015web <- "TO CITE THIS SURVEY FILE: Fournier, Patrick, Fred Cutler, Stuart Soroka and Dietlind Stolle. 2015. The 2015 Canadian Election Study. [dataset]\n
-LINK: https://ces-eec.arts.ubc.ca/english-section/surveys/"
-
-ref2015phone <- "TO CITE THIS SURVEY FILE: Fournier, Patrick, Fred Cutler, Stuart Soroka and Dietlind Stolle. 2015. The 2015 Canadian Election Study. [dataset]\n
-LINK:https://ces-eec.arts.ubc.ca/english-section/surveys/"
-
-ref2015combo <- "TO CITE THIS SURVEY FILE: Fournier, Patrick, Fred Cutler, Stuart Soroka and Dietlind Stolle. 2015. The 2015 Canadian Election Study. [dataset]\n
-LINK: https://ces-eec.arts.ubc.ca/english-section/surveys/"
-
-ref2011 <- "TO CITE THIS SURVEY FILE: Fournier, Patrick, Fred Cutler, Stuart Soroka and Dietlind Stolle. 2011. The 2011 Canadian Election Study. [dataset]\n
-LINK: https://ces-eec.arts.ubc.ca/english-section/surveys/"
 
 
-ref2008 <- "TO CITE THIS SURVEY FILE: Gidengil, E, Everitt, J, Fournier, P and Nevitte, N. 2009. The 2008 Canadian Election Study [dataset]. Toronto, Ontario, Canada: Institute for Social Research [producer and distributor].\n
-LINK: http://odesi2.scholarsportal.info/webview/index.jsp?v=2&previousmode=table&analysismode=table&study=http%3A%2F%2F142.150.190.128%3A80%2Fobj%2FfStudy%2FCES-E-2008&mode=documentation&top=yes"
-
-
-ref2004 <- "TO CITE THIS SURVEY FILE: Blais, A, Everitt, J, Fournier, P, Gidengil, E and Nevitte, N. 2005. The 2004 Canadian Election Study [dataset]. Toronto, Ontario, Canada: Institute for Social Research [producer and distributor].\n
-LINK: http://odesi2.scholarsportal.info/webview/index.jsp?v=2&submode=abstract&study=http%3A%2F%2F142.150.190.128%3A80%2Fobj%2FfStudy%2FCES-E-2004&mode=documentation&top=yes"
-
-
-ref0411 <- "TO CITE THIS SURVEY FILE: Fournier, P, Stolle, D, Soroka, S, Cutler, F, Blais, A, Everitt, J, Gidengil, E and Nevitte, N. 2011. The 2004-2011 Merged Canadian Election Study [dataset]. Toronto, Ontario, Canada: Institute for Social Research [producer and distributor].\n
-LINK: https://ces-eec.arts.ubc.ca/english-section/surveys/"
-
-
-ref0406 <- "TO CITE THIS SURVEY FILE: Blais, A, Everitt, J, Fournier, P and Nevitte, N. 2011. The 2011 Canadian Election Study [dataset]. Toronto, Ontario, Canada: Institute for Social Research [producer and distributor].\n
-LINK: http://odesi2.scholarsportal.info/webview/index.jsp?v=2&submode=abstract&study=http%3A%2F%2F142.150.190.128%3A80%2Fobj%2FfStudy%2FCES-E-2004-2006&mode=documentation&top=yes"
-
-
-ref2000 <- "TO CITE THIS SURVEY FILE: Blais, A, Gidengil, E, Nadeau, R and Nevitte, N. 2001. The 2000 Canadian Election Study [dataset]. Toronto, Ontario, Canada: Institute for Social Research [producer and distributor].\n
-LINK: http://odesi2.scholarsportal.info/webview/index.jsp?v=2&submode=abstract&study=http%3A%2F%2F142.150.190.128%3A80%2Fobj%2FfStudy%2FCES-E-2000&mode=documentation&top=yes"
-
-
-ref1997 <- "TO CITE THIS SURVEY FILE: Blais, A, Gidengil, E, Nadeau, R and Nevitte, N. 1998. The 1997 Canadian Election Study [dataset]. Toronto, Ontario, Canada: Institute for Social Research [producer and distributor].\n
-LINK: http://odesi2.scholarsportal.info/webview/index.jsp?v=2&submode=abstract&study=http%3A%2F%2F142.150.190.128%3A80%2Fobj%2FfStudy%2FCES-E-1997&mode=documentation&top=yes"
-
-
-ref1993 <- "TO CITE THIS SURVEY FILE: Blais, A, Brady, H, Gidengil, E, Johnston, R and Nevitte, N. 1994. The 1993 Canadian Election Study [dataset]. Toronto, Ontario, Canada: Institute for Social Research [producer and distributor].\n
-LINK: http://odesi2.scholarsportal.info/webview/index.jsp?v=2&submode=abstract&study=http%3A%2F%2F142.150.190.128%3A80%2Fobj%2FfStudy%2FCES-E-1993&mode=documentation&top=yes"
-
-
-ref1988 <- "TO CITE THIS SURVEY FILE: Johnston, R, Blais, A, Brady, H. E. and Crête, J. 1989. The 1988 Canadian Election Study [dataset]. Toronto, Ontario, Canada: Institute for Social Research [producer and distributor].\n
-LINK:http://odesi2.scholarsportal.info/webview/index.jsp?v=2&submode=abstract&study=http%3A%2F%2F142.150.190.128%3A80%2Fobj%2FfStudy%2FCES-E-1988&mode=documentation&top=yes"
-
-
-ref1984 <- "TO CITE THIS SURVEY FILE: Lambert, R. D., Brown, S. D., Curtis, J. E., Kay, B. J. and Wilson, J. M. 1985. The 1984 Canadian Election Study [dataset]. Toronto, Ontario, Canada: Institute for Social Research [producer and distributor].\n
-LINK: http://odesi2.scholarsportal.info/webview/index.jsp?v=2&submode=abstract&study=http%3A%2F%2F142.150.190.128%3A80%2Fobj%2FfStudy%2FCES-E-1984&mode=documentation&top=yes"
-
-
-ref1974 <- "TO CITE THIS SURVEY FILE: Clarke, H, Jenson, J, LeDuc, L and Pammett, J. 1975. The 1974 Canadian Election Study [dataset]. Toronto, Ontario, Canada: Institute for Social Research [producer and distributor].\n
-LINK: http://odesi2.scholarsportal.info/webview/index.jsp?v=2&submode=abstract&study=http%3A%2F%2F142.150.190.128%3A80%2Fobj%2FfStudy%2FCES-E-1974&mode=documentation&top=yes"
-
-
-ref7480 <- "TO CITE THIS SURVEY FILE: Clarke, H, Jenson, J, LeDuc, L and Pammett, J. 1980. The 1974-1980 Merged Canadian Election Study [dataset]. Toronto, Ontario, Canada: Institute for Social Research [producer and distributor].\n
-LINK: http://odesi2.scholarsportal.info/webview/index.jsp?v=2&submode=abstract&study=http%3A%2F%2F142.150.190.128%3A80%2Fobj%2FfStudy%2FCES-E-1974-1980&mode=documentation&top=yes"
-
-
-ref72jnjl <- "TO CITE THIS SURVEY FILE: Ruban, C. 1972. The 1972 Canadian Election Study [dataset]. 2nd ICPSR version. Toronto, Ontario, Canada: Market Opinion Research (Canada) Ltd. [producer], 1972. Ann Arbor, MI: Interuniversity Consortium for Political and Social Research [distributor], 2001.\n
-LINK: http://odesi2.scholarsportal.info/webview/index.jsp?v=2&submode=abstract&study=http%3A%2F%2F142.150.190.128%3A80%2Fobj%2FfStudy%2FCES-E-1972-jun-july&mode=documentation&top=yes"
-
-
-ref72sep <- "TO CITE THIS SURVEY FILE: Ruban, C. 1972. The 1972 Canadian Election Study [dataset]. 2nd ICPSR version. Toronto, Ontario, Canada: Market Opinion Research (Canada) Ltd. [producer], 1972. Ann Arbor, MI: Interuniversity Consortium for Political and Social Research [distributor], 2001.\n
-LINK: http://odesi2.scholarsportal.info/webview/index.jsp?v=2&submode=abstract&study=http%3A%2F%2F142.150.190.128%3A80%2Fobj%2FfStudy%2FCES-E-1972-sept&mode=documentation&top=yes"
-
-
-ref72nov <- "TO CITE THIS SURVEY FILE: Ruban, C. 1972. The 1972 Canadian Election Study [dataset]. 2nd ICPSR version. Toronto, Ontario, Canada: Market Opinion Research (Canada) Ltd. [producer], 1972. Ann Arbor, MI: Interuniversity Consortium for Political and Social Research [distributor], 2001.\n
-LINK: http://odesi2.scholarsportal.info/webview/index.jsp?v=2&submode=abstract&study=http%3A%2F%2F142.150.190.128%3A80%2Fobj%2FfStudy%2FCES-E-1972-nov&mode=documentation&top=yes"
-
-
-ref1968 <- "TO CITE THIS SURVEY FILE: Meisel, J. 1968. The 1968 Canadian Election Study [dataset]. Inter-University Consortium for Political and Social Research, University of Michigan, Ann Arbor MI [Producer and distributor].\n
-LINK: http://odesi2.scholarsportal.info/webview/index.jsp?v=2&submode=abstract&study=http%3A%2F%2F142.150.190.128%3A80%2Fobj%2FfStudy%2FCES-E-1968&mode=documentation&top=yes"
-
-
-ref1965 <- "TO CITE THIS SURVEY FILE: Converse, P, Meisel, J, Pinard, M, Regenstreif, P and Schwartz, M. 1966. Canadian Election Survey, 1965. [Microdata File]. Inter-University Consortium for Political and Social Research, University of Michigan, Ann Arbor MI [Producer].\n
-LINK: http://odesi2.scholarsportal.info/webview/index.jsp?v=2&submode=abstract&study=http%3A%2F%2F142.150.190.128%3A80%2Fobj%2FfStudy%2FCES-E-1965&mode=documentation&top=yes"
-
-# ces data frame codes
+### CES SURVEY CODE CALLS
 ces_codes <- (c("ces2019_web", "ces2019_phone", "ces2015_web", "ces2015_phone", "ces2015_combo",
                 "ces2011", "ces2008", "ces2004", "ces0411", "ces0406", "ces2000", "ces1997", "ces1993",
                 "ces1988", "ces1984", "ces1974", "ces7480", "ces72_jnjl", "ces72_sep", "ces72_nov",

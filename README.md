@@ -18,25 +18,9 @@ devtools::install_github("hodgettsp/cesR")
 
 ## Using the Package
 
-  The `cesR package` provides access to the CES Surveys through the use of a function call `get_ces(srvy)`. Where variable `srvy` is an associated survey code entered as either a character string or index call. On a call, the `cesR package` wiil create a data object for the requested survey. Survey code calls can be found in the table provided below. On a call, the `cesR package` will additonally print out the citation for the called survey dataset. Additionally, it is possible to lookup the survey codes within the package through the function call `get_cescodes()`. This function requires no variables and prints out a data frame with the survey codes and associated calls. The resulting printed data frame provides survey call codes that can be copied and used with the `get_ces()` function to create a data frame for a requested survey. Lastly, the `get_question(do, q)` returns a CES survey question for a given data object and column name.
+  The `cesR package` provides access to the CES Surveys through the use of a function call `get_ces(srvy)`. Where variable `srvy` is an associated survey code entered as a character string. On a call, the `cesR package` wiil create a data object for the requested survey. Survey code calls can be found in the table provided below. On a call, the `cesR package` will additonally print out the citation for the called survey dataset. Additionally, it is possible to lookup the survey codes within the package through the function call `get_cescodes()`. This function requires no variables and prints out a data frame with the survey codes and associated calls. The resulting printed data frame provides survey call codes that can be copied and used with the `get_ces()` function to create a data frame for a requested survey. To access a preview of a particular dataset, use the `get_preview(srvy, x)` function. This function returns a preview of a CES survey dataset with a number of observations equal to a given numerical value in place of the variable `x`. If the variable `x` is not given the default of six observations will be returned. Lastly, the `get_question(do, q)` returns a CES survey question for a given data object and column name.
 
 ### Examples
-
-```
-# install cesR package
-devtools::install_github("hodgettsp/cesR")
-
-# load cesR package and labelled package
-library(cesR)
-library(labelled)
-
-# call 2019 CES online survey
-get_ces("ces2019_web")
-
-# convert values to factor type
-ces2019_web <- to_factor(ces2019_web)
-head(ces2019_web)
-```
 
 ```
 # install cesR package
@@ -73,7 +57,43 @@ get_cescodes()
 21    21         ces1968         "ces1968"      
 22    22         ces1965         "ces1965"
 ```
+```
+# install cesR package
+devtools::install_github("hodgettsp/cesR")
 
+library(cesR)
+
+get_preview("ces2019_web", 10)
+```
+cps19_StartDate | cps19_EndDate | cps19_ResponseId | cps19_consent | cps19_citizensh~ | cps19_yob | cps19_yob_2001_~ | cps19_gender | cps19_province | cps19_eduction | cps19_demsat | cps19_imp_iss   |
+----------------|---------------|------------------|---------------|------------------|-----------|------------------|--------------|----------------|----------------|--------------|-----|
+<dttm>          |    <dttm>     |         <chr>    |         <fct> |         <fct>    |   <fct>   |  <fct>           |  <fct>       | <fct>          | <fct>          |  <fct>       |
+<chr>           |
+2019-09-13 08:09:44 | 2019-09-13 08:36:19 | R_1OpYXEFGzHRUp~ | I consent to~ | Canadian citizen | 1989 | NA | A woman | Quebec | Master's degree | Fairly sati~ | environnement |
+2019-09-13 08:39:09 | 2019-09-13 08:57:06 | R_2qdrL3J618rxY~ | I consent to~ | Canadian citizen | 1998 | NA | A woman | Quebec | Master's degree | Don't know/~ | NA |
+2019-09-13 10:01:19 | 2019-09-13 10:27:29 | R_USWDAPcQEQiMm~ | I consent to~ | Canadian citizen | 2000 | NA | A woman | Ontario| Some university | Fairly sati~ | NA |
+2019-09-13 10:05:37 | 2019-09-13 10:50:53 | R_3IQaeDXy0tBzE~ | I consent to~ | Canadian citizen | 1998 | NA | A man   | Ontario| Some university | Fairly sati~ | NA |
+2019-09-13 10:05:52 | 2019-09-13 10:32:53 | R_27WeMQ1asip2c~ | I consent to~ | Canadian citizen | 2000 | NA | A woman | Ontario| Completed seco~ | Fairly sati~ | NA |
+2019-09-13 10:10:20 | 2019-09-13 10:29:45 | R_3LiGZcCWJEcWV~ | I consent to~ | Canadian citizen | 1999 | NA | A woman | Ontario| Some university | Fairly sati~ | NA |
+2019-09-13 10:14:47 | 2019-09-13 10:32:32 | R_1Iu8R1UlYzVMy~ | I consent to~ | Permanent resid~ | 1998 | NA | A woman | Ontario| Completed seco~ | Fairly sati~ | NA |           
+2019-09-13 10:15:39 | 2019-09-13 10:30:59 | R_2EcS26hqrcVYl~ | I consent to~ | Canadian citizen | 1998 | NA | A woman | Ontario| Some university | Fairly sati~ | NA |           
+2019-09-13 10:15:48 | 2019-09-13 10:37:45 | R_3yrt44wqQ1d4V~ | I consent to~ | Canadian citizen | 1998 | NA | A woman | Ontario| Some university | Fairly sati~ | NA |           
+2019-09-13 10:16:08 | 2019-09-13 10:40:14 | R_10OBmXJyvn8fe~ | I consent to~ | Canadian citizen | 2000 | NA | A man   | Ontario| Completed seco~ | Fairly sati~ | NA | 
+```
+# install cesR package
+devtools::install_github("hodgettsp/cesR")
+
+# load cesR package and labelled package
+library(cesR)
+library(labelled)
+
+# call 2019 CES online survey
+get_ces("ces2019_web")
+
+# convert values to factor type
+ces2019_web <- to_factor(ces2019_web)
+head(ces2019_web)
+```
 ```
 # install cesR package
 devtools::install_github("hodgettsp/cesR")
