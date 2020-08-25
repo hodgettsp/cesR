@@ -1,4 +1,5 @@
-# cesR
+# cesR <img src="man/figures/logo_small.png" align="right" height="140"/>
+
 #### Access the Canadian Election Study Datasets a Little Easier. 
 
 <!-- badges: start -->
