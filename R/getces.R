@@ -86,7 +86,7 @@ get_ces <- function(srvy){
         # unzip the compressed folder to the given directory
         unzip(hldr, exdir = "inst/extdata/ces2019_web")
         # assign the data file to a globally available variable
-        assign("ces2019_web", haven::read_dta(hldr), envir = .GlobalEnv)
+        assign("ces2019_web", haven::read_dta(hldr, encoding = "latin1"), envir = .GlobalEnv)
         # remove the temporary file
         unlink(hldr, recursive = TRUE)
         # remove the download directory
@@ -125,7 +125,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces2015_phone")
-        assign("ces2015_phone", haven::read_dta(hldr), envir = .GlobalEnv)
+        assign("ces2015_phone", haven::read_dta(hldr, encoding = "latin1"), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces2015_phone", recursive = TRUE)
         cat(ref2015phone)
@@ -185,7 +185,7 @@ get_ces <- function(srvy){
         hldr <- tempfile(fileext = ".zip")
         download.file(cesfile, hldr, quiet = TRUE)
         unzip(hldr, exdir = "inst/extdata/ces0411")
-        assign("ces0411", haven::read_dta(hldr), envir = .GlobalEnv)
+        assign("ces0411", haven::read_dta(hldr, encoding = "latin1"), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
         unlink("inst/extdata/ces0411", recursive = TRUE)
         cat(ref0411)
