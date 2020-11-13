@@ -78,7 +78,7 @@ get_ces <- function(srvy){
       # if the file does not exist
       if(!file.exists("inst/extdata/ces2019_web/ces2019_web.dta")){
         # assign download url
-        cesfile <- "https://github.com/hodgettsp/ces_data/master/extdata/CES2019-web.zip"
+        cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2019-web.zip"
         # create temporary file name holder with extension .zip
         hldr <- tempfile(fileext = ".zip")
         # download the file from the url and assign temporary name
