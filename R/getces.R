@@ -78,11 +78,11 @@ get_ces <- function(srvy){
       # if the file does not exist
       if(!file.exists("inst/extdata/ces2019_web/ces2019_web.dta")){
         # assign download url
-        cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2019-web.zip"
+        cesfile <- "https://github.com/hodgettsp/ces_data/master/extdata/CES2019-web.zip"
         # create temporary file name holder with extension .zip
         hldr <- tempfile(fileext = ".zip")
         # download the file from the url and assign temporary name
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         # unzip the compressed folder to the given directory
         unzip(hldr, exdir = "inst/extdata/ces2019_web")
         # assign the data file to a globally available variable
@@ -99,7 +99,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces2019_phone/CES-E-2019-phone_F1.sav")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2019-phone.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces2019_phone")
         assign("ces2019_phone", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
@@ -111,7 +111,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces2015_web/CES15_CPS+PES_Web_SSI Full.SAV")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES15_CPSPES_Web_SSI-Full-SPSS.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces2015_web")
         assign("ces2015_web", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
@@ -123,7 +123,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces2015_phone/CES2015_CPS-PES-MBS_complete-v2.dta")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2015-phone-SPSS.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces2015_phone")
         assign("ces2015_phone", haven::read_dta(hldr, encoding = "latin1"), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
@@ -135,7 +135,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces2015_combo/CES2015_Combined_SPSS.SAV")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2015_Combined_SPSS.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces2015_combo")
         assign("ces2015_combo", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
@@ -147,7 +147,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces2011/CPS&PES&MBS&WEB_2011_final.sav")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2011-final-1.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces2011")
         assign("ces2011", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
@@ -159,7 +159,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces2008/CES-E-2008_F1.sav")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-2008.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces2008")
         assign("ces2008", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
@@ -171,7 +171,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces2008/CES-E-2004_F1.sav")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-2004.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces2004")
         assign("ces2004", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
@@ -183,7 +183,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces0411/CES_04060811_final_without-geo-data.dta")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES_04060811_final_without-geo-data.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces0411")
         assign("ces0411", haven::read_dta(hldr, encoding = "latin1"), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
@@ -195,7 +195,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces0406/CES-E-2004-2006_F1.sav")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-2004-2006.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces0406")
         assign("ces0406", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
@@ -207,7 +207,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces2000/CES-E-2000_F1.sav")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-2000.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces2000")
         assign("ces2000", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
@@ -219,7 +219,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces2000/CES-E-1997_F1.sav")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1997.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces1997")
         assign("ces1997", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
@@ -231,7 +231,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces2000/CES-E-1993_F1.sav")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1993.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces1993")
         assign("ces1993", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
@@ -243,7 +243,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces2000/CES-E-1988_F1.sav")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1988.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces1988")
         assign("ces1988", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
@@ -255,7 +255,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces2000/CES-E-1984_F1.sav")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1984.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces1984")
         assign("ces1984", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
@@ -267,7 +267,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces2000/CES-E-1974_F1.sav")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1974.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces1974")
         assign("ces1974", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
@@ -279,7 +279,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces2000/CES-E-1974-1980_F1.sav")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1974-1980.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces7480")
         assign("ces7480", haven::read_sav(hldr), .GlobalEnv)
         unlink(hldr, recursive = TRUE)
@@ -291,7 +291,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces72_jnjl/CES-E-1972-jun-july_F1.sav")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1972-jun-july.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces72_jnjl")
         assign("ces72_jnjl", haven::read_sav(hldr), .GlobalEnv)
         unlink(hldr, recursive = TRUE)
@@ -303,7 +303,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces72_sep/CES-E-1972-sept_F1.sav")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1972-sept.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces72_sep")
         assign("ces72_sep", haven::read_sav(hldr), .GlobalEnv)
         unlink(hldr, recursive = TRUE)
@@ -315,7 +315,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces72_nov/CES-E-1972-nov_F1.sav")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1972-nov.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces72_nov")
         assign("ces72_nov", haven::read_sav(hldr), .GlobalEnv)
         unlink(hldr, recursive = TRUE)
@@ -327,7 +327,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces1968/CES-E-1968_F1.sav")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1968.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces1968")
         assign("ces1968", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
@@ -340,7 +340,7 @@ get_ces <- function(srvy){
       if(!file.exists("inst/extdata/ces1965/CES-E-1965_F1.sav")){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1965.zip"
         hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
+        download.file(cesfile, hldr, quiet = FALSE)
         unzip(hldr, exdir = "inst/extdata/ces1965")
         assign("ces1965", haven::read_sav(hldr), envir = .GlobalEnv)
         unlink(hldr, recursive = TRUE)
