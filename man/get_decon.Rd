@@ -13,8 +13,8 @@ demographics, ideology, and economy sections of the 2019 CES online survey.
 }
 \details{
 NAs have not been removed. The politically left/right question
-variables (\code{lr_bef} and \code{lr_aft}) have also been joined in one column under the
-name \code{lr}. All variables have been converted to factor type using
+variables (\code{lr_bef} and \code{lr_aft}) have also been joined into one column under the
+name \code{lr_scale}. All variables have been converted to factor type using
 \code{labelled::to_factor} and are listed below.
 \subsection{decon Variables}{
 
@@ -48,9 +48,6 @@ federal government made your financial situation...'} }
 }
 }
 \examples{
-devtools::install_github("hodgettsp/cesR")
-
-library(cesR)
 
 get_decon()
 head(decon)

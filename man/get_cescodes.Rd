@@ -8,7 +8,7 @@ get_cescodes()
 }
 \description{
 \code{get_cescodes()} prints out a data frame of the CES survey codes and the associated calls.
-Provides a quick way of looking up a CES survey code and the associated calls.
+Provides a quick way of looking up a CES survey code and the associated call.
 }
 \details{
 Items under the \emph{Survey Code Calls} and \emph{Index Code Calls} can be copied and used with the \code{get_ces()} function.
@@ -67,10 +67,6 @@ Items under the \emph{Survey Code Calls} and \emph{Index Code Calls} can be copi
 }
 }
 \examples{
-devtools::install_github("hodgettsp/cesR")
-
-library(cesR)
-
 get_cescodes()
 
 }

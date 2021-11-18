@@ -22,15 +22,6 @@ To return the associated survey question, the \code{get_question} function relie
 on the \code{var_label} function from the \code{labelled} package.
 }
 \examples{
-# install cesR package
-devtools::github("hodgettsp/cesR")
-
-# load cesR package
-library(cesR)
-
-# get the 2019 CES phone survey
-get_ces("ces2019_phone")
-
 # request the survey question for column q11
-get_question("ces2019_phone", "q11")
+get_question("ces2019_province", "cps2019_province")
 }

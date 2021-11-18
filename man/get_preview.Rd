@@ -4,19 +4,19 @@
 \alias{get_preview}
 \title{Create a preview dataframe object of a CES survey.}
 \usage{
-get_preview(srvy, x = 6)
+get_preview(srvy, obs = 6)
 }
 \arguments{
 \item{srvy}{A CES survey code call. See \emph{Survey Code Calls} below.
 \code{srvy} value must be a character string.}
 
-\item{x}{A numerical value that determines the number of observations returned.
-If \code{x} is not given, then default value is 6 observations.
+\item{obs}{A numerical value that determines the number of observations returned.
+If a value for \code{obs} is not given, then default value is 6 observations.
 Variable must be given as a numerical value.}
 }
 \description{
 \code{get_preview()} creates a truncated dataframe for a requested Canadian Election Study
-survey using an associated survey code to call and download
+survey using an associated code to call and download
 the survey dataset.
 }
 \details{
@@ -69,9 +69,6 @@ Due to the naming of the columns in the 1965 and 1968 datasets it is recommended
 to download the associated codebook for the requested dataset.
 
 #' @examples
-devtools::install_github("hodgettsp/cesR")
-
-library(cesR)
 
 get_preview("ces2019_phone", 10)
 }

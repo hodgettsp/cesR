@@ -91,10 +91,6 @@ to download the associated codebook for the requested dataset.
 }
 }
 \examples{
-devtools::install_github("hodgettsp/cesR")
-
-library(cesR)
-
 get_ces("ces2019_web")
 
 ces2019_phone <- labelled::to_factor(ces2019_web)
