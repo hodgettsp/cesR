@@ -1,6 +1,6 @@
 Package: cesR
 Type: Package
-Title: Access the Canadian Election Study Datasets.
+Title: Access the Canadian Election Study Datasets
 Version: 0.1.0
 Authors@R: 
     c(person(given = "Paul A.",

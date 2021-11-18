@@ -25,7 +25,7 @@
 # 'do' data object and 'q' question
 get_question <- function(do, q){
   if(exists(do)){                                                     # if data object exists
-    if(hasName(get(do), q)){                                          # if data object has the name of the given question
+    if(utils::hasName(get(do), q)){                                          # if data object has the name of the given question
       cat(labelled::var_label(get(q, get(do))))                       # print out concatenation of the column label
                                                                       # the get function is required because it
                                                                       # returns the object from the provided character string

@@ -52,6 +52,7 @@
 
 #library(dplyr)
 #library(labelled)
+#library(utils)
 
 #'@export
 # function to create 'decon' dataset
@@ -64,7 +65,7 @@ get_decon <- function(){
        # assign temporary file with .dta extension to placeholder variable
        hldr <- file.path(system.file("extdata", package = "cesR"), "ces2019_web.dta")
        # download the file from url assigned to 'cesfile' with file extension from the temporary placeholder
-       download.file(cesfile, hldr, quiet = F, mode = "wb")
+       utils::download.file(cesfile, hldr, quiet = F, mode = "wb")
        # assign data file to temporary data object
        ces2019_hldr <- haven::read_dta(hldr, encoding = "latin1")
        # create new data object with selected columns from temporary data object
