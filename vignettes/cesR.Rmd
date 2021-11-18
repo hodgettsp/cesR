@@ -1,0 +1,81 @@
+---
+title: "An introduction to cesR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{cesR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+## Standard Use
+
+Load the package with the following code:
+
+```{r setup}
+library(cesR)
+```
+
+
+The purpose of `cesR` is to make loading and working with the Canadian Election Study (CES) datasets in R more efficient. This is done through the use of five built-in functions.
+
+
+## Get download codes
+
+In `cesR`, each CES dataset is associated with a code that can be used to download and load a dataset into the R workspace. The function for to get these codes is `get_cescodes()`, which prints a dataframe of the codes and the associated datasets.
+
+```{r}
+get_cescodes()
+```
+
+
+## Download and load CES datasets
+
+Using the `get_ces()` function, it is possible to download and load a CES dataset using the values under the `get_ces_call_char` column in the printout provided by `get_cescodes()`. For the `get_ces()` function to work, it is necessary that the parameter passed to the function be a character string. Below, the 2019 CES online survey is being called.
+
+```{r, eval = F}
+get_ces("ces2019_web")
+
+head(ces2019_web)
+```
+
+
+## Find a survey question for a variable
+
+If you wish to know the survey question associated with a given variable for a CES dataset, the `get_question()` function will provide this information using a provided data object and column label. The function `colnames()` is useful to return the names of columns that can be used with `get_question()`.
+
+```{r, eval = F}
+colnames(ces2019_web)
+
+get_question("ces2019_web", "cps19_province")
+```
+
+It should be noted that the `get_question()` function does not work with the 2019 CES phone dataset as it is downloaded in a `.tab` file type, and as such does not contain the necessary variable label information.
+
+
+## Preview a dataset
+
+If you don't wish to access an entire CES dataset, the `get_preview()` function provides a means of previewing a dataset for a desired number of rows. For this, you can specify the number of observations you wish returned, or leave the second parameter empty to return a default of 6 observations. The following would return a preview of 10 observations from the 2019 CES online survey.
+
+```{r, eval = F}
+get_preview("ces2019_web", 10)
+```
+
+
+## A prepared dataset
+
+`cesR` also provides a prepared, non-exhaustive dataset for testing and teaching purposes. The provided function `get_decon()` calls and creates this dataset, which is made up of variables associated with demographics, economics, and voting intentions.
+
+```{r, eval = F}
+get_decon()
+
+head(decon)
+```
+

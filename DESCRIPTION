@@ -34,7 +34,7 @@ Imports:
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Suggests: 
-    testthat
+    testthat,
     knitr,
     rmarkdown,
     spelling

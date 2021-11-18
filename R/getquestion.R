@@ -14,7 +14,7 @@
 #'
 #' @examples
 #' # request the survey question for column q11
-#' get_question("ces2019_phone", "q11")
+#' get_question("ces2019_province", "cps2019_province")
 
 
 #library(labelled)
