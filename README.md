@@ -6,10 +6,9 @@
 #### Access the Canadian Election Study Datasets.
 
 <!-- badges: start -->
-
 <!-- badges: end -->
 
------
+------------------------------------------------------------------------
 
 ## Installation
 
@@ -19,7 +18,7 @@ You can install the current version of this package using:
 devtools::install_github("hodgettsp/cesR")
 ```
 
------
+------------------------------------------------------------------------
 
 ## Using the Package
 
@@ -46,13 +45,13 @@ question for a given data object and column name.
 
     # install cesR package
     devtools::install_github("hodgettsp/cesR")
-    
+
     # load cesR package
     library(cesR)
-    
+
     # call ces survey call codes
     get_cescodes()
-    
+
     >get_cescodes()
        index ces_survey_code get_ces_call_char 
     1      1     ces2019_web     "ces2019_web"       
@@ -80,49 +79,49 @@ question for a given data object and column name.
 
     # install cesR package
     devtools::install_github("hodgettsp/cesR")
-    
+
     library(cesR)
-    
+
     get_preview("ces2019_web", 10)
 
-| cps19\_StartDate    | cps19\_EndDate      | cps19\_ResponseId  | cps19\_consent | cps19\_citizensh\~ | cps19\_yob | cps19\_yob\_2001\_\~ | cps19\_gender | cps19\_province | cps19\_eduction  | cps19\_demsat | cps19\_imp\_iss |
-| ------------------- | ------------------- | ------------------ | -------------- | ------------------ | ---------- | -------------------- | ------------- | --------------- | ---------------- | ------------- | --------------- |
-| <dttm>              | <dttm>              | <chr>              | <fct>          | <fct>              | <fct>      | <fct>                | <fct>         | <fct>           | <fct>            | <fct>         |                 |
-| <chr>               |                     |                    |                |                    |            |                      |               |                 |                  |               |                 |
-| 2019-09-13 08:09:44 | 2019-09-13 08:36:19 | R\_1OpYXEFGzHRUp\~ | I consent to\~ | Canadian citizen   | 1989       | NA                   | A woman       | Quebec          | Master’s degree  | Fairly sati\~ | environnement   |
-| 2019-09-13 08:39:09 | 2019-09-13 08:57:06 | R\_2qdrL3J618rxY\~ | I consent to\~ | Canadian citizen   | 1998       | NA                   | A woman       | Quebec          | Master’s degree  | Don’t know/\~ | NA              |
-| 2019-09-13 10:01:19 | 2019-09-13 10:27:29 | R\_USWDAPcQEQiMm\~ | I consent to\~ | Canadian citizen   | 2000       | NA                   | A woman       | Ontario         | Some university  | Fairly sati\~ | NA              |
-| 2019-09-13 10:05:37 | 2019-09-13 10:50:53 | R\_3IQaeDXy0tBzE\~ | I consent to\~ | Canadian citizen   | 1998       | NA                   | A man         | Ontario         | Some university  | Fairly sati\~ | NA              |
-| 2019-09-13 10:05:52 | 2019-09-13 10:32:53 | R\_27WeMQ1asip2c\~ | I consent to\~ | Canadian citizen   | 2000       | NA                   | A woman       | Ontario         | Completed seco\~ | Fairly sati\~ | NA              |
-| 2019-09-13 10:10:20 | 2019-09-13 10:29:45 | R\_3LiGZcCWJEcWV\~ | I consent to\~ | Canadian citizen   | 1999       | NA                   | A woman       | Ontario         | Some university  | Fairly sati\~ | NA              |
-| 2019-09-13 10:14:47 | 2019-09-13 10:32:32 | R\_1Iu8R1UlYzVMy\~ | I consent to\~ | Permanent resid\~  | 1998       | NA                   | A woman       | Ontario         | Completed seco\~ | Fairly sati\~ | NA              |
-| 2019-09-13 10:15:39 | 2019-09-13 10:30:59 | R\_2EcS26hqrcVYl\~ | I consent to\~ | Canadian citizen   | 1998       | NA                   | A woman       | Ontario         | Some university  | Fairly sati\~ | NA              |
-| 2019-09-13 10:15:48 | 2019-09-13 10:37:45 | R\_3yrt44wqQ1d4V\~ | I consent to\~ | Canadian citizen   | 1998       | NA                   | A woman       | Ontario         | Some university  | Fairly sati\~ | NA              |
-| 2019-09-13 10:16:08 | 2019-09-13 10:40:14 | R\_10OBmXJyvn8fe\~ | I consent to\~ | Canadian citizen   | 2000       | NA                   | A man         | Ontario         | Completed seco\~ | Fairly sati\~ | NA              |
+| cps19_StartDate     | cps19_EndDate       | cps19_ResponseId  | cps19_consent  | cps19_citizensh\~ | cps19_yob | cps19_yob_2001\_\~ | cps19_gender | cps19_province | cps19_eduction   | cps19_demsat  | cps19_imp_iss |
+|---------------------|---------------------|-------------------|----------------|-------------------|-----------|--------------------|--------------|----------------|------------------|---------------|---------------|
+| <dttm>              | <dttm>              | <chr>             | <fct>          | <fct>             | <fct>     | <fct>              | <fct>        | <fct>          | <fct>            | <fct>         |               |
+| <chr>               |                     |                   |                |                   |           |                    |              |                |                  |               |               |
+| 2019-09-13 08:09:44 | 2019-09-13 08:36:19 | R_1OpYXEFGzHRUp\~ | I consent to\~ | Canadian citizen  | 1989      | NA                 | A woman      | Quebec         | Master’s degree  | Fairly sati\~ | environnement |
+| 2019-09-13 08:39:09 | 2019-09-13 08:57:06 | R_2qdrL3J618rxY\~ | I consent to\~ | Canadian citizen  | 1998      | NA                 | A woman      | Quebec         | Master’s degree  | Don’t know/\~ | NA            |
+| 2019-09-13 10:01:19 | 2019-09-13 10:27:29 | R_USWDAPcQEQiMm\~ | I consent to\~ | Canadian citizen  | 2000      | NA                 | A woman      | Ontario        | Some university  | Fairly sati\~ | NA            |
+| 2019-09-13 10:05:37 | 2019-09-13 10:50:53 | R_3IQaeDXy0tBzE\~ | I consent to\~ | Canadian citizen  | 1998      | NA                 | A man        | Ontario        | Some university  | Fairly sati\~ | NA            |
+| 2019-09-13 10:05:52 | 2019-09-13 10:32:53 | R_27WeMQ1asip2c\~ | I consent to\~ | Canadian citizen  | 2000      | NA                 | A woman      | Ontario        | Completed seco\~ | Fairly sati\~ | NA            |
+| 2019-09-13 10:10:20 | 2019-09-13 10:29:45 | R_3LiGZcCWJEcWV\~ | I consent to\~ | Canadian citizen  | 1999      | NA                 | A woman      | Ontario        | Some university  | Fairly sati\~ | NA            |
+| 2019-09-13 10:14:47 | 2019-09-13 10:32:32 | R_1Iu8R1UlYzVMy\~ | I consent to\~ | Permanent resid\~ | 1998      | NA                 | A woman      | Ontario        | Completed seco\~ | Fairly sati\~ | NA            |
+| 2019-09-13 10:15:39 | 2019-09-13 10:30:59 | R_2EcS26hqrcVYl\~ | I consent to\~ | Canadian citizen  | 1998      | NA                 | A woman      | Ontario        | Some university  | Fairly sati\~ | NA            |
+| 2019-09-13 10:15:48 | 2019-09-13 10:37:45 | R_3yrt44wqQ1d4V\~ | I consent to\~ | Canadian citizen  | 1998      | NA                 | A woman      | Ontario        | Some university  | Fairly sati\~ | NA            |
+| 2019-09-13 10:16:08 | 2019-09-13 10:40:14 | R_10OBmXJyvn8fe\~ | I consent to\~ | Canadian citizen  | 2000      | NA                 | A man        | Ontario        | Completed seco\~ | Fairly sati\~ | NA            |
 
     # install cesR package
     devtools::install_github("hodgettsp/cesR")
-    
+
     # load cesR package and labelled package
     library(cesR)
     library(labelled)
-    
+
     # call 2019 CES online survey
     get_ces("ces2019_web")
-    
+
     # convert values to factor type
     ces2019_web <- to_factor(ces2019_web)
     head(ces2019_web)
 
     # install cesR package
     devtools::install_github("hodgettsp/cesR")
-    
+
     # load cesR package
     library(cesR)
-    
+
     # call 2019 CES phone survey
     get_ces("ces2019_phone")
-    
+
     # get question for q11 of 2019 CES phone survey
     get_question("ces2019_phone", "q11")
     >Which party will you likely to vote for
@@ -139,7 +138,7 @@ with an unaltered version of the survey.
 All downloaded files and directories are removed with a call so that
 data files are not saved on your computer.
 
------
+------------------------------------------------------------------------
 
 The `cesR package` also provides a non-exhuastive dataset consisting of
 21 variables with renamed columns available with the function call
@@ -151,26 +150,26 @@ survey code responses.
 
 The `decon` dataset consists of the following variables: \* citzenship:
 Canadian citizenship status \* yob: year of birth \* gender: identified
-gender of the respondent \* province\_territory: Province or Territory
-of current residence \* education: highest level of education completed
-\* lr: united column of lr\_bef and lr\_aft values; whether the
-respondent identifies on the political spectrum \* lr\_bef: where the
-respodent identifies on the political spectrum; asked before party
-identification questions \* lr\_aft: where the respondent identifies on
-the political spectrum; asked after party identification questions \*
-religion: religion of respondent \* sexuality\_selected: sexual identity
-\* sexuality\_text: sexual identity; written answers \* language\_eng:
+gender of the respondent \* province_territory: Province or Territory of
+current residence \* education: highest level of education completed \*
+lr: united column of lr_bef and lr_aft values; whether the respondent
+identifies on the political spectrum \* lr_bef: where the respodent
+identifies on the political spectrum; asked before party identification
+questions \* lr_aft: where the respondent identifies on the political
+spectrum; asked after party identification questions \* religion:
+religion of respondent \* sexuality_selected: sexual identity \*
+sexuality_text: sexual identity; written answers \* language_eng:
 language learned as child and still understand; selected response
-English \* language\_fr: language learned as a child and still
-understand; selected response French \* language\_abgl: langauge learned
+English \* language_fr: language learned as a child and still
+understand; selected response French \* language_abgl: langauge learned
 as a child and still understand; specified Aboriginal language \*
 employment: employment status \* income: total household income, before
-taxes, for the year 2018 \* income\_cat: selected household income
-category \* marital: marital status \* econ\_retro: response to
-question, ‘over the past year, has Canada’s economy:’ \* econ\_fed:
-response to question, ‘have the policies of the federal government made
-Canada’s economy…’ \* econ\_self: response to question, have the
-policies of the federal government made your financial situation…’
+taxes, for the year 2018 \* income_cat: selected household income
+category \* marital: marital status \* econ_retro: response to question,
+‘over the past year, has Canada’s economy:’ \* econ_fed: response to
+question, ‘have the policies of the federal government made Canada’s
+economy…’ \* econ_self: response to question, have the policies of the
+federal government made your financial situation…’
 
 The `get_decon()` function uses no variables and will only run if the
 `decon` data object does not already exist.
@@ -178,24 +177,24 @@ The `get_decon()` function uses no variables and will only run if the
 ### Examples
 
     devtools::install_github("hodgettsp/cesR")
-    
+
     library(cesR)
-    
+
     get_decon()
     head(decon)
 
-| ces\_code    | citizenship      | yob  | gender  | province\_territory | education       | lr | lr\_bef | lr\_aft | regligion                        | sexuality\_select | sexuality\_text | language\_eng | language\_fr | langauge\_abgi | employment                       | income | income\_cat                      | marital                          | econ\_retro           | econ\_fed                        | econ\_self                       |
-| ------------ | ---------------- | ---- | ------- | ------------------- | --------------- | -- | ------- | ------- | -------------------------------- | ----------------- | --------------- | ------------- | ------------ | -------------- | -------------------------------- | ------ | -------------------------------- | -------------------------------- | --------------------- | -------------------------------- | -------------------------------- |
-| ces2019\_web | Canadian citizen | 1989 | A woman | Quebec              | Master’s degree | 2  | NA      | 2       | Don’t know/ Prefer not to answer | Prefer not to say | NA              | NA            | NA           | NA             | Don’t know/ Prefer not to answer | NA     | Don’t know/ Prefer not to answer | Don’t know/ Prefer not to answer | Stayed about the same | Don’t know/ Prefer not to answer | Don’t know/ Prefer not to answer |
-| ces2019\_web | Canadian citizen | 1998 | A woman | Quebec              | Master’s degree | 2  | NA      | 2       | Catholic/ Roman Catholic/ RC     | Prefer not to say | NA              | English       | French       | NA             | Student and working for pay      | NA     | Don’t know/ Prefer not to answer | Living with a partner            | Stayed about the same | Not made much difference         | Not made much difference         |
-| ces2019\_web | Canadian citizen | 1998 | A man   | Ontario             | Some university | 7  | 7       | NA      | Jewish/ Judaism/ Jewish Orthodox | Heterosexual      | NA              | English       | NA           | NA             | Student and working for pay      | NA     | $110,001 to $150,000             | Never Married                    | Got worse             | Worse                            | Not made much difference         |
+| ces_code    | citizenship      | yob  | gender  | province_territory | education       | lr  | lr_bef | lr_aft | regligion                        | sexuality_select  | sexuality_text | language_eng | language_fr | langauge_abgi | employment                       | income | income_cat                       | marital                          | econ_retro            | econ_fed                         | econ_self                        |
+|-------------|------------------|------|---------|--------------------|-----------------|-----|--------|--------|----------------------------------|-------------------|----------------|--------------|-------------|---------------|----------------------------------|--------|----------------------------------|----------------------------------|-----------------------|----------------------------------|----------------------------------|
+| ces2019_web | Canadian citizen | 1989 | A woman | Quebec             | Master’s degree | 2   | NA     | 2      | Don’t know/ Prefer not to answer | Prefer not to say | NA             | NA           | NA          | NA            | Don’t know/ Prefer not to answer | NA     | Don’t know/ Prefer not to answer | Don’t know/ Prefer not to answer | Stayed about the same | Don’t know/ Prefer not to answer | Don’t know/ Prefer not to answer |
+| ces2019_web | Canadian citizen | 1998 | A woman | Quebec             | Master’s degree | 2   | NA     | 2      | Catholic/ Roman Catholic/ RC     | Prefer not to say | NA             | English      | French      | NA            | Student and working for pay      | NA     | Don’t know/ Prefer not to answer | Living with a partner            | Stayed about the same | Not made much difference         | Not made much difference         |
+| ces2019_web | Canadian citizen | 1998 | A man   | Ontario            | Some university | 7   | 7      | NA     | Jewish/ Judaism/ Jewish Orthodox | Heterosexual      | NA             | English      | NA          | NA            | Student and working for pay      | NA     | $110,001 to $150,000             | Never Married                    | Got worse             | Worse                            | Not made much difference         |
 
------
+------------------------------------------------------------------------
 
 ## Survey Code Table
 
 |      year      |      code       |             name              |                                                                                                                                                                                                                    citation                                                                                                                                                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                documentation                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| :------------: | :-------------: | :---------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|:--------------:|:---------------:|:-----------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 |      2019      |  `ces2019_web`  |    2019 CES Online surveys    |                      Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, “2019 Canadian Election Study - Online Survey”, <https://doi.org/10.7910/DVN/DUS88V>, Harvard Dataverse, V1 & Stephenson, Laura, Allison Harrel, Daniel Rubenson and Peter Loewen. Forthcoming. ‘Measuring Preferences and Behaviour in the 2019 Canadian Election Study,’ Canadian Journal of Political Science.                       |                                                                                                                                                                                                                                                                                                                                                                            [CES 2019 Web](https://raw.github.com/hodgettsp/ces_data/master/documentation/ces2019/Canadian%20Election%20Study%2C%202019%2C%20Online%20Survey.pdf)                                                                                                                                                                                                                                                                                                                                                                             |
 |      2019      | `ces2019_phone` |     2019 CES Phone Survey     | Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, “2019 Canadian Election Study - Phone Survey”, <https://doi.org/10.7910/DVN/8RHLG1>, Harvard Dataverse, V1, UNF:6:eyR28qaoYlHj9qwPWZmmVQ== \[fileUNF\] & Stephenson, Laura, Allison Harrel, Daniel Rubenson and Peter Loewen. Forthcoming. ‘Measuring Preferences and Behaviour in the 2019 Canadian Election Study,’ Canadian Journal of Political Science. |                                                                                                                                                                                                                                                                                                                                                                            [CES 2019 Phone](https://raw.github.com/hodgettsp/ces_data/master/documentation/ces2019/Canadian%20Election%20Study%2C%202019%2C%20Phone%20Survey.pdf)                                                                                                                                                                                                                                                                                                                                                                            |
 |      2015      |  `ces2015_web`  |    2015 CES Online Survey     |                                                                                                                                                             Fournier, Patrick, Fred Cutler, Stuart Soroka and Dietlind Stolle. 2015. The 2015 Canadian Election Study. \[dataset\]                                                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                      [CES 2015 Combined](https://raw.github.com/hodgettsp/ces_data/master/documentation/ces2015web/CES2015_Combined_Data_Codebook.pdf)                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -221,9 +220,9 @@ The `get_decon()` function uses no variables and will only run if the
 
 ## Citations
 
------
+------------------------------------------------------------------------
 
-  - `ces2019_web`: 2019 CES Online Survey
+-   `ces2019_web`: 2019 CES Online Survey
 
 **Citation** Stephenson, Laura B; Harell, Allison; Rubenson, Daniel;
 Loewen, Peter John, 2020, “2019 Canadian Election Study - Online
@@ -232,9 +231,9 @@ Survey”, <https://doi.org/10.7910/DVN/DUS88V>, Harvard Dataverse, V1
 Documentation for the 2019 CES Online Survey can be accessed from here:
 <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V>
 
------
+------------------------------------------------------------------------
 
-  - `ces2019_phone`: 2019 CES Phone Survey
+-   `ces2019_phone`: 2019 CES Phone Survey
 
 **Citation**: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel;
 Loewen, Peter John, 2020, “2019 Canadian Election Study - Phone Survey”,
@@ -244,9 +243,9 @@ UNF:6:eyR28qaoYlHj9qwPWZmmVQ== \[fileUNF\]
 Documentation for the 2019 CES Phone Survey can be accessed from here:
 <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/8RHLG1>
 
------
+------------------------------------------------------------------------
 
-  - `ces2015_web`: 2015 CES Online Survey
+-   `ces2015_web`: 2015 CES Online Survey
 
 **Citation**: Fournier, Patrick, Fred Cutler, Stuart Soroka and Dietlind
 Stolle. 2015. The 2015 Canadian Election Study. \[dataset\]
@@ -254,9 +253,9 @@ Stolle. 2015. The 2015 Canadian Election Study. \[dataset\]
 Documentation for the 2015 CES Online Survey can be accessed from here:
 <https://ces-eec.arts.ubc.ca/english-section/surveys/>
 
------
+------------------------------------------------------------------------
 
-  - `ces2015_phone`: 2015 CES Phone Survey
+-   `ces2015_phone`: 2015 CES Phone Survey
 
 **Citation**: Fournier, Patrick, Fred Cutler, Stuart Soroka and Dietlind
 Stolle. 2015. The 2015 Canadian Election Study. \[dataset\]
@@ -264,9 +263,9 @@ Stolle. 2015. The 2015 Canadian Election Study. \[dataset\]
 Documentation for the 2015 CES Phone Survey can be accessed from here:
 <https://ces-eec.arts.ubc.ca/english-section/surveys/>
 
------
+------------------------------------------------------------------------
 
-  - `ces2015_combo`: 2015 CES Online/Phone Surveys
+-   `ces2015_combo`: 2015 CES Online/Phone Surveys
 
 **Citation**: Fournier, Patrick, Fred Cutler, Stuart Soroka and Dietlind
 Stolle. 2015. The 2015 Canadian Election Study. \[dataset\]
@@ -274,9 +273,9 @@ Stolle. 2015. The 2015 Canadian Election Study. \[dataset\]
 Documentation for the 2015 CES Online/Phone Surveys can be accessed from
 here: <https://ces-eec.arts.ubc.ca/english-section/surveys/>
 
------
+------------------------------------------------------------------------
 
-  - `ces2011`: 2011 CES Survey
+-   `ces2011`: 2011 CES Survey
 
 **Citation**: Fournier, Patrick, Fred Cutler, Stuart Soroka and Dietlind
 Stolle. 2011. The 2011 Canadian Election Study. \[dataset\]
@@ -284,110 +283,100 @@ Stolle. 2011. The 2011 Canadian Election Study. \[dataset\]
 Documentation for the 2011 CES Survey can be accessed from here:
 <https://ces-eec.arts.ubc.ca/english-section/surveys/>
 
------
+------------------------------------------------------------------------
 
-  - `ces2008`: 2008 CES Survey
+-   `ces2008`: 2008 CES Survey
 
 **Citation**: Gidengil, E, Everitt, J, Fournier, P and Nevitte, N. 2009.
 The 2008 Canadian Election Study \[dataset\]. Toronto, Ontario, Canada:
 Institute for Social Research \[producer and distributor\].
 
------
+------------------------------------------------------------------------
 
-  - `ces2004`: 2004 CES Survey
+-   `ces2004`: 2004 CES Survey
 
 **Citation**: Blais, A, Everitt, J, Fournier, P, Gidengil, E and
 Nevitte, N. 2005. The 2004 Canadian Election Study \[dataset\]. Toronto,
 Ontario, Canada: Institute for Social Research \[producer and
 distributor\].
 
------
+------------------------------------------------------------------------
 
-  - `ces0411`: 2004-2011 CES Survey
+-   `ces0411`: 2004-2011 CES Survey
 
 **Citation**: Fournier, P, Stolle, D, Soroka, S, Cutler, F, Blais, A,
 Everitt, J, Gidengil, E and Nevitte, N. 2011. The 2004-2011 Merged
 Canadian Election Study \[dataset\]. Toronto, Ontario, Canada: Institute
 for Social Research \[producer and distributor\].
 
------
+------------------------------------------------------------------------
 
-  - `ces0406`: 2004-2006 CES Survey
+-   `ces0406`: 2004-2006 CES Survey
 
 **Citation**: Blais, A, Everitt, J, Fournier, P and Nevitte, N. 2011.
 The 2011 Canadian Election Study \[dataset\]. Toronto, Ontario, Canada:
 Institute for Social Research \[producer and distributor\].
 
------
+------------------------------------------------------------------------
 
-  - `ces2000`: 2000 CES Survey
+-   `ces2000`: 2000 CES Survey
 
 **Citation**: Blais, A, Gidengil, E, Nadeau, R and Nevitte, N. 2001. The
 2000 Canadian Election Study \[dataset\]. Toronto, Ontario, Canada:
 Institute for Social Research \[producer and distributor\].
 
------
+------------------------------------------------------------------------
 
-  - `ces1997`: 1997 CES Survey
+-   `ces1997`: 1997 CES Survey
 
 **Citation**: Blais, A, Gidengil, E, Nadeau, R and Nevitte, N. 1998. The
 1997 Canadian Election Study \[dataset\]. Toronto, Ontario, Canada:
 Institute for Social Research \[producer and distributor\].
 
------
+------------------------------------------------------------------------
 
-  - `ces1993`: 1993 CES Survey
+-   `ces1993`: 1993 CES Survey
 
 **Citation**: Blais, A, Brady, H, Gidengil, E, Johnston, R and Nevitte,
 N. 1994. The 1993 Canadian Election Study \[dataset\]. Toronto, Ontario,
 Canada: Institute for Social Research \[producer and distributor\].
 
------
+------------------------------------------------------------------------
 
-  - `ces1988`: 1988 CES Survey
+-   `ces1988`: 1988 CES Survey
 
 **Citation**: Johnston, R, Blais, A, Brady, H. E. and Crête, J. 1989.
 The 1988 Canadian Election Study \[dataset\]. Toronto, Ontario, Canada:
 Institute for Social Research \[producer and distributor\].
 
------
+------------------------------------------------------------------------
 
-  - `ces1984`: 1984 CES Survey
+-   `ces1984`: 1984 CES Survey
 
 **Citation**: Lambert, R. D., Brown, S. D., Curtis, J. E., Kay, B. J.
 and Wilson, J. M. 1985. The 1984 Canadian Election Study \[dataset\].
 Toronto, Ontario, Canada: Institute for Social Research \[producer and
 distributor\].
 
------
+------------------------------------------------------------------------
 
-  - `ces1974`: 1974 CES Survey
+-   `ces1974`: 1974 CES Survey
 
 **Citation**: Clarke, H, Jenson, J, LeDuc, L and Pammett, J. 1975. The
 1974 Canadian Election Study \[dataset\]. Toronto, Ontario, Canada:
 Institute for Social Research \[producer and distributor\].
 
------
+------------------------------------------------------------------------
 
-  - `ces7480`: 1974-1980 CES Survey
+-   `ces7480`: 1974-1980 CES Survey
 
 **Citation**: Clarke, H, Jenson, J, LeDuc, L and Pammett, J. 1980. The
 1974-1980 Merged Canadian Election Study \[dataset\]. Toronto, Ontario,
 Canada: Institute for Social Research \[producer and distributor\].
 
------
+------------------------------------------------------------------------
 
-  - `ces72_jnjl`: 1972, June-July CES Curvey
-
-**Citation**: Ruban, C. 1972. The 1972 Canadian Election Study
-\[dataset\]. 2nd ICPSR version. Toronto, Ontario, Canada: Market Opinion
-Research (Canada) Ltd. \[producer\], 1972. Ann Arbor, MI:
-Interuniversity Consortium for Political and Social Research
-\[distributor\], 2001.
-
------
-
-  - `ces72_sep`: 1972, September CES Survey
+-   `ces72_jnjl`: 1972, June-July CES Curvey
 
 **Citation**: Ruban, C. 1972. The 1972 Canadian Election Study
 \[dataset\]. 2nd ICPSR version. Toronto, Ontario, Canada: Market Opinion
@@ -395,9 +384,9 @@ Research (Canada) Ltd. \[producer\], 1972. Ann Arbor, MI:
 Interuniversity Consortium for Political and Social Research
 \[distributor\], 2001.
 
------
+------------------------------------------------------------------------
 
-  - `ces72_nov`: 1972, November CES Survey
+-   `ces72_sep`: 1972, September CES Survey
 
 **Citation**: Ruban, C. 1972. The 1972 Canadian Election Study
 \[dataset\]. 2nd ICPSR version. Toronto, Ontario, Canada: Market Opinion
@@ -405,18 +394,28 @@ Research (Canada) Ltd. \[producer\], 1972. Ann Arbor, MI:
 Interuniversity Consortium for Political and Social Research
 \[distributor\], 2001.
 
------
+------------------------------------------------------------------------
 
-  - `ces1968`: 1968 CES Survey
+-   `ces72_nov`: 1972, November CES Survey
+
+**Citation**: Ruban, C. 1972. The 1972 Canadian Election Study
+\[dataset\]. 2nd ICPSR version. Toronto, Ontario, Canada: Market Opinion
+Research (Canada) Ltd. \[producer\], 1972. Ann Arbor, MI:
+Interuniversity Consortium for Political and Social Research
+\[distributor\], 2001.
+
+------------------------------------------------------------------------
+
+-   `ces1968`: 1968 CES Survey
 
 **Citation**: Meisel, J. 1968. The 1968 Canadian Election Study
 \[dataset\]. Inter-University Consortium for Political and Social
 Research, University of Michigan, Ann Arbor MI \[Producer and
 distributor\].
 
------
+------------------------------------------------------------------------
 
-  - `ces1965`: 1965 CES Survey
+-   `ces1965`: 1965 CES Survey
 
 **Citation**: Converse, P, Meisel, J, Pinard, M, Regenstreif, P and
 Schwartz, M. 1966. Canadian Election Survey, 1965. \[Microdata File\].
