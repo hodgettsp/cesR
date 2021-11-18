@@ -5,8 +5,8 @@
 #'   demographics, ideology, and economy sections of the 2019 CES online survey.
 #'
 #' @details NAs have not been removed. The politically left/right question
-#'   variables (`lr_bef` and `lr_aft`) have also been joined in one column under the
-#'   name `lr`. All variables have been converted to factor type using
+#'   variables (`lr_bef` and `lr_aft`) have also been joined into one column under the
+#'   name `lr_scale`. All variables have been converted to factor type using
 #'   `labelled::to_factor` and are listed below.
 #'
 #' ## decon Variables
@@ -39,9 +39,6 @@
 #'   federal government made your financial situation...'} }
 #'
 #' @examples
-#' devtools::install_github("hodgettsp/cesR")
-#'
-#' library(cesR)
 #'
 #' get_decon()
 #' head(decon)
@@ -63,17 +60,15 @@ get_decon <- function(){
     # if object does not exist in global environment
     if(!exists("decon")){
        # assign url to 'cesfile'
-       cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2019-web.zip"
-       # assign temporary file with .zip extension to placeholder variable
-       hldr <- tempfile(fileext = ".zip")
+       cesfile <- "https://dataverse.harvard.edu/api/access/datafile/:persistentId?persistentId=doi:10.7910/DVN/DUS88V/RZFNOV"
+       # assign temporary file with .dta extension to placeholder variable
+       hldr <- file.path(system.file("extdata", package = "cesR"), "ces2019_web.dta")
        # download the file from url assigned to 'cesfile' with file extension from the temporary placeholder
-       download.file(cesfile, hldr, quiet = TRUE)
-       # unzip the placeholder file to given directory
-       unzip(hldr, exdir = "inst/extdata/ces2019_hldr")
+       download.file(cesfile, hldr, quiet = F, mode = "wb")
        # assign data file to temporary data object
-       ces2019_hldr <- haven::read_dta(hldr)
+       ces2019_hldr <- haven::read_dta(hldr, encoding = "latin1")
        # create new data object with selected columns from temporary data object
-       decon <- dplyr::select(ces2019_hldr, c(5:6, 8:10, 69,76, 194, 223:227, 245, 250:251, 258, 123:125))
+       decon <- dplyr::select(ces2019_hldr, c(5:6, 8:10, 20:49, 69,76, 194, 223:227, 245, 250:251, 258, 123:125))
        # rename columns in new data object
        decon <- dplyr::rename(decon,
                               citizenship = 1,                                                        # rename column 1 to citizenship
@@ -81,39 +76,67 @@ get_decon <- function(){
                               gender = 3,                                                             # rename column 3 to gender
                               province_territory = 4,                                                 # rename column 4 to province_territory
                               education = 5,                                                          # rename column 5 to education
-                              lr_bef = 6,                                                             # rename column 6 to lr_bef
-                              lr_aft = 7,                                                             # rename column 7 to lr_aft
-                              religion = 8,                                                           # rename column 8 to religion
-                              sexuality_selected = 9,                                                 # rename column 9 to sexuality_selected
-                              sexuality_text = 10,                                                    # rename column 10 to sexuality_text
-                              language_eng = 11,                                                      # rename column 11 to language_eng
-                              language_fr = 12,                                                       # rename column 12 to language_fr
-                              language_abgl = 13,                                                     # rename column 13 to language_abgl
-                              employment = 14,                                                        # rename column 14 to employment
-                              income = 15,                                                            # rename column 15 to income
-                              income_cat = 16,                                                        # rename column 16 to income_cat
-                              marital = 17,                                                           # rename column 17 to marital
-                              econ_retro = 18,                                                        # rename column 18 to econ_retro
-                              econ_fed = 19,                                                          # rename column 19 to econ_fed
-                              econ_self = 20)                                                         # rename column 20 to econ_self
-       decon <- labelled::to_factor(decon)                                                           # convert variables to factors
-       decon <- dplyr::mutate(decon, lr_bef = as.character(lr_bef))                                  # reassign values in lr_bef column as characters for uniting
-       decon <- dplyr::mutate(decon, lr_aft = as.character(lr_aft))                                  # reassign values in lr_aft column as characters for uniting
-       decon <- tidyr::unite(decon, "lr", lr_bef:lr_aft, na.rm = TRUE, remove = FALSE)               # unite lr_bef and lr_aft columns into new column lr
-       decon <- dplyr::mutate_if(decon, is.character, list(~dplyr::na_if(., "")))                    # replaces empty cells in new lr column with NA
+                              vote_likely = 6,                                                        # rename column 6 to vote_likely
+                              vote_likely_ifable = 7,                                                 # rename column 7 to vote_likely_ifable
+                              votechoice = 8,                                                         # rename column 8 to votechoice
+                              votechoice_text = 9,                                                    # rename column 9 to votechoice_text
+                              votechoice_couldvote = 10,                                              # rename column 10 to votechoice_couldvote
+                              votechoice_couldvote_text = 11,                                         # rename column 11 to votechoice_couldvote_text
+                              vote_unlikely = 12,                                                     # rename column 12 to vote_unlikely
+                              vote_unlikely_text = 13,                                                # rename column 13 to voter_unlikely_text
+                              vote_unlikely_couldvote = 14,                                           # rename column 14 to vote_unlikely_couldvote
+                              vote_unlikely_couldvote_text = 15,                                      # rename column 14 to vote_unlikely_couldvote_text
+                              vote_advancevote_choice = 16,                                           # rename column 16 to vote_advancevote_choice
+                              vote_advancevote_choice_text = 17,                                      # rename column 17 to vote_advancevote_choice_text
+                              vote_partylean = 18,                                                    # rename column 18 to vote_partylean
+                              vote_partylean_text = 19,                                               # rename column 19 to vote_partylean_text
+                              vote_partylean_couldvote = 20,                                          # rename column 20 to vote_partylean_couldvote
+                              vote_partylean_couldvote_text = 21,                                     # rename column 21 to vote_partylean_couldvote_text
+                              votechoice_secondchoice = 22,                                           # rename column 22 to votechoice_secondchoice
+                              votechoice_secondchoice_text = 23,                                      # rename column 23 to votechoice_secondchoice_text
+                              votechoice_couldvote_secondchoice = 24,                                 # rename column 24 to votechoice_couldvote_secondchoice
+                              votechoice_couldvote_secondchoice_text = 25,                            # rename column 25 to votechoice_couldvote_secondchoice_text
+                              votechoice_partynotvote_1 = 26,                                         # rename column 26 to votechoice_partynotvote_1
+                              votechoice_partynotvote_2 = 27,                                         # rename column 27 to votechoice_partynotvote_2
+                              votechoice_partynotvote_3 = 28,                                         # rename column 28 to votechoice_partynotvote_3
+                              votechoice_partynotvote_4 = 29,                                         # rename column 29 to votechoice_partynotvote_4
+                              votechoice_partynotvote_5 = 30,                                         # rename column 30 to votechoice_partynotvote_5
+                              votechoice_partynotvote_6 = 31,                                         # rename column 31 to votechoice_partynotvote_6
+                              votechoice_partynotvote_7 = 32,                                         # rename column 32 to votechoice_partynotvote_7
+                              votechoice_partynotvote_8 = 33,                                         # rename column 33 to votechoice_partynotvote_8
+                              votechoice_partynotvote_9 = 34,                                         # rename column 34 to votechoice_partynotvote_9
+                              votechoice_partynotvote_text = 35,                                      # rename column 35 to votechoice_partynotvote_text
+                              lr_scale_bef = 36,                                                      # rename column 36 to lr_scale_bef
+                              lr_scale_aft = 37,                                                      # rename column 37 to lr_scale_aft
+                              religion = 38,                                                          # rename column 38 to religion
+                              sexuality_selected = 39,                                                # rename column 39 to sexuality_selected
+                              sexuality_text = 40,                                                    # rename column 40 to sexuality_text
+                              language_eng = 41,                                                      # rename column 41 to language_eng
+                              language_fr = 42,                                                       # rename column 42 to language_fr
+                              language_abgl = 43,                                                     # rename column 43 to language_abgl
+                              employment = 44,                                                        # rename column 44 to employment
+                              income = 45,                                                            # rename column 45 to income
+                              income_cat = 46,                                                        # rename column 46 to income_cat
+                              marital = 47,                                                           # rename column 47 to marital
+                              econ_retro = 48,                                                        # rename column 48 to econ_retro
+                              econ_fed = 49,                                                          # rename column 49 to econ_fed
+                              econ_self = 50)                                                         # rename column 50 to econ_self
+       decon <- labelled::to_factor(decon)                                                            # convert variables to factors
+       decon <- dplyr::mutate(decon, lr_scale_bef = as.character(lr_scale_bef))                       # reassign values in lr_scale_bef column as characters for uniting
+       decon <- dplyr::mutate(decon, lr_scale_aft = as.character(lr_scale_aft))                       # reassign values in lr_scale_aft column as characters for uniting
+       decon <- tidyr::unite(decon, "lr_scale", lr_scale_bef:lr_scale_aft, na.rm = T, remove = F)     # unite lr_scale_bef and lr_scale_aft columns into new column lr_scale
+       decon <- dplyr::mutate_if(decon, is.character, list(~dplyr::na_if(., "")))                     # replaces empty cells in new lr column with NA
        assign("decon", dplyr::mutate(decon, ces_code = "ces2019_web", .before = 1), envir = .GlobalEnv)
        # remove temporary data object
        rm(ces2019_hldr)
        # remove the temporary placeholder
-       unlink(hldr, recursive = TRUE, force = TRUE)
-       # remove temporary directory
-       unlink("inst/extdata/ces2019_hldr", recursive = TRUE, force = TRUE)
+       unlink(hldr, recursive = T, force = T)
        # print out a concatenation of the survey citation
        cat("TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Online Survey',
            https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1\nLINK: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V")
     }
     else{
         # if the file does exist stop process and print this message
-        stop("Warning: File already exists.")
+        stop("Warning: Dataframe already exists.")
     }
 }

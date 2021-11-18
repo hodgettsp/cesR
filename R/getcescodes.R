@@ -2,7 +2,7 @@
 #'
 #' @description
 #' `get_cescodes()` prints out a data frame of the CES survey codes and the associated calls.
-#' Provides a quick way of looking up a CES survey code and the associated calls.
+#' Provides a quick way of looking up a CES survey code and the associated call.
 #'
 #' @details
 #' Items under the *Survey Code Calls* and *Index Code Calls* can be copied and used with the `get_ces()` function.
@@ -56,10 +56,6 @@
 #' * `"ces1965"` calls 1965 CES survey dataset.
 #'
 #' @examples
-#' devtools::install_github("hodgettsp/cesR")
-#'
-#' library(cesR)
-#'
 #' get_cescodes()
 #'
 #' @seealso `get_ces()` function help.

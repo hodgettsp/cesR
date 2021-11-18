@@ -1,27 +1,43 @@
 Package: cesR
 Type: Package
-Title: Access the CES Datasets a Little Easier.
+Title: Access the Canadian Election Study Datasets.
 Version: 0.1.0
 Authors@R: 
-    c(person(given = "Paul A.", family = "Hodgetts", role = c("aut", "cre"), email = "hodgetts.paul@outlook.com"),
-    person(given = "Rohan", family = "Alexander", role = c("aut")))
+    c(person(given = "Paul A.",
+    family = "Hodgetts",
+    role = c("aut", "cre"),
+    email = "hodgetts.paul@outlook.com"),
+    person(given = "Rohan",
+    family = "Alexander",
+    role = c("aut"),
+    email = "rohan.alexander@utoronto.ca",
+    comment = c(ORCID = "0000-0003-1279-0700")))
 Maintainer: Paul A. Hodgetts <hodgetts.paul@outlook.com>
-Description: Constantly having to locate datasets, download datasets, load in datasets of varying types,
-    and change working directories can be frustrating. The cesR package makes accessing and loading
-    the Canadian Election Study surveys less of a hassle by downloading a requested survey
-    and loading it as a data object.
-Depends: R(>= 3.5.0)
+Description: The cesR package makes accessing and loading the Canadian Election Study surveys into the R workspace more efficient by 
+  downloading a requested survey and loading it as a data object. This removes the need to locate, download, load, 
+  and change working directories for datasets of varying types.
 License: MIT + file LICENSE
+URL: https://hodgettsp.github.io/cesR/
+BugReports: https://github.com/hodgettsp/cesR/issues
+Depends: R(>= 3.5.0)
 Encoding: UTF-8
 LazyData: true
+Language: en-UK
 Imports: 
     dplyr,
     haven,
+    readr,
     labelled,
     tidyr,
     tools,
     utils
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Suggests: 
     testthat
+    knitr,
+    rmarkdown,
+    spelling
+VignetteBuilder:
+    knitr
+

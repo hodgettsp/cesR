@@ -2,7 +2,7 @@
 % Please edit documentation in R/getces.R
 \name{get_ces}
 \alias{get_ces}
-\title{Create a dataframe object from CES survey.}
+\title{Create a dataframe object for a CES survey.}
 \usage{
 get_ces(srvy)
 }
@@ -11,15 +11,16 @@ get_ces(srvy)
 \code{srvy} value must be a character string.}
 }
 \description{
-\code{get_ces()} creates a dataframe for a requested Canadian Election Study
+\code{get_ces()} creates a dataframe object for a requested Canadian Election Study
 survey using an associated survey code to call and download
-the survey dataset. Prints out the associated citation for use with
-the requested dataset and a link to the orginal location of the data file.
+the survey dataset. On creation of the data object, prints out the associated citation for use with
+the requested dataset and a link to the original location of the data file.
 }
 \details{
 \subsection{Datasets}{
 
-Datasets are loaded using either .dta or .sav file types.
+Datasets are loaded using .dta, .sav, or .tab file types. See \emph{File Types} below for a list of included
+CES datasets and their file type.
 To quickly convert a dataset's values to factor type use
 \code{labelled::to_factor()} on the dataset.
 }
@@ -51,10 +52,36 @@ To quickly convert a dataset's values to factor type use
 }
 }
 
+\subsection{File Types}{
+\itemize{
+\item CES 2019 online survey. Loaded as a .dta file type.
+\item CES 2019 phone survey. Loaded as a .tab file type.
+\item CES 2015 online survey. Loaded as a .dta file type.
+\item CES 2015 phone survey. Loaded as a .dta file type.
+\item CES 2015 combined survey. Loaded as a .dta file type.
+\item CES 2011 survey. Loaded as a .dta file type.
+\item CES 2008 survey. Loaded as a .sav file type.
+\item CES 2004 survey. Loaded as a .sav file type.
+\item CES 2004-2011 surveys. Loaded as a .dta file type.
+\item CES 2004-2006 surveys. Loaded as a .sav file type.
+\item CES 2000 survey. Loaded as a .sav file type.
+\item CES 1997 survey. Loaded as a. sav file type.
+\item CES 1993 survey. Loaded as a .sav file type.
+\item CES 1988 survey. Loaded as a .sav file type.
+\item CES 1974 survey. Loaded as a .sav file type.
+\item CES 1974-1980 surveys. Loaded as a .sav file type.
+\item CES 1972 June-July surveys. Loaded as a .sav file type.
+\item CES 1972 September survey. Loaded as a .sav file type.
+\item CES 1972 November survey. Loaded as a .sav file type.
+\item CES 1968 survey. Loaded as a .sav file type.
+\item CES 1965 survey. Loaded as a .sav file type.
+}
+}
+
 \subsection{Incorrect/Repeated Code Calls}{
 
-Incorrect (a non-existent survey code) will stop the function process and return associated error messages.
-Repeated code calls will load in an unaltered version of the requested table.
+Incorrect (a non-existent survey code) will stop the function process and return an associated error message.
+Repeated code calls will load in the raw version of the requested table.
 }
 
 \subsection{Extra Notes}{
@@ -68,8 +95,8 @@ devtools::install_github("hodgettsp/cesR")
 
 library(cesR)
 
-get_ces("ces2019_phone")
+get_ces("ces2019_web")
 
-ces2019_phone <- labelled::to_factor(ces2019_phone)
-head(ces2019_phone)
+ces2019_phone <- labelled::to_factor(ces2019_web)
+head(ces2019_web)
 }

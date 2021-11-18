@@ -3,7 +3,7 @@
 
 # cesR <img src="man/figures/logo.png" align="right" height="140" />
 
-#### Access the Canadian Election Study Datasets a Little Easier.
+#### Access the Canadian Election Study Datasets.
 
 <!-- badges: start -->
 

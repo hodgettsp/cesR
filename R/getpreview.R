@@ -2,13 +2,13 @@
 #'
 #' @description
 #' `get_preview()` creates a truncated dataframe for a requested Canadian Election Study
-#' survey using an associated survey code to call and download
+#' survey using an associated code to call and download
 #' the survey dataset.
 #'
 #' @param srvy A CES survey code call. See *Survey Code Calls* below.
 #' `srvy` value must be a character string.
-#' @param x A numerical value that determines the number of observations returned.
-#' If `x` is not given, then default value is 6 observations.
+#' @param obs A numerical value that determines the number of observations returned.
+#' If a value for `obs` is not given, then default value is 6 observations.
 #' Variable must be given as a numerical value.
 #'
 #' @details
@@ -54,9 +54,6 @@
 #' to download the associated codebook for the requested dataset.
 #'
 #' #' @examples
-#' devtools::install_github("hodgettsp/cesR")
-#'
-#' library(cesR)
 #'
 #' get_preview("ces2019_phone", 10)
 
@@ -69,310 +66,323 @@
 # function to call to create previews of the CES surveys
 # code for the first section of the function is commented with how the function works,
 # all following sections work in the same manner.
-get_preview <- function(srvy, x = 6){
+get_preview <- function(srvy, obs = 6){
   # if 'srvy' is in 'ces_codese' vector
   if(srvy %in% ces_codes){
     # if 'srvy' is equal to 'ces2019_web'
     if(srvy == "ces2019_web"){
       # if the file does not exist
-      if(!file.exists("inst/extdata/ces2019_web/ces2019_web.dta")){
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces2019_web.dta"))){
         # assign download url
-        cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2019-web.zip"
-        # create temporary file name holder with extension .zip
-        hldr <- tempfile(fileext = ".zip")
-        # download the file from the url and assign temporary name
-        download.file(cesfile, hldr, quiet = TRUE)
-        # unzip the compressed folder to the given directory
-        unzip(hldr, exdir = "inst/extdata/ces2019_web")
+        cesfile <- "https://dataverse.harvard.edu/api/access/datafile/:persistentId?persistentId=doi:10.7910/DVN/DUS88V/RZFNOV"
+        # create temporary file name holder
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces2019_web.dta")
+        # download the file from the url and assign file name from holder
+        download.file(cesfile, hldr, quiet = F, mode = "wb")
         # create a locally available variable
-        survey_read <- haven::read_dta(hldr)
+        survey_read <- haven::read_dta(hldr, encoding = "latin1")
         # assign the data file to a globally available variable
-        assign("ces2019_web_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
+        assign("ces2019_web_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        # print the preview dataset
+        print(head(ces2019_web_preview, obs))
         # remove the temporary file
-        unlink(hldr, recursive = TRUE)
-        # remove the download directory
-        unlink("inst/extdata/ces2019_web", recursive = TRUE)
+        unlink(hldr, recursive = T)
         # remove the local variable
         rm(survey_read)
       }
     }
     else if(srvy == "ces2019_phone"){
-      if(!file.exists("inst/extdata/ces2019_phone/CES-E-2019-phone_F1.sav")){
-        cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2019-phone.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces2019_phone")
-        survey_read <- haven::read_sav(hldr)
-        assign("ces2019_phone_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces2019_phone", recursive = TRUE)
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces2019_phone.tab"))){
+        cesfile <- "https://dataverse.harvard.edu/api/access/datafile/:persistentId?persistentId=doi:10.7910/DVN/8RHLG1/DW4GZZ"
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces2019_phone.tab")
+        download.file(cesfile, hldr, quiet = F, mode = "wb")
+        survey_read <- readr::read_tsv(hldr, show_col_types = F)
+        assign("ces2019_phone_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces2019_phone_preview, obs))
+        unlink(hldr, recursive = T)
         rm(survey_read)
       }
     }
     else if(srvy == "ces2015_web"){
-      if(!file.exists("inst/extdata/ces2015_web/CES15_CPS+PES_Web_SSI Full.SAV")){
-        cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES15_CPSPES_Web_SSI-Full-SPSS.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces2015_web")
-        survey_read <- haven::read_sav(hldr)
-        assign("ces2015_web_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces2015_web", recursive = TRUE)
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces2015_web.zip"))){
+        cesfile <- "https://ces-eec.sites.olt.ubc.ca/files/2018/07/CES15_CPSPES_Web_SSI-Full-Stata-14.zip"
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces2015_web.zip")
+        download.file(cesfile, hldr, quiet = F)
+        survey_read <- haven::read_dta(hldr)
+        assign("ces2015_web_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces2015_web_preview, obs))
+        unlink(hldr, recursive = T)
         rm(survey_read)
       }
     }
     else if(srvy == "ces2015_phone"){
-      if(!file.exists("inst/extdata/ces2015_phone/CES2015_CPS-PES-MBS_complete-v2.dta")){
-        cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2015-phone-SPSS.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces2015_phone")
-        survey_read <- haven::read_dta(hldr)
-        assign("ces2015_phone_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces2015_phone", recursive = TRUE)
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces2015_phone.zip"))){
+        cesfile <- "https://ces-eec.sites.olt.ubc.ca/files/2018/08/CES2015-phone-Stata.zip"
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces2015_phone.zip")
+        download.file(cesfile, hldr, quiet = F)
+        unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces2015_phone"))
+        datafile <- file.path(system.file("extdata/ces2015_phone", package = "cesR"), "CES2015_CPS-PES-MBS_complete-v2.dta")
+        survey_read <- haven::read_dta(datafile, encoding = "latin1")
+        assign("ces2015_phone_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces2015_phone_preview, obs))
+        unlink(hldr, recursive = T)
+        unlink(file.path(system.file("extdata/ces2015_phone", package = "cesR")), recursive = T)
         rm(survey_read)
       }
     }
     else if(srvy == "ces2015_combo"){
-      if(!file.exists("inst/extdata/ces2015_combo/CES2015_Combined_SPSS.SAV")){
-        cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2015_Combined_SPSS.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces2015_combo")
-        survey_read <- haven::read_sav(hldr)
-        assign("ces2015_combo_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces2015_combo", recursive = TRUE)
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces2015_combo.zip"))){
+        cesfile <- "https://ces-eec.sites.olt.ubc.ca/files/2017/04/CES2015_Combined_Stata14.zip"
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces2015_combo.zip")
+        download.file(cesfile, hldr, quiet = F)
+        survey_read <- haven::read_dta(hldr)
+        assign("ces2015_combo_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces2015_combo_preview, obs))
+        unlink(hldr, recursive = T)
         rm(survey_read)
       }
     }
     else if(srvy == "ces2011"){
-      if(!file.exists("inst/extdata/ces2011/CPS&PES&MBS&WEB_2011_final.sav")){
-        cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES2011-final-1.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces2011")
-        survey_read <- haven::read_sav(hldr)
-        assign("ces2011_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces2011", recursive = TRUE)
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces2011.zip"))){
+        cesfile <- "https://ces-eec.sites.olt.ubc.ca/files/2014/07/CES2011-final-1.zip"
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces2011.zip")
+        download.file(cesfile, hldr, quiet = F)
+        unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces2011"))
+        datafile <- file.path(system.file("extdata/ces2011", package = "cesR"), "CPS&PES&MBS&WEB_2011_final.dta")
+        survey_read <- haven::read_dta(datafile)
+        assign("ces2011_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces2011_preview, obs))
+        unlink(hldr, recursive = T)
+        unlink(file.path(system.file("extdata/ces2011", package = "cesR")), recursive = T)
         rm(survey_read)
       }
     }
     else if(srvy == "ces2008"){
-      if(!file.exists("inst/extdata/ces2008/CES-E-2008_F1.sav")){
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces2008.zip"))){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-2008.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces2008")
+        hldr <- file.path(system.file("extdata", package = "cesR"), "cse2008.zip")
+        download.file(cesfile, hldr, quiet = F)
+        unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces2008"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces2008_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces2008", recursive = TRUE)
+        assign("ces2008_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces2008_preview, obs))
+        unlink(hldr, recursive = T)
+        unlink(file.path(system.file("extdata/ces2008", package = "cesR")), recursive = T)
         rm(survey_read)
       }
     }
     else if(srvy == "ces2004"){
-      if(!file.exists("inst/extdata/ces2008/CES-E-2004_F1.sav")){
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces2004.zip"))){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-2004.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces2004")
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces2004.zip")
+        download.file(cesfile, hldr, quiet = F)
+        unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces2004"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces2004_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces2004", recursive = TRUE)
+        assign("ces2004_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces2004_preview, obs))
+        unlink(hldr, recursive = T)
+        unlink(file.path(system.file("extdata/ces2004", package = "cesR")), recursive = T)
         rm(survey_read)
       }
     }
     else if(srvy == "ces0411"){
-      if(!file.exists("inst/extdata/ces0411/CES_04060811_final_without-geo-data.dta")){
-        cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES_04060811_final_without-geo-data.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces0411")
-        survey_read <- haven::read_dta(hldr)
-        assign("ces0411_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces0411", recursive = TRUE)
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces0411.zip"))){
+        cesfile <- "https://ces-eec.sites.olt.ubc.ca/files/2014/07/CES_04060811_final_without-geo-data.zip"
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces0411.zip")
+        download.file(cesfile, hldr, quiet = F)
+        survey_read <- haven::read_dta(hldr, encoding = "latin1")
+        assign("ces0411_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces0411_preview, obs))
+        unlink(hldr, recursive = T)
         rm(survey_read)
       }
     }
     else if(srvy == "ces0406"){
-      if(!file.exists("inst/extdata/ces0406/CES-E-2004-2006_F1.sav")){
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces0406.zip"))){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-2004-2006.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces0406")
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces0406.zip")
+        download.file(cesfile, hldr, quiet = F)
+        unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces0406"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces0406_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces0406", recursive = TRUE)
+        assign("ces0406_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces0406_preview, obs))
+        unlink(hldr, recursive = T)
+        unlink(file.path(system.file("extdata/ces0406", package = "cesR")), recursive = T)
         rm(survey_read)
       }
     }
     else if(srvy == "ces2000"){
-      if(!file.exists("inst/extdata/ces2000/CES-E-2000_F1.sav")){
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces2000.zip"))){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-2000.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces2000")
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces2000.zip")
+        download.file(cesfile, hldr, quiet = F)
+        unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces2000"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces2000_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces2000", recursive = TRUE)
+        assign("ces2000_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces2000_preview, obs))
+        unlink(hldr, recursive = T)
+        unlink(file.path(system.file("extdata/ces2000", package = "cesR")), recursive = T)
         rm(survey_read)
       }
     }
     else if(srvy == "ces1997"){
-      if(!file.exists("inst/extdata/ces2000/CES-E-1997_F1.sav")){
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces1997.zip"))){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1997.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces1997")
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces1997.zip")
+        download.file(cesfile, hldr, quiet = F)
+        unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1997"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces1997_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces1997", recursive = TRUE)
+        assign("ces1997_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces1997_preview, obs))
+        unlink(hldr, recursive = T)
+        unlink(file.path(system.file("extdata/ces1997", package = "cesR")), recursive = T)
         rm(survey_read)
       }
     }
     else if(srvy == "ces1993"){
-      if(!file.exists("inst/extdata/ces2000/CES-E-1993_F1.sav")){
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces1993.zip"))){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1993.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces1993")
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces1993.zip")
+        download.file(cesfile, hldr, quiet = F)
+        unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1993"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces1993_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces1993", recursive = TRUE)
+        assign("ces1993_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces1993_preview, obs))
+        unlink(hldr, recursive = T)
+        unlink(file.path(system.file("extdata/ces1993", pacakge = "cesR")), recursive = T)
         rm(survey_read)
       }
     }
     else if(srvy == "ces1988"){
-      if(!file.exists("inst/extdata/ces2000/CES-E-1988_F1.sav")){
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces1988.zip"))){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1988.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces1988")
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces1988.zip")
+        download.file(cesfile, hldr, quiet = F)
+        unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1988"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces1988_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces1988", recursive = TRUE)
+        assign("ces1988_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces1988_preview, obs))
+        unlink(hldr, recursive = T)
+        unlink(file.path(system.file("extdata/ces1988", pacakge = "cesR")), recursive = T)
         rm(survey_read)
       }
     }
     else if(srvy == "ces1984"){
-      if(!file.exists("inst/extdata/ces2000/CES-E-1984_F1.sav")){
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces1984.zip"))){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1984.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces1984")
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces1984.zip")
+        download.file(cesfile, hldr, quiet = F)
+        unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1984"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces1984_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces1984", recursive = TRUE)
+        assign("ces1984_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces1984_preview, obs))
+        unlink(hldr, recursive = T)
+        unlink(file.path(system.file("extdata/ces1984", package = "cesR")), recursive = T)
         rm(survey_read)
       }
     }
     else if(srvy == "ces1974"){
-      if(!file.exists("inst/extdata/ces2000/CES-E-1974_F1.sav")){
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces1974.zip"))){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1974.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces1974")
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces1974.zip")
+        download.file(cesfile, hldr, quiet = F)
+        unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1974"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces1974_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces1974", recursive = TRUE)
+        assign("ces1974_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces1974_preview, obs))
+        unlink(hldr, recursive = T)
+        unlink(file.path(system.file("extdata/ces1974", package = "cesR")), recursive = T)
         rm(survey_read)
       }
     }
     else if(srvy == "ces7480"){
-      if(!file.exists("inst/extdata/ces2000/CES-E-1974-1980_F1.sav")){
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces7480.zip"))){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1974-1980.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces7480")
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces7480.zip")
+        download.file(cesfile, hldr, quiet = F)
+        unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces7480"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces7480_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces7480", recursive = TRUE)
+        assign("ces7480_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces7480_preview, obs))
+        unlink(hldr, recursive = T)
+        unlink(file.path(system.file("extdata/ces7480", package = "cesR")), recursive = T)
         rm(survey_read)
       }
     }
     else if(srvy == "ces72_jnjl"){
-      if(!file.exists("inst/extdata/ces72_jnjl/CES-E-1972-jun-july_F1.sav")){
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces72_jnjl.zip"))){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1972-jun-july.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces72_jnjl")
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces72_jnjl.zip")
+        download.file(cesfile, hldr, quiet = F)
+        unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces72_jnjl"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces72_jnjl_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces72_jnjl", recursive = TRUE)
+        assign("ces72_jnjl_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces72_jnjl_preview, obs))
+        unlink(hldr, recursive = T)
+        unlink(file.path(system.file("extdata/ces72_jnjl", package = "cesR")), recursive = T)
         rm(survey_read)
       }
     }
     else if(srvy == "ces72_sep"){
-      if(!file.exists("inst/extdata/ces72_sep/CES-E-1972-sept_F1.sav")){
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces72_sep.zip"))){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1972-sept.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces72_sep")
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces72_sep.zip")
+        download.file(cesfile, hldr, quiet = F)
+        unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces72_sep"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces72_sep_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces72_sep", recursive = TRUE)
+        assign("ces72_sep_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces72_sep_preview, obs))
+        unlink(hldr, recursive = T)
+        unlink(file.path(system.file("extdata/ces72_sep", package = "cesR")), recursive = T)
         rm(survey_read)
       }
     }
     else if(srvy == "ces72_nov"){
-      if(!file.exists("inst/extdata/ces72_nov/CES-E-1972-nov_F1.sav")){
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces72_nov.zip"))){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1972-nov.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces72_nov")
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces72_nov.zip")
+        download.file(cesfile, hldr, quiet = F)
+        unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces72_nov"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces72_nov_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces72_nov", recursive = TRUE)
+        assign("ces72_nov_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces72_nov_preview, obs))
+        unlink(hldr, recursive = T)
+        unlink(file.path(system.file("extdata/ces72_nov", package= "cesR")), recursive = T)
         rm(survey_read)
       }
     }
     else if(srvy == "ces1968"){
-      if(!file.exists("inst/extdata/ces1968/CES-E-1968_F1.sav")){
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces1968.zip"))){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1968.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces1968")
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces1968.zip")
+        download.file(cesfile, hldr, quiet = F)
+        unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1968"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces1968_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces1968", recursive = TRUE)
+        assign("ces1968_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces1968_preview, obs))
+        unlink(hldr, recursive = T)
+        unlink(file.path(system.file("extdata/ces1968", package = "cesR")), recursive = T)
         rm(survey_read)
       }
     }
     else if(srvy == "ces1965"){
-      if(!file.exists("inst/extdata/ces1965/CES-E-1965_F1.sav")){
+      if(!file.exists(file.path(system.file("extdata", package = "cesR"), "ces1965.zip"))){
         cesfile <- "https://raw.github.com/hodgettsp/ces_data/master/extdata/CES-E-1965.zip"
-        hldr <- tempfile(fileext = ".zip")
-        download.file(cesfile, hldr, quiet = TRUE)
-        unzip(hldr, exdir = "inst/extdata/ces1965")
+        hldr <- file.path(system.file("extdata", package = "cesR"), "ces1965.zip")
+        download.file(cesfile, hldr, quiet = F)
+        unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1965"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces1965_preview", head(labelled::to_factor(survey_read), x), envir = .GlobalEnv)
-        unlink(hldr, recursive = TRUE)
-        unlink("inst/extdata/ces1965", recursive = TRUE)
+        assign("ces1965_preview", head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        print(head(ces1965_preview, obs))
+        unlink(hldr, recursive = T)
+        unlink(file.path(system.file("extdata/ces1965", package = "cesR")), recursive = T)
         rm(survey_read)
       }
     }
   }
   else{
     # if the provided code is not in the 'ces_codes' vector then stop process and print this message
-    stop("Warning: Code not in table.")
+    stop("Incorrect CES dataset code provided. Use function get_cescodes() for a printout of useable code calls")
   }
 }
 

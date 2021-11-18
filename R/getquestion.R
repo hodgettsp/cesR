@@ -13,15 +13,6 @@
 #' on the `var_label` function from the `labelled` package.
 #'
 #' @examples
-#' # install cesR package
-#' devtools::github("hodgettsp/cesR")
-#'
-#' # load cesR package
-#' library(cesR)
-#'
-#' # get the 2019 CES phone survey
-#' get_ces("ces2019_phone")
-#'
 #' # request the survey question for column q11
 #' get_question("ces2019_phone", "q11")
 
