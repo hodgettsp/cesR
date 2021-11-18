@@ -90,7 +90,7 @@ demographics, ideology, and economy sections of the 2019 CES online survey." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -99,7 +99,12 @@ demographics, ideology, and economy sections of the 2019 CES online survey." />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/hodgettsp/cesR/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -114,7 +119,7 @@ demographics, ideology, and economy sections of the 2019 CES online survey." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Creates a non-exhaustive dataframe of 21 variables with renamed columns.</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/hodgettsp/cesR/blob/master/R/decon.R'><code>R/decon.R</code></a></small>
     <div class="hidden name"><code>get_decon.Rd</code></div>
     </div>
 
@@ -124,7 +129,7 @@ decon consisting of 21 variables with renamed columns from the
 demographics, ideology, and economy sections of the 2019 CES online survey.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_decon</span>()</pre>
+    <pre class="usage"><span class='fu'>get_decon</span><span class='op'>(</span><span class='op'>)</span></pre>
 
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -132,10 +137,10 @@ demographics, ideology, and economy sections of the 2019 CES online survey.</p>
     <p>NAs have not been removed. The politically left/right question
 variables (<code>lr_bef</code> and <code>lr_aft</code>) have also been joined in one column under the
 name <code>lr</code>. All variables have been converted to factor type using
-<code><a href='https://rdrr.io/pkg/labelled/man/to_factor.html'>labelled::to_factor</a></code> and are listed below.</p><h3>decon Variables</h3>
+<code><a href='http://larmarange.github.io/labelled/reference/to_factor.html'>labelled::to_factor</a></code> and are listed below.</p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>decon Variables</h3>
 
 
-<dl'>
+<dl>
 <dt><code>citizenship</code></dt><dd><p>Canadian citizenship status</p></dd>
 <dt><code>yob</code></dt><dd><p>year of birth</p></dd> <dt><code>gender</code></dt><dd><p>identified gender of
 the respondent</p></dd> <dt><code>province_territory</code></dt><dd><p>Province or Territory of
@@ -175,35 +180,60 @@ John, 2020, "2019 Canadian Election Study - Online Survey",
 <a href='https://doi.org/10.7910/DVN/DUS88V'>https://doi.org/10.7910/DVN/DUS88V</a>, Harvard Dataverse, V1</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw pkg'>devtools</span><span class='kw ns'>::</span><span class='fu'><a href='https://devtools.r-lib.org//reference/remote-reexports.html'>install_github</a></span>(<span class='st'>"hodgettsp/cesR"</span>)</div><div class='output co'>#&gt; <span class='message'>Downloading GitHub repo hodgettsp/cesR@HEAD</span></div><div class='output co'>#&gt; 
-#&gt;          checking for file 'C:\Users\phodg\AppData\Local\Temp\Rtmp2vnjW9\remotes5ad841db3a9b\hodgettsp-cesR-a41156a/DESCRIPTION' ...  <span style='color: #00BB00;'>v</span><span>  </span><span style='color: #555555;'>checking for file 'C:\Users\phodg\AppData\Local\Temp\Rtmp2vnjW9\remotes5ad841db3a9b\hodgettsp-cesR-a41156a/DESCRIPTION'</span><span>
-#&gt;       </span><span style='color: #555555;'>-  preparing 'cesR':</span><span>
-#&gt;    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   </span><span style='color: #00BB00;'>v</span><span>  </span><span style='color: #555555;'>checking DESCRIPTION meta-information</span><span>
-#&gt;       </span><span style='color: #555555;'>-  checking for LF line-endings in source and make files and shell scripts</span><span>
-#&gt;       </span><span style='color: #555555;'>-  checking for empty or unneeded directories</span><span>
-#&gt;       </span><span style='color: #555555;'>-  building 'cesR_0.1.0.tar.gz'</span><span>
-#&gt;      
-#&gt; </div><div class='output co'>#&gt; <span class='error'>Error: Failed to install 'cesR' from GitHub:</span>
-#&gt; <span class='error'>  (converted from warning) package 'cesR' is in use and will not be installed</span></div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>cesR</span>)
-
-<span class='fu'><a href='https://rdrr.io/pkg/cesR/man/get_decon.html'>get_decon</a></span>()</div><div class='output co'>#&gt; TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Online Survey',
-#&gt;            https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1
-#&gt; LINK: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>decon</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 22</span><span>
-#&gt;   ces_code citizenship yob   gender province_territ~ education lr    lr_bef
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> 
-#&gt; </span><span style='color: #555555;'>1</span><span> ces2019~ Canadian c~ 1989  A wom~ Quebec           Master's~ 2     </span><span style='color: #BB0000;'>NA</span><span>    
-#&gt; </span><span style='color: #555555;'>2</span><span> ces2019~ Canadian c~ 1998  A wom~ Quebec           Master's~ 2     </span><span style='color: #BB0000;'>NA</span><span>    
-#&gt; </span><span style='color: #555555;'>3</span><span> ces2019~ Canadian c~ 2000  A wom~ Ontario          Some uni~ 4     4     
-#&gt; </span><span style='color: #555555;'>4</span><span> ces2019~ Canadian c~ 1998  A man  Ontario          Some uni~ 7     7     
-#&gt; </span><span style='color: #555555;'>5</span><span> ces2019~ Canadian c~ 2000  A wom~ Ontario          Complete~ 4     4     
-#&gt; </span><span style='color: #555555;'>6</span><span> ces2019~ Canadian c~ 1999  A wom~ Ontario          Some uni~ 4     4     
-#&gt; </span><span style='color: #555555;'># ... with 14 more variables: lr_aft </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, religion </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   sexuality_selected </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, sexuality_text </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, language_eng </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   language_fr </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, language_abgl </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, employment </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, income </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   income_cat </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, marital </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, econ_retro </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>, econ_fed </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   econ_self </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span></div><div class='input'>
-</div></span></pre>
+    <pre class="examples"><span class='r-in'><span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'><a href='https://devtools.r-lib.org//reference/remote-reexports.html'>install_github</a></span><span class='op'>(</span><span class='st'>"hodgettsp/cesR"</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Downloading GitHub repo hodgettsp/cesR@HEAD</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>          checking for file 'C:\Users\phodg\AppData\Local\Temp\RtmpMjHD8v\remotes65503644555\hodgettsp-cesR-85f07a4/DESCRIPTION' ...     checking for file 'C:\Users\phodg\AppData\Local\Temp\RtmpMjHD8v\remotes65503644555\hodgettsp-cesR-85f07a4/DESCRIPTION' ...   <span style='color: #00BB00;'>v</span>  <span style='color: #9E9E9E;'>checking for file 'C:\Users\phodg\AppData\Local\Temp\RtmpMjHD8v\remotes65503644555\hodgettsp-cesR-85f07a4/DESCRIPTION'</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       <span style='color: #9E9E9E;'>-  preparing 'cesR':</span><span style='color: #00BBBB;'> (476ms)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   <span style='color: #BB0000;'>E  checking DESCRIPTION meta-information</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      Malformed Depends or Suggests or Imports or Enhances field.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    Offending entries:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      testthat</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    knitr</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    Entries must be names of packages optionally followed by '&lt;=' or '&gt;=',</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    white space, and a valid version number in parentheses.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    See section 'The DESCRIPTION file' in the 'Writing R Extensions'</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    manual.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error:</span> Failed to install 'cesR' from GitHub:</span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span>   System command 'Rcmd.exe' failed, exit status: 1, stdout + stderr:</span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; * checking for file 'C:\Users\phodg\AppData\Local\Temp\RtmpMjHD8v\remotes65503644555\hodgettsp-cesR-85f07a4/DESCRIPTION' ... OK</span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; * preparing 'cesR':</span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; * checking DESCRIPTION meta-information ... ERROR</span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; Malformed Depends or Suggests or Imports or Enhances field.</span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; Offending entries:</span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt;   testthat</span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; knitr</span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; Entries must be names of packages optionally followed by '&lt;=' or '&gt;=',</span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; white space, and a valid version number in parentheses.</span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; </span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; See section 'The DESCRIPTION file' in the 'Writing R Extensions'</span>
+<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; manual.</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>cesR</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>get_decon</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Online Survey',</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>            https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LINK: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>decon</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 6 x 22</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ces_code    citizenship  yob   gender province_territ~ education  lr    lr_bef</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;fct&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;fct&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;fct&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;fct&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;fct&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> ces2019_web Canadian ci~ 1989  A wom~ Quebec           Master's ~ 2     <span style='color: #BB0000;'>NA</span>    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> ces2019_web Canadian ci~ 1998  A wom~ Quebec           Master's ~ 2     <span style='color: #BB0000;'>NA</span>    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span> ces2019_web Canadian ci~ 2000  A wom~ Ontario          Some univ~ 4     4     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>4</span> ces2019_web Canadian ci~ 1998  A man  Ontario          Some univ~ 7     7     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>5</span> ces2019_web Canadian ci~ 2000  A wom~ Ontario          Completed~ 4     4     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>6</span> ces2019_web Canadian ci~ 1999  A wom~ Ontario          Some univ~ 4     4     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># ... with 14 more variables: lr_aft &lt;chr&gt;, religion &lt;fct&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   sexuality_selected &lt;fct&gt;, sexuality_text &lt;chr&gt;, language_eng &lt;fct&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   language_fr &lt;fct&gt;, language_abgl &lt;fct&gt;, employment &lt;fct&gt;, income &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   income_cat &lt;fct&gt;, marital &lt;fct&gt;, econ_retro &lt;fct&gt;, econ_fed &lt;fct&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   econ_self &lt;fct&gt;</span></span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -219,7 +249,7 @@ John, 2020, "2019 Canadian Election Study - Online Survey",
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
