@@ -95,6 +95,9 @@ demographics, ideology, and economy sections of the 2019 CES online survey." />
   </a>
 </li>
 <li>
+  <a href="../articles/cesR.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
       </ul>
@@ -129,15 +132,14 @@ decon consisting of 21 variables with renamed columns from the
 demographics, ideology, and economy sections of the 2019 CES online survey.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_decon</span><span class='op'>(</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_decon</span><span class='op'>(</span>pos <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></pre>
 
-
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>NAs have not been removed. The politically left/right question
-variables (<code>lr_bef</code> and <code>lr_aft</code>) have also been joined in one column under the
-name <code>lr</code>. All variables have been converted to factor type using
-<code><a href='http://larmarange.github.io/labelled/reference/to_factor.html'>labelled::to_factor</a></code> and are listed below.</p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>decon Variables</h3>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>pos</th>
+      <td><p>Environment assignment. Defaults to 1, which is an assignment to the global environment.</p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>decon Variables</h3>
 
 
 <dl>
@@ -169,8 +171,16 @@ federal government made Canada's economy...'</p></dd>
 <dt><code>econ_self</code></dt><dd><p>response to question, have the policies of the
 federal government made your financial situation...'</p></dd> 
 </dl>
+</td>
+    </tr>
+    </table>
 
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
+    <p>NAs have not been removed. The politically left/right question
+variables (<code>lr_bef</code> and <code>lr_aft</code>) have also been joined into one column under the
+name <code>lr_scale</code>. All variables have been converted to factor type using
+<code><a href='http://larmarange.github.io/labelled/reference/to_factor.html'>labelled::to_factor</a></code> and are listed below.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>For further details, see
@@ -180,43 +190,13 @@ John, 2020, "2019 Canadian Election Study - Online Survey",
 <a href='https://doi.org/10.7910/DVN/DUS88V'>https://doi.org/10.7910/DVN/DUS88V</a>, Harvard Dataverse, V1</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'><span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'><a href='https://devtools.r-lib.org//reference/remote-reexports.html'>install_github</a></span><span class='op'>(</span><span class='st'>"hodgettsp/cesR"</span><span class='op'>)</span></span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> Downloading GitHub repo hodgettsp/cesR@HEAD</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>          checking for file 'C:\Users\phodg\AppData\Local\Temp\Rtmp6xSV4l\remotes55242b5a4741\hodgettsp-cesR-f495e9b/DESCRIPTION' ...     checking for file 'C:\Users\phodg\AppData\Local\Temp\Rtmp6xSV4l\remotes55242b5a4741\hodgettsp-cesR-f495e9b/DESCRIPTION' ...   <span style='color: #00BB00;'>v</span>  <span style='color: #9E9E9E;'>checking for file 'C:\Users\phodg\AppData\Local\Temp\Rtmp6xSV4l\remotes55242b5a4741\hodgettsp-cesR-f495e9b/DESCRIPTION'</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>       <span style='color: #9E9E9E;'>-  preparing 'cesR':</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   <span style='color: #BB0000;'>E  checking DESCRIPTION meta-information</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>      Malformed Depends or Suggests or Imports or Enhances field.</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>    Offending entries:</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>      testthat</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>    knitr</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>    Entries must be names of packages optionally followed by '&lt;=' or '&gt;=',</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>    white space, and a valid version number in parentheses.</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>    </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>    See section 'The DESCRIPTION file' in the 'Writing R Extensions'</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>    manual.</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error:</span> Failed to install 'cesR' from GitHub:</span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span>   System command 'Rcmd.exe' failed, exit status: 1, stdout + stderr:</span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; * checking for file 'C:\Users\phodg\AppData\Local\Temp\Rtmp6xSV4l\remotes55242b5a4741\hodgettsp-cesR-f495e9b/DESCRIPTION' ... OK</span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; * preparing 'cesR':</span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; * checking DESCRIPTION meta-information ... ERROR</span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; Malformed Depends or Suggests or Imports or Enhances field.</span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; Offending entries:</span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt;   testthat</span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; knitr</span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; Entries must be names of packages optionally followed by '&lt;=' or '&gt;=',</span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; white space, and a valid version number in parentheses.</span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; </span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; See section 'The DESCRIPTION file' in the 'Writing R Extensions'</span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span> E&gt; manual.</span>
-<span class='r-in'></span>
-<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>cesR</span><span class='op'>)</span></span>
-<span class='r-in'></span>
+    <pre class="examples"><span class='r-in'><span class='co'># call decon dataset</span></span>
 <span class='r-in'><span class='fu'>get_decon</span><span class='op'>(</span><span class='op'>)</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Online Survey',</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>            https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> LINK: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># preview decon</span></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>decon</span><span class='op'>)</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 6 x 22</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>   ces_code    citizenship  yob   gender province_territ~ education  lr    lr_bef</span>

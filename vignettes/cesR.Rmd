@@ -114,5 +114,21 @@ get_preview("ces2019_web", 10)
 get_decon()
 
 head(decon)
+# A tibble: 6 x 52
+  ces_code    citizenship      yob   gender  province_territory education     vote_likely
+  <chr>       <fct>            <fct> <fct>   <fct>              <fct>         <fct>      
+1 ces2019_web Canadian citizen 1989  A woman Quebec             Master's deg~ Certain to~
+2 ces2019_web Canadian citizen 1998  A woman Quebec             Master's deg~ Certain to~
+3 ces2019_web Canadian citizen 2000  A woman Ontario            Some univers~ Certain to~
+4 ces2019_web Canadian citizen 1998  A man   Ontario            Some univers~ Certain to~
+5 ces2019_web Canadian citizen 2000  A woman Ontario            Completed se~ Certain to~
+6 ces2019_web Canadian citizen 1999  A woman Ontario            Some univers~ Certain to~
+# ... with 45 more variables: vote_likely_ifable <fct>, votechoice <fct>,
+#   votechoice_text <chr>, votechoice_couldvote <fct>, votechoice_couldvote_text <chr>,
+#   vote_unlikely <fct>, vote_unlikely_text <chr>, vote_unlikely_couldvote <fct>,
+#   vote_unlikely_couldvote_text <chr>, vote_advancevote_choice <fct>,
+#   vote_advancevote_choice_text <chr>, vote_partylean <fct>, vote_partylean_text <chr>,
+#   vote_partylean_couldvote <fct>, vote_partylean_couldvote_text <chr>,
+#   votechoice_secondchoice <fct>, votechoice_secondchoice_text <chr>, ...
 ```
 

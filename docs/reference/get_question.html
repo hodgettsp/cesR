@@ -94,6 +94,9 @@ column in a given dataset name." />
   </a>
 </li>
 <li>
+  <a href="../articles/cesR.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
       </ul>
@@ -148,28 +151,48 @@ column in a given dataset name.</p>
 Both parameters must be character strings and cannot be reversed.
 To return the associated survey question, the <code>get_question</code> function relies
 on the <code>var_label</code> function from the <code>labelled</code> package.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='get_ces.html'>get_ces()</a></code> function help.
+<code><a href='get_cescodes.html'>get_cescodes()</a></code> help.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'><span class='co'># install cesR package</span></span>
-<span class='r-in'><span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'>github</span><span class='op'>(</span><span class='st'>"hodgettsp/cesR"</span><span class='op'>)</span></span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error:</span> 'github' is not an exported object from 'namespace:devtools'</span>
+    <pre class="examples"><span class='r-in'><span class='co'># print out CES code calls</span></span>
+<span class='r-in'><span class='fu'><a href='get_cescodes.html'>get_cescodes</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    index ces_survey_code get_ces_call_char</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1      1     ces2019_web     "ces2019_web"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2      2   ces2019_phone   "ces2019_phone"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3      3     ces2015_web     "ces2015_web"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4      4   ces2015_phone   "ces2015_phone"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5      5   ces2015_combo   "ces2015_combo"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6      6         ces2011         "ces2011"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7      7         ces2008         "ces2008"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8      8         ces2004         "ces2004"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9      9         ces0411         "ces0411"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10    10         ces0406         "ces0406"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11    11         ces2000         "ces2000"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12    12         ces1997         "ces1997"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13    13         ces1993         "ces1993"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14    14         ces1988         "ces1988"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15    15         ces1984         "ces1984"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16    16         ces1974         "ces1974"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17    17         ces7480         "ces7480"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18    18      ces72_jnjl      "ces72_jnjl"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19    19       ces72_sep       "ces72_sep"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20    20       ces72_nov       "ces72_nov"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21    21         ces1968         "ces1968"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22    22         ces1965         "ces1965"</span>
 <span class='r-in'></span>
-<span class='r-in'><span class='co'># load cesR package</span></span>
-<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>cesR</span><span class='op'>)</span></span>
+<span class='r-in'><span class='co'># call CES survey</span></span>
+<span class='r-in'><span class='fu'><a href='get_ces.html'>get_ces</a></span><span class='op'>(</span><span class='st'>"ces1988"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> TO CITE THIS SURVEY FILE: Johnston, R, Blais, A, Brady, H. E. and Crête, J. 1989. The 1988 Canadian Election Study [dataset]. Toronto, Ontario, Canada: Institute for Social Research [producer and distributor].</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> LINK:http://odesi2.scholarsportal.info/webview/index.jsp?v=2&amp;submode=abstract&amp;study=http%3A%2F%2F142.150.190.128%3A80%2Fobj%2FfStudy%2FCES-E-1988&amp;mode=documentation&amp;top=yes</span>
 <span class='r-in'></span>
-<span class='r-in'><span class='co'># get the 2019 CES phone survey</span></span>
-<span class='r-in'><span class='fu'><a href='get_ces.html'>get_ces</a></span><span class='op'>(</span><span class='st'>"ces2019_phone"</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> TO CITE THIS SURVEY FILE:</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> - Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Phone Survey', https://doi.org/10.7910/DVN/8RHLG1, Harvard Dataverse, V1, UNF:6:eyR28qaoYlHj9qwPWZmmVQ== [fileUNF]</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> - Stephenson, Laura, Allison Harrel, Daniel Rubenson and Peter Loewen. Forthcoming. 'Measuring Preferences and Behaviour in the 2019 Canadian Election Study,' Canadian Journal of Political Science.</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> LINK: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/8RHLG1</span>
+<span class='r-in'><span class='co'># request the survey question for column a6</span></span>
+<span class='r-in'><span class='fu'>get_question</span><span class='op'>(</span><span class='st'>"ces1988"</span>, <span class='st'>"a6"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Saw Last TV Debate Among Party Leaders</span>
 <span class='r-in'></span>
-<span class='r-in'><span class='co'># request the survey question for column q11</span></span>
-<span class='r-in'><span class='fu'>get_question</span><span class='op'>(</span><span class='st'>"ces2019_phone"</span>, <span class='st'>"q11"</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Which party will you likely to vote for</span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

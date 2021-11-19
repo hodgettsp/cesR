@@ -48,7 +48,7 @@
 
 <meta property="og:title" content="Create a preview dataframe object of a CES survey. — get_preview" />
 <meta property="og:description" content="get_preview() creates a truncated dataframe for a requested Canadian Election Study
-survey using an associated survey code to call and download
+survey using an associated code to call and download
 the survey dataset." />
 <meta property="og:image" content="/logo.png" />
 
@@ -95,6 +95,9 @@ the survey dataset." />
   </a>
 </li>
 <li>
+  <a href="../articles/cesR.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
       </ul>
@@ -125,11 +128,11 @@ the survey dataset." />
 
     <div class="ref-description">
     <p><code>get_preview()</code> creates a truncated dataframe for a requested Canadian Election Study
-survey using an associated survey code to call and download
+survey using an associated code to call and download
 the survey dataset.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_preview</span><span class='op'>(</span><span class='va'>srvy</span>, x <span class='op'>=</span> <span class='fl'>6</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_preview</span><span class='op'>(</span><span class='va'>srvy</span>, obs <span class='op'>=</span> <span class='fl'>6</span>, pos <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -140,10 +143,14 @@ the survey dataset.</p>
 <code>srvy</code> value must be a character string.</p></td>
     </tr>
     <tr>
-      <th>x</th>
+      <th>obs</th>
       <td><p>A numerical value that determines the number of observations returned.
-If <code>x</code> is not given, then default value is 6 observations.
+If a value for <code>obs</code> is not given, then default value is 6 observations.
 Variable must be given as a numerical value.</p></td>
+    </tr>
+    <tr>
+      <th>pos</th>
+      <td><p>Environment assignment. Defaults to 1, which is an assignment to the global environment.</p></td>
     </tr>
     </table>
 
@@ -198,11 +205,21 @@ Repeated code calls will load in an unaltered version of the requested table.</p
 
 <p>Due to the naming of the columns in the 1965 and 1968 datasets it is recommended
 to download the associated codebook for the requested dataset.</p>
-<p>#' @examples
-devtools::install_github("hodgettsp/cesR")</p>
-<p>library(cesR)</p>
-<p>get_preview("ces2019_phone", 10)</p>
+<p>#' @examples</p>
 
+    <h2 class="hasAnchor" id="print-out-ces-call-codes"><a class="anchor" href="#print-out-ces-call-codes"></a>print out CES call codes</h2>
+
+    <p>get_cescodes()</p>
+    <h2 class="hasAnchor" id="call-the-ces-dataset"><a class="anchor" href="#call-the-ces-dataset"></a>call the 1993 CES dataset</h2>
+
+    <p>get_ces("ces1993")</p>
+    <h2 class="hasAnchor" id="preview-the-first-observations-of-the-dataset"><a class="anchor" href="#preview-the-first-observations-of-the-dataset"></a>preview the first 10 observations of the dataset</h2>
+
+    <p>get_preview("ces1993", 10)</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='get_ces.html'>get_ces()</a></code> function help.
+<code><a href='get_cescodes.html'>get_cescodes()</a></code> function help.</p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
