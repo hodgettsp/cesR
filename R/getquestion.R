@@ -13,9 +13,18 @@
 #' on the `var_label` function from the `labelled` package.
 #'
 #' @examples
-#' # request the survey question for column cps2019_province
-#' get_question("ces2019_province", "cps2019_province")
-
+#' # print out CES code calls
+#' get_cescodes()
+#'
+#' # call CES survey
+#' get_ces("ces1988")
+#'
+#' # request the survey question for column a6
+#' get_question("ces1988", "a6")
+#'
+#' @seealso
+#' `get_ces()` function help.
+#' `get_cescodes()` help.
 
 #library(labelled)
 
@@ -25,7 +34,7 @@
 # 'do' data object and 'q' question
 get_question <- function(do, q){
   if(exists(do)){                                                     # if data object exists
-    if(utils::hasName(get(do), q)){                                          # if data object has the name of the given question
+    if(utils::hasName(get(do), q)){                                   # if data object has the name of the given question
       cat(labelled::var_label(get(q, get(do))))                       # print out concatenation of the column label
                                                                       # the get function is required because it
                                                                       # returns the object from the provided character string

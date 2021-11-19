@@ -55,8 +55,18 @@
 #' to download the associated codebook for the requested dataset.
 #'
 #' #' @examples
+#' # print out CES call codes
+#' get_cescodes()
 #'
-#' get_preview("ces2019_phone", 10)
+#' # call the 1993 CES dataset
+#' get_ces("ces1993")
+#'
+#' # preview the first 10 observations of the dataset
+#' get_preview("ces1993", 10)
+#'
+#' @seealso
+#' `get_ces()` function help.
+#' `get_cescodes()` function help.
 
 
 

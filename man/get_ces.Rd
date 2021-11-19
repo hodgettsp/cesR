@@ -93,8 +93,16 @@ to download the associated codebook for the requested dataset.
 }
 }
 \examples{
+# call the 2019 CES online survey
 get_ces("ces2019_web")
 
-ces2019_phone <- labelled::to_factor(ces2019_web)
+# convert variables to factor
+labelled::to_factor(ces2019_web)
+
+# preview dataset
 head(ces2019_web)
+
+}
+\seealso{
+\code{get_cescodes()} function help.
 }

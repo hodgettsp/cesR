@@ -71,7 +71,21 @@ Due to the naming of the columns in the 1965 and 1968 datasets it is recommended
 to download the associated codebook for the requested dataset.
 
 #' @examples
-
-get_preview("ces2019_phone", 10)
 }
+}
+\section{print out CES call codes}{
+get_cescodes()
+}
+
+\section{call the 1993 CES dataset}{
+get_ces("ces1993")
+}
+
+\section{preview the first 10 observations of the dataset}{
+get_preview("ces1993", 10)
+}
+
+\seealso{
+\code{get_ces()} function help.
+\code{get_cescodes()} function help.
 }

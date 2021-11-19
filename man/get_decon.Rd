@@ -51,8 +51,10 @@ name \code{lr_scale}. All variables have been converted to factor type using
 \code{labelled::to_factor} and are listed below.
 }
 \examples{
-
+# call decon dataset
 get_decon()
+
+# preview decon
 head(decon)
 
 }

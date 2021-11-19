@@ -76,11 +76,16 @@
 #' to download the associated codebook for the requested dataset.
 #'
 #' @examples
+#' # call the 2019 CES online survey
 #' get_ces("ces2019_web")
 #'
-#' ces2019_phone <- labelled::to_factor(ces2019_web)
+#' # convert variables to factor
+#' labelled::to_factor(ces2019_web)
+#'
+#' # preview dataset
 #' head(ces2019_web)
-
+#'
+#' @seealso `get_cescodes()` function help.
 
 
 
@@ -249,8 +254,8 @@ get_ces <- function(srvy, pos = 1){
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1993"))
         assign("ces1993", haven::read_sav(hldr), envir = as.environment(pos))
+        unlink(file.path(system.file("extdata/ces1993", package = "cesR")), recursive = T)
         unlink(hldr, recursive = T)
-        unlink(file.path(system.file("extdata/ces1993", pacakge = "cesR")), recursive = T)
         cat(ref1993)
       }
     }
@@ -261,8 +266,8 @@ get_ces <- function(srvy, pos = 1){
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1988"))
         assign("ces1988", haven::read_sav(hldr), envir = as.environment(pos))
+        unlink(file.path(system.file("extdata/ces1988", package = "cesR")), recursive = T)
         unlink(hldr, recursive = T)
-        unlink(file.path(system.file("extdata/ces1988", pacakge = "cesR")), recursive = T)
         cat(ref1988)
       }
     }

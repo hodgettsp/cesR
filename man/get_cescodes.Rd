@@ -67,7 +67,11 @@ Items under the \emph{Survey Code Calls} and \emph{Index Code Calls} can be copi
 }
 }
 \examples{
+# print out CES code calls
 get_cescodes()
+
+# call 1984 CES survey
+get_ces("ces1984")
 
 }
 \seealso{

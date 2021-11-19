@@ -41,8 +41,10 @@
 #'   federal government made your financial situation...'} }
 #'
 #' @examples
-#'
+#' # call decon dataset
 #' get_decon()
+#'
+#' # preview decon
 #' head(decon)
 #'
 #' @seealso For further details, see

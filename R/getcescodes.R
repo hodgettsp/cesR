@@ -56,7 +56,11 @@
 #' * `"ces1965"` calls 1965 CES survey dataset.
 #'
 #' @examples
+#' # print out CES code calls
 #' get_cescodes()
+#'
+#' # call 1984 CES survey
+#' get_ces("ces1984")
 #'
 #' @seealso `get_ces()` function help.
 
