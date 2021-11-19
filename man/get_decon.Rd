@@ -63,5 +63,5 @@ For further details, see
 \url{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V}
 Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter
 John, 2020, "2019 Canadian Election Study - Online Survey",
-\url{https://doi.org/10.7910/DVN/DUS88V}, Harvard Dataverse, V1
+\doi{10.7910/DVN/DUS88V}, Harvard Dataverse, V1
 }
