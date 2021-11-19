@@ -93,6 +93,7 @@ to download the associated codebook for the requested dataset.
 }
 }
 \examples{
+\dontrun{
 # call the 2019 CES online survey
 get_ces("ces2019_web")
 
@@ -101,7 +102,7 @@ labelled::to_factor(ces2019_web)
 
 # preview dataset
 head(ces2019_web)
-
+}
 }
 \seealso{
 \code{get_cescodes()} function help.

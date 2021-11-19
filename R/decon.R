@@ -41,12 +41,13 @@
 #'   federal government made your financial situation...'} }
 #'
 #' @examples
+#' \dontrun{
 #' # call decon dataset
 #' get_decon()
 #'
 #' # preview decon
 #' head(decon)
-#'
+#'}
 #' @seealso For further details, see
 #'   \url{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V}
 #'    Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter
