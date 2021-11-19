@@ -9,6 +9,8 @@
 #'   name `lr_scale`. All variables have been converted to factor type using
 #'   `labelled::to_factor` and are listed below.
 #'
+#' @param pos Environment assignment. Defaults to 1, which is an assignment to the global environment.
+#'
 #' ## decon Variables
 #'   \describe{ \item{\code{citizenship}}{Canadian citizenship status}
 #'   \item{\code{yob}}{year of birth} \item{\code{gender}}{identified gender of
@@ -57,7 +59,7 @@
 #'@export
 # function to create 'decon' dataset
 # does not use any variable calls
-get_decon <- function(){
+get_decon <- function(pos = 1){
     # if object does not exist in global environment
     if(!exists("decon")){
        # assign url to 'cesfile'
@@ -127,7 +129,7 @@ get_decon <- function(){
        decon <- dplyr::mutate(decon, lr_scale_aft = as.character(lr_scale_aft))                       # reassign values in lr_scale_aft column as characters for uniting
        decon <- tidyr::unite(decon, "lr_scale", lr_scale_bef:lr_scale_aft, na.rm = T, remove = F)     # unite lr_scale_bef and lr_scale_aft columns into new column lr_scale
        decon <- dplyr::mutate_if(decon, is.character, list(~dplyr::na_if(., "")))                     # replaces empty cells in new lr column with NA
-       assign("decon", dplyr::mutate(decon, ces_code = "ces2019_web", .before = 1), envir = .GlobalEnv)
+       assign("decon", dplyr::mutate(decon, ces_code = "ces2019_web", .before = 1), envir = as.environment(pos))
        # remove temporary data object
        rm(ces2019_hldr)
        # remove the temporary placeholder

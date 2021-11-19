@@ -22,6 +22,6 @@ To return the associated survey question, the \code{get_question} function relie
 on the \code{var_label} function from the \code{labelled} package.
 }
 \examples{
-# request the survey question for column q11
+# request the survey question for column cps2019_province
 get_question("ces2019_province", "cps2019_province")
 }

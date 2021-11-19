@@ -4,11 +4,13 @@
 \alias{get_ces}
 \title{Create a dataframe object for a CES survey.}
 \usage{
-get_ces(srvy)
+get_ces(srvy, pos = 1)
 }
 \arguments{
 \item{srvy}{A CES survey code call. See \emph{Survey Code Calls} below.
 \code{srvy} value must be a character string.}
+
+\item{pos}{Environment assignment. Defaults to 1, which is an assignment to the global environment.}
 }
 \description{
 \code{get_ces()} creates a dataframe object for a requested Canadian Election Study

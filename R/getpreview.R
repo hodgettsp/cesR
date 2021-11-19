@@ -10,6 +10,7 @@
 #' @param obs A numerical value that determines the number of observations returned.
 #' If a value for `obs` is not given, then default value is 6 observations.
 #' Variable must be given as a numerical value.
+#' @param pos Environment assignment. Defaults to 1, which is an assignment to the global environment.
 #'
 #' @details
 #'
@@ -66,7 +67,7 @@
 # function to call to create previews of the CES surveys
 # code for the first section of the function is commented with how the function works,
 # all following sections work in the same manner.
-get_preview <- function(srvy, obs = 6){
+get_preview <- function(srvy, obs = 6, pos = 1){
   # if 'srvy' is in 'ces_codese' vector
   if(srvy %in% ces_codes){
     # if 'srvy' is equal to 'ces2019_web'
@@ -82,7 +83,7 @@ get_preview <- function(srvy, obs = 6){
         # create a locally available variable
         survey_read <- haven::read_dta(hldr, encoding = "latin1")
         # assign the data file to a globally available variable
-        assign("ces2019_web_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces2019_web_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         # print the preview dataset
         print(utils::head(ces2019_web_preview, obs))
         # remove the temporary file
@@ -97,7 +98,7 @@ get_preview <- function(srvy, obs = 6){
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces2019_phone.tab")
         utils::download.file(cesfile, hldr, quiet = F, mode = "wb")
         survey_read <- readr::read_tsv(hldr, show_col_types = F)
-        assign("ces2019_phone_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces2019_phone_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces2019_phone_preview, obs))
         unlink(hldr, recursive = T)
         rm(survey_read)
@@ -109,7 +110,7 @@ get_preview <- function(srvy, obs = 6){
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces2015_web.zip")
         utils::download.file(cesfile, hldr, quiet = F)
         survey_read <- haven::read_dta(hldr)
-        assign("ces2015_web_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces2015_web_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces2015_web_preview, obs))
         unlink(hldr, recursive = T)
         rm(survey_read)
@@ -123,7 +124,7 @@ get_preview <- function(srvy, obs = 6){
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces2015_phone"))
         datafile <- file.path(system.file("extdata/ces2015_phone", package = "cesR"), "CES2015_CPS-PES-MBS_complete-v2.dta")
         survey_read <- haven::read_dta(datafile, encoding = "latin1")
-        assign("ces2015_phone_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces2015_phone_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces2015_phone_preview, obs))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces2015_phone", package = "cesR")), recursive = T)
@@ -136,7 +137,7 @@ get_preview <- function(srvy, obs = 6){
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces2015_combo.zip")
         utils::download.file(cesfile, hldr, quiet = F)
         survey_read <- haven::read_dta(hldr)
-        assign("ces2015_combo_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces2015_combo_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces2015_combo_preview, obs))
         unlink(hldr, recursive = T)
         rm(survey_read)
@@ -150,7 +151,7 @@ get_preview <- function(srvy, obs = 6){
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces2011"))
         datafile <- file.path(system.file("extdata/ces2011", package = "cesR"), "CPS&PES&MBS&WEB_2011_final.dta")
         survey_read <- haven::read_dta(datafile)
-        assign("ces2011_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces2011_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces2011_preview, obs))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces2011", package = "cesR")), recursive = T)
@@ -164,7 +165,7 @@ get_preview <- function(srvy, obs = 6){
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces2008"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces2008_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces2008_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces2008_preview, obs))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces2008", package = "cesR")), recursive = T)
@@ -178,7 +179,7 @@ get_preview <- function(srvy, obs = 6){
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces2004"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces2004_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces2004_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces2004_preview, obs))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces2004", package = "cesR")), recursive = T)
@@ -191,7 +192,7 @@ get_preview <- function(srvy, obs = 6){
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces0411.zip")
         utils::download.file(cesfile, hldr, quiet = F)
         survey_read <- haven::read_dta(hldr, encoding = "latin1")
-        assign("ces0411_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces0411_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces0411_preview, obs))
         unlink(hldr, recursive = T)
         rm(survey_read)
@@ -204,7 +205,7 @@ get_preview <- function(srvy, obs = 6){
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces0406"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces0406_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces0406_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces0406_preview, obs))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces0406", package = "cesR")), recursive = T)
@@ -218,7 +219,7 @@ get_preview <- function(srvy, obs = 6){
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces2000"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces2000_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces2000_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces2000_preview, obs))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces2000", package = "cesR")), recursive = T)
@@ -232,7 +233,7 @@ get_preview <- function(srvy, obs = 6){
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1997"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces1997_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces1997_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces1997_preview, obs))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces1997", package = "cesR")), recursive = T)
@@ -246,7 +247,7 @@ get_preview <- function(srvy, obs = 6){
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1993"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces1993_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces1993_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces1993_preview, obs))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces1993", pacakge = "cesR")), recursive = T)
@@ -260,7 +261,7 @@ get_preview <- function(srvy, obs = 6){
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1988"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces1988_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces1988_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces1988_preview, obs))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces1988", pacakge = "cesR")), recursive = T)
@@ -274,7 +275,7 @@ get_preview <- function(srvy, obs = 6){
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1984"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces1984_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces1984_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces1984_preview, obs))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces1984", package = "cesR")), recursive = T)
@@ -288,7 +289,7 @@ get_preview <- function(srvy, obs = 6){
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1974"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces1974_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces1974_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces1974_preview, obs))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces1974", package = "cesR")), recursive = T)
@@ -302,7 +303,7 @@ get_preview <- function(srvy, obs = 6){
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces7480"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces7480_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces7480_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces7480_preview, obs))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces7480", package = "cesR")), recursive = T)
@@ -316,7 +317,7 @@ get_preview <- function(srvy, obs = 6){
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces72_jnjl"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces72_jnjl_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces72_jnjl_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces72_jnjl_preview, obs))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces72_jnjl", package = "cesR")), recursive = T)
@@ -330,7 +331,7 @@ get_preview <- function(srvy, obs = 6){
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces72_sep"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces72_sep_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces72_sep_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces72_sep_preview, obs))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces72_sep", package = "cesR")), recursive = T)
@@ -344,7 +345,7 @@ get_preview <- function(srvy, obs = 6){
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces72_nov"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces72_nov_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces72_nov_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces72_nov_preview, obs))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces72_nov", package= "cesR")), recursive = T)
@@ -358,7 +359,7 @@ get_preview <- function(srvy, obs = 6){
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1968"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces1968_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces1968_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces1968_preview, obs))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces1968", package = "cesR")), recursive = T)
@@ -372,7 +373,7 @@ get_preview <- function(srvy, obs = 6){
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1965"))
         survey_read <- haven::read_sav(hldr)
-        assign("ces1965_preview", utils::head(labelled::to_factor(survey_read), obs), envir = .GlobalEnv)
+        assign("ces1965_preview", utils::head(labelled::to_factor(survey_read), obs), envir = as.environment(pos))
         print(utils::head(ces1965_preview, obs))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces1965", package = "cesR")), recursive = T)

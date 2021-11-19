@@ -4,18 +4,10 @@
 \alias{get_decon}
 \title{Creates a non-exhaustive dataframe of 21 variables with renamed columns.}
 \usage{
-get_decon()
+get_decon(pos = 1)
 }
-\description{
-get_decon() creates a non-exhaustive dataset under the name
-decon consisting of 21 variables with renamed columns from the
-demographics, ideology, and economy sections of the 2019 CES online survey.
-}
-\details{
-NAs have not been removed. The politically left/right question
-variables (\code{lr_bef} and \code{lr_aft}) have also been joined into one column under the
-name \code{lr_scale}. All variables have been converted to factor type using
-\code{labelled::to_factor} and are listed below.
+\arguments{
+\item{pos}{Environment assignment. Defaults to 1, which is an assignment to the global environment.
 \subsection{decon Variables}{
 
 \describe{ \item{\code{citizenship}}{Canadian citizenship status}
@@ -45,7 +37,18 @@ question, 'over the past year, has Canada's economy:'}
 federal government made Canada's economy...'}
 \item{\code{econ_self}}{response to question, have the policies of the
 federal government made your financial situation...'} }
+}}
 }
+\description{
+get_decon() creates a non-exhaustive dataset under the name
+decon consisting of 21 variables with renamed columns from the
+demographics, ideology, and economy sections of the 2019 CES online survey.
+}
+\details{
+NAs have not been removed. The politically left/right question
+variables (\code{lr_bef} and \code{lr_aft}) have also been joined into one column under the
+name \code{lr_scale}. All variables have been converted to factor type using
+\code{labelled::to_factor} and are listed below.
 }
 \examples{
 

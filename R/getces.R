@@ -8,6 +8,7 @@
 #'
 #' @param srvy A CES survey code call. See *Survey Code Calls* below.
 #' `srvy` value must be a character string.
+#' @param pos Environment assignment. Defaults to 1, which is an assignment to the global environment.
 #'
 #' @details
 #'
@@ -94,7 +95,7 @@
 # all following sections work in the same manner.
 
 # 'get_ces' function, uses one variable 'srvy'
-get_ces <- function(srvy){
+get_ces <- function(srvy, pos = 1){
   # if 'srvy' is in 'ces_codes' vector
   if(srvy %in% ces_codes){
     # if 'srvy' is equal to 'ces2019_web'
@@ -108,7 +109,7 @@ get_ces <- function(srvy){
         # download the file from the url and assign file name from holder
         utils::download.file(cesfile, hldr, quiet = F, mode = "wb")
         # assign the data file to a globally available variable
-        assign("ces2019_web", haven::read_dta(hldr, encoding = "latin1"), envir = .GlobalEnv)
+        assign("ces2019_web", haven::read_dta(hldr, encoding = "latin1"), envir = as.environment(pos))
         # remove the temporary downloaded data file
         unlink(hldr, recursive = T)
         # print citation and link
@@ -120,7 +121,7 @@ get_ces <- function(srvy){
         cesfile <- "https://dataverse.harvard.edu/api/access/datafile/:persistentId?persistentId=doi:10.7910/DVN/8RHLG1/DW4GZZ"
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces2019_phone.tab")
         utils::download.file(cesfile, hldr, quiet = F, mode = "wb")
-        assign("ces2019_phone", readr::read_tsv(hldr, show_col_types = F), envir = .GlobalEnv)
+        assign("ces2019_phone", readr::read_tsv(hldr, show_col_types = F), envir = as.environment(pos))
         unlink(hldr, recursive = T)
         cat(ref2019phone)
       }
@@ -130,7 +131,7 @@ get_ces <- function(srvy){
         cesfile <- "https://ces-eec.sites.olt.ubc.ca/files/2018/07/CES15_CPSPES_Web_SSI-Full-Stata-14.zip"
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces2015_web.zip")
         utils::download.file(cesfile, hldr, quiet = F)
-        assign("ces2015_web", haven::read_dta(hldr), envir = .GlobalEnv)
+        assign("ces2015_web", haven::read_dta(hldr), envir = as.environment(pos))
         unlink(hldr, recursive = T)
         cat(ref2015web)
       }
@@ -142,7 +143,7 @@ get_ces <- function(srvy){
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces2015_phone"))
         datafile <- file.path(system.file("extdata/ces2015_phone", package = "cesR"), "CES2015_CPS-PES-MBS_complete-v2.dta")
-        assign("ces2015_phone", haven::read_dta(datafile, encoding = "latin1"), envir = .GlobalEnv)
+        assign("ces2015_phone", haven::read_dta(datafile, encoding = "latin1"), envir = as.environment(pos))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces2015_phone", package = "cesR")), recursive = T)
         cat(ref2015phone)
@@ -153,7 +154,7 @@ get_ces <- function(srvy){
         cesfile <- "https://ces-eec.sites.olt.ubc.ca/files/2017/04/CES2015_Combined_Stata14.zip"
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces2015_combo.zip")
         utils::download.file(cesfile, hldr, quiet = F)
-        assign("ces2015_combo", haven::read_dta(hldr), envir = .GlobalEnv)
+        assign("ces2015_combo", haven::read_dta(hldr), envir = as.environment(pos))
         unlink(hldr, recursive = T)
         cat(ref2015combo)
       }
@@ -165,7 +166,7 @@ get_ces <- function(srvy){
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces2011"))
         datafile <- file.path(system.file("extdata/ces2011", package = "cesR"), "CPS&PES&MBS&WEB_2011_final.dta")
-        assign("ces2011", haven::read_dta(datafile), envir = .GlobalEnv)
+        assign("ces2011", haven::read_dta(datafile), envir = as.environment(pos))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces2011", package = "cesR")), recursive = T)
         cat(ref2011)
@@ -177,7 +178,7 @@ get_ces <- function(srvy){
         hldr <- file.path(system.file("extdata", package = "cesR"), "cse2008.zip")
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces2008"))
-        assign("ces2008", haven::read_sav(hldr), envir = .GlobalEnv)
+        assign("ces2008", haven::read_sav(hldr), envir = as.environment(pos))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces2008", package = "cesR")), recursive = T)
         cat(ref2008)
@@ -189,7 +190,7 @@ get_ces <- function(srvy){
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces2004.zip")
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces2004"))
-        assign("ces2004", haven::read_sav(hldr), envir = .GlobalEnv)
+        assign("ces2004", haven::read_sav(hldr), envir = as.environment(pos))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces2004", package = "cesR")), recursive = T)
         cat(ref2004)
@@ -200,7 +201,7 @@ get_ces <- function(srvy){
         cesfile <- "https://ces-eec.sites.olt.ubc.ca/files/2014/07/CES_04060811_final_without-geo-data.zip"
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces0411.zip")
         utils::download.file(cesfile, hldr, quiet = F)
-        assign("ces0411", haven::read_dta(hldr, encoding = "latin1"), envir = .GlobalEnv)
+        assign("ces0411", haven::read_dta(hldr, encoding = "latin1"), envir = as.environment(pos))
         unlink(hldr, recursive = T)
         cat(ref0411)
       }
@@ -211,7 +212,7 @@ get_ces <- function(srvy){
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces0406.zip")
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces0406"))
-        assign("ces0406", haven::read_sav(hldr), envir = .GlobalEnv)
+        assign("ces0406", haven::read_sav(hldr), envir = as.environment(pos))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces0406", package = "cesR")), recursive = T)
         cat(ref0406)
@@ -223,7 +224,7 @@ get_ces <- function(srvy){
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces2000.zip")
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces2000"))
-        assign("ces2000", haven::read_sav(hldr), envir = .GlobalEnv)
+        assign("ces2000", haven::read_sav(hldr), envir = as.environment(pos))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces2000", package = "cesR")), recursive = T)
         cat(ref2000)
@@ -235,7 +236,7 @@ get_ces <- function(srvy){
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces1997.zip")
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1997"))
-        assign("ces1997", haven::read_sav(hldr), envir = .GlobalEnv)
+        assign("ces1997", haven::read_sav(hldr), envir = as.environment(pos))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces1997", package = "cesR")), recursive = T)
         cat(ref1997)
@@ -247,7 +248,7 @@ get_ces <- function(srvy){
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces1993.zip")
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1993"))
-        assign("ces1993", haven::read_sav(hldr), envir = .GlobalEnv)
+        assign("ces1993", haven::read_sav(hldr), envir = as.environment(pos))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces1993", pacakge = "cesR")), recursive = T)
         cat(ref1993)
@@ -259,7 +260,7 @@ get_ces <- function(srvy){
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces1988.zip")
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1988"))
-        assign("ces1988", haven::read_sav(hldr), envir = .GlobalEnv)
+        assign("ces1988", haven::read_sav(hldr), envir = as.environment(pos))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces1988", pacakge = "cesR")), recursive = T)
         cat(ref1988)
@@ -271,7 +272,7 @@ get_ces <- function(srvy){
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces1984.zip")
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1984"))
-        assign("ces1984", haven::read_sav(hldr), envir = .GlobalEnv)
+        assign("ces1984", haven::read_sav(hldr), envir = as.environment(pos))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces1984", package = "cesR")), recursive = T)
         cat(ref1984)
@@ -283,7 +284,7 @@ get_ces <- function(srvy){
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces1974.zip")
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1974"))
-        assign("ces1974", haven::read_sav(hldr), envir = .GlobalEnv)
+        assign("ces1974", haven::read_sav(hldr), envir = as.environment(pos))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces1974", package = "cesR")), recursive = T)
         cat(ref1974)
@@ -295,7 +296,7 @@ get_ces <- function(srvy){
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces7480.zip")
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces7480"))
-        assign("ces7480", haven::read_sav(hldr), .GlobalEnv)
+        assign("ces7480", haven::read_sav(hldr), as.environment(pos))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces7480", package = "cesR")), recursive = T)
         cat(ref7480)
@@ -307,7 +308,7 @@ get_ces <- function(srvy){
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces72_jnjl.zip")
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces72_jnjl"))
-        assign("ces72_jnjl", haven::read_sav(hldr), .GlobalEnv)
+        assign("ces72_jnjl", haven::read_sav(hldr), as.environment(pos))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces72_jnjl", package = "cesR")), recursive = T)
         cat(ref72jnjl)
@@ -319,7 +320,7 @@ get_ces <- function(srvy){
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces72_sep.zip")
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces72_sep"))
-        assign("ces72_sep", haven::read_sav(hldr), .GlobalEnv)
+        assign("ces72_sep", haven::read_sav(hldr), as.environment(pos))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces72_sep", package = "cesR")), recursive = T)
         cat(ref72sep)
@@ -331,7 +332,7 @@ get_ces <- function(srvy){
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces72_nov.zip")
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces72_nov"))
-        assign("ces72_nov", haven::read_sav(hldr), .GlobalEnv)
+        assign("ces72_nov", haven::read_sav(hldr), as.environment(pos))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces72_nov", package= "cesR")), recursive = T)
         cat(ref72nov)
@@ -343,7 +344,7 @@ get_ces <- function(srvy){
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces1968.zip")
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1968"))
-        assign("ces1968", haven::read_sav(hldr), envir = .GlobalEnv)
+        assign("ces1968", haven::read_sav(hldr), envir = as.environment(pos))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces1968", package = "cesR")), recursive = T)
         cat(ref1968)
@@ -356,7 +357,7 @@ get_ces <- function(srvy){
         hldr <- file.path(system.file("extdata", package = "cesR"), "ces1965.zip")
         utils::download.file(cesfile, hldr, quiet = F)
         utils::unzip(hldr, exdir = file.path(system.file("extdata", package = "cesR"), "ces1965"))
-        assign("ces1965", haven::read_sav(hldr), envir = .GlobalEnv)
+        assign("ces1965", haven::read_sav(hldr), envir = as.environment(pos))
         unlink(hldr, recursive = T)
         unlink(file.path(system.file("extdata/ces1965", package = "cesR")), recursive = T)
         cat(ref1965)
@@ -424,7 +425,7 @@ ref1993 <- "TO CITE THIS SURVEY FILE: Blais, A, Brady, H, Gidengil, E, Johnston,
 LINK: http://odesi2.scholarsportal.info/webview/index.jsp?v=2&submode=abstract&study=http%3A%2F%2F142.150.190.128%3A80%2Fobj%2FfStudy%2FCES-E-1993&mode=documentation&top=yes"
 
 
-ref1988 <- "TO CITE THIS SURVEY FILE: Johnston, R, Blais, A, Brady, H. E. and Crête, J. 1989. The 1988 Canadian Election Study [dataset]. Toronto, Ontario, Canada: Institute for Social Research [producer and distributor].\n
+ref1988 <- "TO CITE THIS SURVEY FILE: Johnston, R, Blais, A, Brady, H. E. and Cr\u00eate, J. 1989. The 1988 Canadian Election Study [dataset]. Toronto, Ontario, Canada: Institute for Social Research [producer and distributor].\n
 LINK:http://odesi2.scholarsportal.info/webview/index.jsp?v=2&submode=abstract&study=http%3A%2F%2F142.150.190.128%3A80%2Fobj%2FfStudy%2FCES-E-1988&mode=documentation&top=yes"
 
 

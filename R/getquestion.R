@@ -13,7 +13,7 @@
 #' on the `var_label` function from the `labelled` package.
 #'
 #' @examples
-#' # request the survey question for column q11
+#' # request the survey question for column cps2019_province
 #' get_question("ces2019_province", "cps2019_province")
 
 

@@ -4,7 +4,7 @@
 \alias{get_preview}
 \title{Create a preview dataframe object of a CES survey.}
 \usage{
-get_preview(srvy, obs = 6)
+get_preview(srvy, obs = 6, pos = 1)
 }
 \arguments{
 \item{srvy}{A CES survey code call. See \emph{Survey Code Calls} below.
@@ -13,6 +13,8 @@ get_preview(srvy, obs = 6)
 \item{obs}{A numerical value that determines the number of observations returned.
 If a value for \code{obs} is not given, then default value is 6 observations.
 Variable must be given as a numerical value.}
+
+\item{pos}{Environment assignment. Defaults to 1, which is an assignment to the global environment.}
 }
 \description{
 \code{get_preview()} creates a truncated dataframe for a requested Canadian Election Study
