@@ -4,7 +4,15 @@
 \alias{get_cescodes}
 \title{Print a dataset of the CES survey codes and their associated calls.}
 \usage{
-get_cescodes()
+get_cescodes(indx = 22)
+}
+\arguments{
+\item{indx}{A numeric value that determines the number of survey codes returned.
+Default is set to 22, or the total set of survey codes.}
+}
+\value{
+A printout of a designated number of Canadian Election Study survey codes and
+associated character codes used for the \code{get_ces()} function.
 }
 \description{
 \code{get_cescodes()} prints out a data frame of the CES survey codes and the associated calls.

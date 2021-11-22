@@ -12,6 +12,8 @@
 #' To return the associated survey question, the `get_question` function relies
 #' on the `var_label` function from the `labelled` package.
 #'
+#' @return The associated question \code{q} in a loaded dataset \code{do}.
+#'
 #' @examples
 #' # print out CES code calls
 #' get_cescodes()
@@ -35,16 +37,16 @@
 get_question <- function(do, q){
   if(exists(do)){                                                     # if data object exists
     if(utils::hasName(get(do), q)){                                   # if data object has the name of the given question
-      cat(labelled::var_label(get(q, get(do))))                       # print out concatenation of the column label
+      message(labelled::var_label(get(q, get(do))))                       # print out concatenation of the column label
                                                                       # the get function is required because it
                                                                       # returns the object from the provided character string
     }
     else{
-      cat("Warning: Variable is not in dataset")                      # else, print this warning if question does not exist
+      message("Warning: Variable is not in dataset")                      # else, print this warning if question does not exist
                                                                       # cat is used instead of stop because stop breaks the function
     }
   }
   else{
-    cat("Warning: Data object does not exist")                        # else, print this warning if data object does not exist
+    message("Warning: Data object does not exist")                        # else, print this warning if data object does not exist
   }
 }

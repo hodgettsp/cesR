@@ -12,6 +12,10 @@ get_ces(srvy, pos = 1)
 
 \item{pos}{Environment assignment. Defaults to 1, which is an assignment to the global environment.}
 }
+\value{
+The called \code{srvy} at the designated environment position \code{pos}.
+Default environment position is set to be the global environment.
+}
 \description{
 \code{get_ces()} creates a dataframe object for a requested Canadian Election Study
 survey using an associated survey code to call and download

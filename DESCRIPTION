@@ -13,7 +13,7 @@ Authors@R:
     email = "rohan.alexander@utoronto.ca",
     comment = c(ORCID = "0000-0003-1279-0700")))
 Maintainer: Paul A. Hodgetts <hodgetts.paul@outlook.com>
-Description: The 'cesR' package makes accessing and loading the Canadian Election Study surveys into the R workspace more efficient by 
+Description: Makes accessing and loading the Canadian Election Study (<http://www.ces-eec.ca/>, <https://ces-eec.arts.ubc.ca/>, <https://search1.odesi.ca/#/>) surveys into the R workspace more efficient by 
   downloading a requested survey and loading it as a data object. This removes the need to locate, download, load, 
   and change working directories when working with the Canadian Election Study surveys.
 License: MIT + file LICENSE

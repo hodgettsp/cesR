@@ -25,7 +25,7 @@ devtools::install_github("hodgettsp/cesR")
 The `cesR package` provides access to the CES Surveys through the use of
 a function call `get_ces(srvy)`. Where variable `srvy` is an associated
 survey code entered as a character string. On a call, the `cesR package`
-wiil create a data object for the requested survey. Survey code calls
+will create a data object for the requested survey. Survey code calls
 can be found in the table provided below. On a call, the `cesR package`
 will additonally print out the citation for the called survey dataset.
 Additionally, it is possible to lookup the survey codes within the
@@ -84,11 +84,11 @@ question for a given data object and column name.
 
     get_preview("ces2019_web", 10)
 
-| cps19_StartDate     | cps19_EndDate       | cps19_ResponseId  | cps19_consent  | cps19_citizensh\~ | cps19_yob | cps19_yob_2001\_\~ | cps19_gender | cps19_province | cps19_eduction   | cps19_demsat  | cps19_imp_iss |
+| cps19_StartDate     | cps19_EndDate       | cps19_ResponseId  | cps19_consent  | cps19_citizensh\~ | cps19_yob | cps19_yob_2001\_\~ | cps19_gender | cps19_province | cps19_education  | cps19_demsat  | cps19_imp_iss |
 |---------------------|---------------------|-------------------|----------------|-------------------|-----------|--------------------|--------------|----------------|------------------|---------------|---------------|
 | <dttm>              | <dttm>              | <chr>             | <fct>          | <fct>             | <fct>     | <fct>              | <fct>        | <fct>          | <fct>            | <fct>         |               |
 | <chr>               |                     |                   |                |                   |           |                    |              |                |                  |               |               |
-| 2019-09-13 08:09:44 | 2019-09-13 08:36:19 | R_1OpYXEFGzHRUp\~ | I consent to\~ | Canadian citizen  | 1989      | NA                 | A woman      | Quebec         | Master’s degree  | Fairly sati\~ | environnement |
+| 2019-09-13 08:09:44 | 2019-09-13 08:36:19 | R_1OpYXEFGzHRUp\~ | I consent to\~ | Canadian citizen  | 1989      | NA                 | A woman      | Quebec         | Master’s degree  | Fairly sati\~ | environment   |
 | 2019-09-13 08:39:09 | 2019-09-13 08:57:06 | R_2qdrL3J618rxY\~ | I consent to\~ | Canadian citizen  | 1998      | NA                 | A woman      | Quebec         | Master’s degree  | Don’t know/\~ | NA            |
 | 2019-09-13 10:01:19 | 2019-09-13 10:27:29 | R_USWDAPcQEQiMm\~ | I consent to\~ | Canadian citizen  | 2000      | NA                 | A woman      | Ontario        | Some university  | Fairly sati\~ | NA            |
 | 2019-09-13 10:05:37 | 2019-09-13 10:50:53 | R_3IQaeDXy0tBzE\~ | I consent to\~ | Canadian citizen  | 1998      | NA                 | A man        | Ontario        | Some university  | Fairly sati\~ | NA            |
@@ -140,7 +140,7 @@ data files are not saved on your computer.
 
 ------------------------------------------------------------------------
 
-The `cesR package` also provides a non-exhuastive dataset consisting of
+The `cesR package` also provides a non-exhaustive dataset consisting of
 21 variables with renamed columns available with the function call
 `get_decon()`.
 
@@ -148,12 +148,12 @@ The variables in this dataset have been converted to factors so that
 they display the actual values of the survey responses and not just the
 survey code responses.
 
-The `decon` dataset consists of the following variables: \* citzenship:
+The `decon` dataset consists of the following variables: \* citizenship:
 Canadian citizenship status \* yob: year of birth \* gender: identified
 gender of the respondent \* province_territory: Province or Territory of
 current residence \* education: highest level of education completed \*
 lr: united column of lr_bef and lr_aft values; whether the respondent
-identifies on the political spectrum \* lr_bef: where the respodent
+identifies on the political spectrum \* lr_bef: where the respondent
 identifies on the political spectrum; asked before party identification
 questions \* lr_aft: where the respondent identifies on the political
 spectrum; asked after party identification questions \* religion:
@@ -161,7 +161,7 @@ religion of respondent \* sexuality_selected: sexual identity \*
 sexuality_text: sexual identity; written answers \* language_eng:
 language learned as child and still understand; selected response
 English \* language_fr: language learned as a child and still
-understand; selected response French \* language_abgl: langauge learned
+understand; selected response French \* language_abgl: language learned
 as a child and still understand; specified Aboriginal language \*
 employment: employment status \* income: total household income, before
 taxes, for the year 2018 \* income_cat: selected household income
@@ -183,7 +183,7 @@ The `get_decon()` function uses no variables and will only run if the
     get_decon()
     head(decon)
 
-| ces_code    | citizenship      | yob  | gender  | province_territory | education       | lr  | lr_bef | lr_aft | regligion                        | sexuality_select  | sexuality_text | language_eng | language_fr | langauge_abgi | employment                       | income | income_cat                       | marital                          | econ_retro            | econ_fed                         | econ_self                        |
+| ces_code    | citizenship      | yob  | gender  | province_territory | education       | lr  | lr_bef | lr_aft | religion                         | sexuality_select  | sexuality_text | language_eng | language_fr | language_abgi | employment                       | income | income_cat                       | marital                          | econ_retro            | econ_fed                         | econ_self                        |
 |-------------|------------------|------|---------|--------------------|-----------------|-----|--------|--------|----------------------------------|-------------------|----------------|--------------|-------------|---------------|----------------------------------|--------|----------------------------------|----------------------------------|-----------------------|----------------------------------|----------------------------------|
 | ces2019_web | Canadian citizen | 1989 | A woman | Quebec             | Master’s degree | 2   | NA     | 2      | Don’t know/ Prefer not to answer | Prefer not to say | NA             | NA           | NA          | NA            | Don’t know/ Prefer not to answer | NA     | Don’t know/ Prefer not to answer | Don’t know/ Prefer not to answer | Stayed about the same | Don’t know/ Prefer not to answer | Don’t know/ Prefer not to answer |
 | ces2019_web | Canadian citizen | 1998 | A woman | Quebec             | Master’s degree | 2   | NA     | 2      | Catholic/ Roman Catholic/ RC     | Prefer not to say | NA             | English      | French      | NA            | Student and working for pay      | NA     | Don’t know/ Prefer not to answer | Living with a partner            | Stayed about the same | Not made much difference         | Not made much difference         |

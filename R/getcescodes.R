@@ -4,6 +4,9 @@
 #' `get_cescodes()` prints out a data frame of the CES survey codes and the associated calls.
 #' Provides a quick way of looking up a CES survey code and the associated call.
 #'
+#' @param indx A numeric value that determines the number of survey codes returned.
+#' Default is set to 22, or the total set of survey codes.
+#'
 #' @details
 #' Items under the *Survey Code Calls* and *Index Code Calls* can be copied and used with the `get_ces()` function.
 #'
@@ -55,6 +58,9 @@
 #' * `"ces1968"` calls 1968 CES survey dataset.
 #' * `"ces1965"` calls 1965 CES survey dataset.
 #'
+#' @return A printout of a designated number of Canadian Election Study survey codes and
+#' associated character codes used for the `get_ces()` function.
+#'
 #' @examples
 #' # print out CES code calls
 #' get_cescodes()
@@ -72,7 +78,7 @@
 # merges the three data frames and renames the columns
 # removes the data frame items and prints merged results
 # can be used to lookup a survey code and the associated calls.
-get_cescodes <- function(){
+get_cescodes <- function(indx = 22){
   ces1 <- (c("ces2019_web", "ces2019_phone", "ces2015_web", "ces2015_phone", "ces2015_combo",
                 "ces2011", "ces2008", "ces2004", "ces0411", "ces0406", "ces2000", "ces1997", "ces1993",
                 "ces1988", "ces1984", "ces1974", "ces7480", "ces72_jnjl", "ces72_sep", "ces72_nov",
@@ -89,5 +95,5 @@ get_cescodes <- function(){
   ces_calltable <- dplyr::rename(ces_calltable, ces_survey_code = ces1, get_ces_call_char = ces2)
   rm(ces1)
   rm(ces2)
-  print(ces_calltable)
+  utils::head(ces_calltable, indx)
 }

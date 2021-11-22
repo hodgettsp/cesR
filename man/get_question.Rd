@@ -11,6 +11,9 @@ get_question(do, q)
 
 \item{q}{a column name in a CES survey data object (given as a character string)}
 }
+\value{
+The associated question \code{q} in a loaded dataset \code{do}.
+}
 \description{
 get_question() prints out the survey question associated with a given
 column in a given dataset name.

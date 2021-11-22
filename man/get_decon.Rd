@@ -14,11 +14,41 @@ get_decon(pos = 1)
 \item{\code{yob}}{year of birth} \item{\code{gender}}{identified gender of
 the respondent} \item{\code{province_territory}}{Province or Territory of
 current residence} \item{\code{education}}{highest level of education
-completed} \item{\code{lr}}{united column of lr_bef and lr_aft values;
+completed} \item{\code{vote_likely}}{likelihood of voting on election day}
+\item{\code{vote_likely_ifable}}{likelihood to vote in first election for which respondent is eligible}
+\item{\code{votechoice}}{party most likely to vote for}
+\item{\code{votechoice_text}}{party most likely to vote for - text answers}
+\item{\code{votechoice_couldvote}}{party most likely to vote for if eligible to vote}
+\item{\code{votechoice_couldvote_text}}{party most likely to vote for if eligible to vote - text answers}
+\item{\code{votechoice_unlikely}}{party least likely to vote for}
+\item{\code{votechoice_unlikely_text}}{party least likely to vote for - text answers}
+\item{\code{votechoice_unlikely_couldvote}}{party least likely to vote for if eligible to vote}
+\item{\code{votechoice_unlikely_couldvote_text}}{party least likely to vote for if eligible to vote - text answers}
+\item{\code{vote_advancevote_choice}}{party voted for in the advanced ballot}
+\item{\code{vote_advancevote_choice_text}}{party voted for in the advanced ballot - text}
+\item{\code{vote_partylean}}{party toward which the respondent leans}
+\item{\code{vote_partylean_text}}{party toward which the respondent leans - text answers}
+\item{\code{vote_partylean_couldvote}}{party toward which the respondent leans if eligible}
+\item{\code{vote_partylean_couldvote_text}}{party toward which the respondent leans if eligible - text answers}
+\item{\code{votechoice_secondchoice}}{second choice party of respondent}
+\item{\code{votechoice_secondchoice_text}}{second choice party of respondent - text answers}
+\item{\code{votechoice_couldvote_secondchoice}}{second choice party of respondent if eligible}
+\item{\code{votechoice_couldvote_secondchoice_text}}{second choice party of respondent if eligible - text answers}
+\item{\code{votechoice_partynotvote_1}}{party respondent would note vote for - first ranking}
+\item{\code{votechoice_partynotvote_2}}{party respondent would note vote for - second ranking}
+\item{\code{votechoice_partynotvote_3}}{party respondent would note vote for - third ranking}
+\item{\code{votechoice_partynotvote_4}}{party respondent would note vote for - fourth ranking}
+\item{\code{votechoice_partynotvote_5}}{party respondent would note vote for - fifth ranking}
+\item{\code{votechoice_partynotvote_6}}{party respondent would note vote for - sixth ranking}
+\item{\code{votechoice_partynotvote_7}}{party respondent would note vote for - seventh ranking}
+\item{\code{votechoice_partynotvote_8}}{party respondent would note vote for - eighth ranking}
+\item{\code{votechoice_partynotvote_9}}{party respondent would note vote for - ninth ranking}
+\item{\code{votechoice_partynotvote_text}}{party respondent would note vote for - text answers}
+\item{\code{lr_scale}}{united column of lr_bef and lr_aft values;
 whether the respondent identifies on the political spectrum}
-\item{\code{lr_bef}}{where the respodent identifies on the political
+\item{\code{lr_scale_bef}}{where the respondent identifies on the political
 spectrum; asked before party identification questions}
-\item{\code{lr_aft}}{where the respondent identifies on the political
+\item{\code{lr_scale_aft}}{where the respondent identifies on the political
 spectrum; asked after party identification questions}
 \item{\code{religion}}{religion of respondent}
 \item{\code{sexuality_selected}}{sexual identity}
@@ -26,7 +56,7 @@ spectrum; asked after party identification questions}
 \item{\code{language_eng}}{language learned as child and still understand;
 selected response English} \item{\code{language_fr}}{language learned as a
 child and still understand; selected response French}
-\item{\code{language_abgl}}{langauge learned as a child and still
+\item{\code{language_abgl}}{language learned as a child and still
 understand; specified Aboriginal language}
 \item{\code{employment}}{employment status} \item{\code{income}}{total
 household income, before taxes, for the year 2018}
@@ -38,6 +68,9 @@ federal government made Canada's economy...'}
 \item{\code{econ_self}}{response to question, have the policies of the
 federal government made your financial situation...'} }
 }}
+}
+\value{
+The designed dataframe as a 'tbl_df' object under the name decon.
 }
 \description{
 get_decon() creates a non-exhaustive dataset under the name

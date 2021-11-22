@@ -16,6 +16,10 @@ Variable must be given as a numerical value.}
 
 \item{pos}{Environment assignment. Defaults to 1, which is an assignment to the global environment.}
 }
+\value{
+The truncated version of the requested survey dataset \code{srvy} with the set number of observations \code{obs}
+to the designated environment \code{pos}.
+}
 \description{
 \code{get_preview()} creates a truncated dataframe for a requested Canadian Election Study
 survey using an associated code to call and download
@@ -69,22 +73,19 @@ Repeated code calls will load in an unaltered version of the requested table.
 
 Due to the naming of the columns in the 1965 and 1968 datasets it is recommended
 to download the associated codebook for the requested dataset.
-
-#' @examples
 }
 }
-\section{print out CES call codes}{
+\examples{
+# print out CES call codes
 get_cescodes()
-}
 
-\section{call the 1993 CES dataset}{
+# call the 1993 CES dataset
 get_ces("ces1993")
-}
 
-\section{preview the first 10 observations of the dataset}{
+# preview the first 10 observations of the dataset
 get_preview("ces1993", 10)
-}
 
+}
 \seealso{
 \code{get_ces()} function help.
 \code{get_cescodes()} function help.
