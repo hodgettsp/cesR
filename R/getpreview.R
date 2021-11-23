@@ -58,6 +58,7 @@
 #' to the designated environment \code{pos}.
 #'
 #' @examples
+#' \dontrun{
 #' # print out CES call codes
 #' get_cescodes()
 #'
@@ -66,6 +67,7 @@
 #'
 #' # preview the first 10 observations of the dataset
 #' get_preview("ces1993", 10)
+#' }
 #'
 #' @seealso
 #' `get_ces()` function help.
