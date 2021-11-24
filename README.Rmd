@@ -19,6 +19,8 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/cesR)](https://CRAN.R-project.org/package=cesR)
+[![R-CMD-check](https://github.com/hodgettsp/cesR/workflows/R-CMD-check/badge.svg)](https://github.com/hodgettsp/cesR/actions)
+[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/grand-total/cesR?color=blue)](https://r-pkg.org/pkg/cesR)
 <!-- badges: end -->
 
 ---
