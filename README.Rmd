@@ -18,13 +18,21 @@ knitr::opts_chunk$set(
 #### Access the Canadian Election Study Datasets. 
 
 <!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/cesR)](https://CRAN.R-project.org/package=cesR)
 <!-- badges: end -->
 
 ---
 
 ## Installation
 
-You can install the current version of this package using:
+You can install the released version of `cesR` from CRAN:
+
+```r
+install.packages("cesR")
+```
+
+
+or the development version from GitHub using:
 
 ``` r
 devtools::install_github("hodgettsp/cesR")
@@ -33,13 +41,13 @@ devtools::install_github("hodgettsp/cesR")
 
 ## Using the Package
 
-  The `cesR package` provides access to the CES Surveys through the use of a function call `get_ces(srvy)`. Where variable `srvy` is an associated survey code entered as a character string. On a call, the `cesR package` will create a data object for the requested survey. Survey code calls can be found in the table provided below. On a call, the `cesR package` will additonally print out the citation for the called survey dataset. Additionally, it is possible to lookup the survey codes within the package through the function call `get_cescodes()`. This function requires no variables and prints out a data frame with the survey codes and associated calls. The resulting printed data frame provides survey call codes that can be copied and used with the `get_ces()` function to create a data frame for a requested survey. To access a preview of a particular dataset, use the `get_preview(srvy, x)` function. This function returns a preview of a CES survey dataset with a number of observations equal to a given numerical value in place of the variable `x`. If the variable `x` is not given the default of six observations will be returned. Lastly, the `get_question(do, q)` returns a CES survey question for a given data object and column name.
+The `cesR package` provides access to the CES Surveys through the use of a function call `get_ces(srvy)`. Where variable `srvy` is an associated survey code entered as a character string. On a call, the `cesR package` will create a data object for the requested survey. Survey code calls can be found in the table provided below. On a call, the `cesR package` will additonally print out the citation for the called survey dataset. Additionally, it is possible to lookup the survey codes within the package through the function call `get_cescodes()`. This function requires no variables and prints out a data frame with the survey codes and associated calls. The resulting printed data frame provides survey call codes that can be copied and used with the `get_ces()` function to create a data frame for a requested survey. To access a preview of a particular dataset, use the `get_preview(srvy, obs)` function. This function returns a preview of a CES survey dataset with a number of observations equal to a given numerical value in place of the variable `obs`. If the variable `obs` is not given the default of six observations will be returned. Lastly, the `get_question(do, q)` returns a CES survey question for a given data object and column name.
 
 ### Examples
 
 ```
 # install cesR package
-devtools::install_github("hodgettsp/cesR")
+install.packages("cesR")
 
 # load cesR package
 library(cesR)
@@ -116,12 +124,12 @@ devtools::install_github("hodgettsp/cesR")
 # load cesR package
 library(cesR)
 
-# call 2019 CES phone survey
-get_ces("ces2019_phone")
+# call 2019 CES online survey
+get_ces("ces2019_web")
 
-# get question for q11 of 2019 CES phone survey
-get_question("ces2019_phone", "q11")
->Which party will you likely to vote for
+# get question for cps19_province of 2019 CES online survey
+get_question("ces2019_web", "cps19_province")
+>Which province or territory are you currently living in?
 ```
 
 
@@ -167,7 +175,7 @@ The `get_decon()` function uses no variables and will only run if the `decon` da
 
 ### Examples
 ```
-devtools::install_github("hodgettsp/cesR")
+install.packages("cesR")
 
 library(cesR)
 

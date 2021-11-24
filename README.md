@@ -6,13 +6,22 @@
 #### Access the Canadian Election Study Datasets.
 
 <!-- badges: start -->
+
+[![CRAN
+status](https://www.r-pkg.org/badges/version/cesR)](https://CRAN.R-project.org/package=cesR)
 <!-- badges: end -->
 
 ------------------------------------------------------------------------
 
 ## Installation
 
-You can install the current version of this package using:
+You can install the released version of `cesR` from CRAN:
+
+``` r
+install.packages("cesR")
+```
+
+or the development version from GitHub using:
 
 ``` r
 devtools::install_github("hodgettsp/cesR")
@@ -34,17 +43,17 @@ requires no variables and prints out a data frame with the survey codes
 and associated calls. The resulting printed data frame provides survey
 call codes that can be copied and used with the `get_ces()` function to
 create a data frame for a requested survey. To access a preview of a
-particular dataset, use the `get_preview(srvy, x)` function. This
+particular dataset, use the `get_preview(srvy, obs)` function. This
 function returns a preview of a CES survey dataset with a number of
 observations equal to a given numerical value in place of the variable
-`x`. If the variable `x` is not given the default of six observations
-will be returned. Lastly, the `get_question(do, q)` returns a CES survey
-question for a given data object and column name.
+`obs`. If the variable `obs` is not given the default of six
+observations will be returned. Lastly, the `get_question(do, q)` returns
+a CES survey question for a given data object and column name.
 
 ### Examples
 
     # install cesR package
-    devtools::install_github("hodgettsp/cesR")
+    install.packages("cesR")
 
     # load cesR package
     library(cesR)
@@ -119,12 +128,12 @@ question for a given data object and column name.
     # load cesR package
     library(cesR)
 
-    # call 2019 CES phone survey
-    get_ces("ces2019_phone")
+    # call 2019 CES online survey
+    get_ces("ces2019_web")
 
-    # get question for q11 of 2019 CES phone survey
-    get_question("ces2019_phone", "q11")
-    >Which party will you likely to vote for
+    # get question for cps19_province of 2019 CES online survey
+    get_question("ces2019_web", "cps19_province")
+    >Which province or territory are you currently living in?
 
 ### Details
 
@@ -176,7 +185,7 @@ The `get_decon()` function uses no variables and will only run if the
 
 ### Examples
 
-    devtools::install_github("hodgettsp/cesR")
+    install.packages("cesR")
 
     library(cesR)
 
