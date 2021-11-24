@@ -101,6 +101,9 @@ the requested dataset and a link to the original location of the data file." />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -150,6 +153,10 @@ the requested dataset and a link to the original location of the data file.</p>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>The called <code>srvy</code> at the designated environment position <code>pos</code>.
+Default environment position is set to be the global environment.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     
@@ -233,58 +240,16 @@ to download the associated codebook for the requested dataset.</p>
     <div class='dont-index'><p><code><a href='get_cescodes.html'>get_cescodes()</a></code> function help.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'><span class='co'># call the 2019 CES online survey</span></span>
+    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='co'># call the 2019 CES online survey</span></span>
 <span class='r-in'><span class='fu'>get_ces</span><span class='op'>(</span><span class='st'>"ces2019_web"</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> TO CITE THIS SURVEY FILE:</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> - Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Online Survey', https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> - Stephenson, Laura, Allison Harrel, Daniel Rubenson and Peter Loewen. Forthcoming. 'Measuring Preferences and Behaviour in the 2019 Canadian Election Study,' Canadian Journal of Political Science.</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> LINK: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'># convert variables to factor</span></span>
 <span class='r-in'><span class='fu'>labelled</span><span class='fu'>::</span><span class='fu'><a href='http://larmarange.github.io/labelled/reference/to_factor.html'>to_factor</a></span><span class='op'>(</span><span class='va'>ces2019_web</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 37,822 x 620</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>    cps19_StartDate     cps19_EndDate       cps19_ResponseId  cps19_consent      </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;fct&gt;</span>              </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> 2019-09-13 <span style='color: #949494;'>08:09:44</span> 2019-09-13 <span style='color: #949494;'>08:36:19</span> R_1OpYXEFGzHRUpjM I consent to parti~</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> 2019-09-13 <span style='color: #949494;'>08:39:09</span> 2019-09-13 <span style='color: #949494;'>08:57:06</span> R_2qdrL3J618rxYW0 I consent to parti~</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> 2019-09-13 <span style='color: #949494;'>10:01:19</span> 2019-09-13 <span style='color: #949494;'>10:27:29</span> R_USWDAPcQEQiMmNb I consent to parti~</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> 2019-09-13 <span style='color: #949494;'>10:05:37</span> 2019-09-13 <span style='color: #949494;'>10:50:53</span> R_3IQaeDXy0tBzEry I consent to parti~</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> 2019-09-13 <span style='color: #949494;'>10:05:52</span> 2019-09-13 <span style='color: #949494;'>10:32:53</span> R_27WeMQ1asip2cMD I consent to parti~</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> 2019-09-13 <span style='color: #949494;'>10:10:20</span> 2019-09-13 <span style='color: #949494;'>10:29:45</span> R_3LiGZcCWJEcWV4P I consent to parti~</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> 2019-09-13 <span style='color: #949494;'>10:14:47</span> 2019-09-13 <span style='color: #949494;'>10:32:32</span> R_1Iu8R1UlYzVMycz I consent to parti~</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> 2019-09-13 <span style='color: #949494;'>10:15:39</span> 2019-09-13 <span style='color: #949494;'>10:30:59</span> R_2EcS26hqrcVYlab I consent to parti~</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> 2019-09-13 <span style='color: #949494;'>10:15:48</span> 2019-09-13 <span style='color: #949494;'>10:37:45</span> R_3yrt44wqQ1d4VRn I consent to parti~</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> 2019-09-13 <span style='color: #949494;'>10:16:08</span> 2019-09-13 <span style='color: #949494;'>10:40:14</span> R_10OBmXJyvn8feYQ I consent to parti~</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># ... with 37,812 more rows, and 616 more variables: cps19_citizenship &lt;fct&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   cps19_yob &lt;fct&gt;, cps19_yob_2001_age &lt;fct&gt;, cps19_gender &lt;fct&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   cps19_province &lt;fct&gt;, cps19_education &lt;fct&gt;, cps19_demsat &lt;fct&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   cps19_imp_iss &lt;chr&gt;, cps19_imp_iss_party &lt;fct&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   cps19_imp_iss_party_7_TEXT &lt;chr&gt;, cps19_imp_loc_iss &lt;chr&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   cps19_imp_loc_iss_p &lt;fct&gt;, cps19_imp_loc_iss_p_7_TEXT &lt;chr&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   cps19_interest_gen_1 &lt;dbl&gt;, cps19_interest_elxn_1 &lt;dbl&gt;, ...</span></span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'># preview dataset</span></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>ces2019_web</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 6 x 620</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>   cps19_StartDate     cps19_EndDate       cps19_ResponseId         cps19_consent</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                        <span style='color: #949494; font-style: italic;'>&lt;dbl+lbl&gt;</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 2019-09-13 <span style='color: #949494;'>08:09:44</span> 2019-09-13 <span style='color: #949494;'>08:36:19</span> R_1OpYXEFGzHRUpjM 1<span style='color: #949494;'> [I consent to par~</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> 2019-09-13 <span style='color: #949494;'>08:39:09</span> 2019-09-13 <span style='color: #949494;'>08:57:06</span> R_2qdrL3J618rxYW0 1<span style='color: #949494;'> [I consent to par~</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span> 2019-09-13 <span style='color: #949494;'>10:01:19</span> 2019-09-13 <span style='color: #949494;'>10:27:29</span> R_USWDAPcQEQiMmNb 1<span style='color: #949494;'> [I consent to par~</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>4</span> 2019-09-13 <span style='color: #949494;'>10:05:37</span> 2019-09-13 <span style='color: #949494;'>10:50:53</span> R_3IQaeDXy0tBzEry 1<span style='color: #949494;'> [I consent to par~</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>5</span> 2019-09-13 <span style='color: #949494;'>10:05:52</span> 2019-09-13 <span style='color: #949494;'>10:32:53</span> R_27WeMQ1asip2cMD 1<span style='color: #949494;'> [I consent to par~</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>6</span> 2019-09-13 <span style='color: #949494;'>10:10:20</span> 2019-09-13 <span style='color: #949494;'>10:29:45</span> R_3LiGZcCWJEcWV4P 1<span style='color: #949494;'> [I consent to par~</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># ... with 616 more variables: cps19_citizenship &lt;dbl+lbl&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   cps19_yob &lt;dbl+lbl&gt;, cps19_yob_2001_age &lt;dbl+lbl&gt;, cps19_gender &lt;dbl+lbl&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   cps19_province &lt;dbl+lbl&gt;, cps19_education &lt;dbl+lbl&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   cps19_demsat &lt;dbl+lbl&gt;, cps19_imp_iss &lt;chr&gt;, cps19_imp_iss_party &lt;dbl+lbl&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   cps19_imp_iss_party_7_TEXT &lt;chr&gt;, cps19_imp_loc_iss &lt;chr&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   cps19_imp_loc_iss_p &lt;dbl+lbl&gt;, cps19_imp_loc_iss_p_7_TEXT &lt;chr&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   cps19_interest_gen_1 &lt;dbl&gt;, cps19_interest_elxn_1 &lt;dbl&gt;, ...</span></span>
-<span class='r-in'></span>
+<span class='r-in'><span class='op'>}</span></span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

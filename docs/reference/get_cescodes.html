@@ -99,6 +99,9 @@ Provides a quick way of looking up a CES survey code and the associated call." /
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -130,9 +133,22 @@ Provides a quick way of looking up a CES survey code and the associated call." /
 Provides a quick way of looking up a CES survey code and the associated call.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_cescodes</span><span class='op'>(</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_cescodes</span><span class='op'>(</span>indx <span class='op'>=</span> <span class='fl'>22</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>indx</th>
+      <td><p>A numeric value that determines the number of survey codes returned.
+Default is set to 22, or the total set of survey codes.</p></td>
+    </tr>
+    </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A printout of a designated number of Canadian Election Study survey codes and
+associated character codes used for the <code><a href='get_ces.html'>get_ces()</a></code> function.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Items under the <em>Survey Code Calls</em> and <em>Index Code Calls</em> can be copied and used with the <code><a href='get_ces.html'>get_ces()</a></code> function.</p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Survey Codes</h3>
@@ -224,9 +240,9 @@ Provides a quick way of looking up a CES survey code and the associated call.</p
 <span class='r-in'></span>
 <span class='r-in'><span class='co'># call 1984 CES survey</span></span>
 <span class='r-in'><span class='fu'><a href='get_ces.html'>get_ces</a></span><span class='op'>(</span><span class='st'>"ces1984"</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> TO CITE THIS SURVEY FILE: Lambert, R. D., Brown, S. D., Curtis, J. E., Kay, B. J. and Wilson, J. M. 1985. The 1984 Canadian Election Study [dataset]. Toronto, Ontario, Canada: Institute for Social Research [producer and distributor].</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> LINK: http://odesi2.scholarsportal.info/webview/index.jsp?v=2&amp;submode=abstract&amp;study=http%3A%2F%2F142.150.190.128%3A80%2Fobj%2FfStudy%2FCES-E-1984&amp;mode=documentation&amp;top=yes</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> TO CITE THIS SURVEY FILE: Lambert, R. D., Brown, S. D., Curtis, J. E., Kay, B. J. and Wilson, J. M. 1985. The 1984 Canadian Election Study [dataset]. Toronto, Ontario, Canada: Institute for Social Research [producer and distributor].</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> LINK: http://odesi2.scholarsportal.info/webview/index.jsp?v=2&amp;submode=abstract&amp;study=http%3A%2F%2F142.150.190.128%3A80%2Fobj%2FfStudy%2FCES-E-1984&amp;mode=documentation&amp;top=yes</span>
 <span class='r-in'></span>
 </pre>
   </div>

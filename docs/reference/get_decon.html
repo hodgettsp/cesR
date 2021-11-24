@@ -100,6 +100,9 @@ demographics, ideology, and economy sections of the 2019 CES online survey." />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -147,11 +150,41 @@ demographics, ideology, and economy sections of the 2019 CES online survey.</p>
 <dt><code>yob</code></dt><dd><p>year of birth</p></dd> <dt><code>gender</code></dt><dd><p>identified gender of
 the respondent</p></dd> <dt><code>province_territory</code></dt><dd><p>Province or Territory of
 current residence</p></dd> <dt><code>education</code></dt><dd><p>highest level of education
-completed</p></dd> <dt><code>lr</code></dt><dd><p>united column of lr_bef and lr_aft values;
+completed</p></dd> <dt><code>vote_likely</code></dt><dd><p>likelihood of voting on election day</p></dd>
+<dt><code>vote_likely_ifable</code></dt><dd><p>likelihood to vote in first election for which respondent is eligible</p></dd>
+<dt><code>votechoice</code></dt><dd><p>party most likely to vote for</p></dd>
+<dt><code>votechoice_text</code></dt><dd><p>party most likely to vote for - text answers</p></dd>
+<dt><code>votechoice_couldvote</code></dt><dd><p>party most likely to vote for if eligible to vote</p></dd>
+<dt><code>votechoice_couldvote_text</code></dt><dd><p>party most likely to vote for if eligible to vote - text answers</p></dd>
+<dt><code>votechoice_unlikely</code></dt><dd><p>party least likely to vote for</p></dd>
+<dt><code>votechoice_unlikely_text</code></dt><dd><p>party least likely to vote for - text answers</p></dd>
+<dt><code>votechoice_unlikely_couldvote</code></dt><dd><p>party least likely to vote for if eligible to vote</p></dd>
+<dt><code>votechoice_unlikely_couldvote_text</code></dt><dd><p>party least likely to vote for if eligible to vote - text answers</p></dd>
+<dt><code>vote_advancevote_choice</code></dt><dd><p>party voted for in the advanced ballot</p></dd>
+<dt><code>vote_advancevote_choice_text</code></dt><dd><p>party voted for in the advanced ballot - text</p></dd>
+<dt><code>vote_partylean</code></dt><dd><p>party toward which the respondent leans</p></dd>
+<dt><code>vote_partylean_text</code></dt><dd><p>party toward which the respondent leans - text answers</p></dd>
+<dt><code>vote_partylean_couldvote</code></dt><dd><p>party toward which the respondent leans if eligible</p></dd>
+<dt><code>vote_partylean_couldvote_text</code></dt><dd><p>party toward which the respondent leans if eligible - text answers</p></dd>
+<dt><code>votechoice_secondchoice</code></dt><dd><p>second choice party of respondent</p></dd>
+<dt><code>votechoice_secondchoice_text</code></dt><dd><p>second choice party of respondent - text answers</p></dd>
+<dt><code>votechoice_couldvote_secondchoice</code></dt><dd><p>second choice party of respondent if eligible</p></dd>
+<dt><code>votechoice_couldvote_secondchoice_text</code></dt><dd><p>second choice party of respondent if eligible - text answers</p></dd>
+<dt><code>votechoice_partynotvote_1</code></dt><dd><p>party respondent would note vote for - first ranking</p></dd>
+<dt><code>votechoice_partynotvote_2</code></dt><dd><p>party respondent would note vote for - second ranking</p></dd>
+<dt><code>votechoice_partynotvote_3</code></dt><dd><p>party respondent would note vote for - third ranking</p></dd>
+<dt><code>votechoice_partynotvote_4</code></dt><dd><p>party respondent would note vote for - fourth ranking</p></dd>
+<dt><code>votechoice_partynotvote_5</code></dt><dd><p>party respondent would note vote for - fifth ranking</p></dd>
+<dt><code>votechoice_partynotvote_6</code></dt><dd><p>party respondent would note vote for - sixth ranking</p></dd>
+<dt><code>votechoice_partynotvote_7</code></dt><dd><p>party respondent would note vote for - seventh ranking</p></dd>
+<dt><code>votechoice_partynotvote_8</code></dt><dd><p>party respondent would note vote for - eighth ranking</p></dd>
+<dt><code>votechoice_partynotvote_9</code></dt><dd><p>party respondent would note vote for - ninth ranking</p></dd>
+<dt><code>votechoice_partynotvote_text</code></dt><dd><p>party respondent would note vote for - text answers</p></dd>
+<dt><code>lr_scale</code></dt><dd><p>united column of lr_bef and lr_aft values;
 whether the respondent identifies on the political spectrum</p></dd>
-<dt><code>lr_bef</code></dt><dd><p>where the respodent identifies on the political
+<dt><code>lr_scale_bef</code></dt><dd><p>where the respondent identifies on the political
 spectrum; asked before party identification questions</p></dd>
-<dt><code>lr_aft</code></dt><dd><p>where the respondent identifies on the political
+<dt><code>lr_scale_aft</code></dt><dd><p>where the respondent identifies on the political
 spectrum; asked after party identification questions</p></dd>
 <dt><code>religion</code></dt><dd><p>religion of respondent</p></dd>
 <dt><code>sexuality_selected</code></dt><dd><p>sexual identity</p></dd>
@@ -159,7 +192,7 @@ spectrum; asked after party identification questions</p></dd>
 <dt><code>language_eng</code></dt><dd><p>language learned as child and still understand;
 selected response English</p></dd> <dt><code>language_fr</code></dt><dd><p>language learned as a
 child and still understand; selected response French</p></dd>
-<dt><code>language_abgl</code></dt><dd><p>langauge learned as a child and still
+<dt><code>language_abgl</code></dt><dd><p>language learned as a child and still
 understand; specified Aboriginal language</p></dd>
 <dt><code>employment</code></dt><dd><p>employment status</p></dd> <dt><code>income</code></dt><dd><p>total
 household income, before taxes, for the year 2018</p></dd>
@@ -175,6 +208,9 @@ federal government made your financial situation...'</p></dd>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>The designed dataframe as a 'tbl_df' object under the name decon.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>NAs have not been removed. The politically left/right question
@@ -187,32 +223,17 @@ name <code>lr_scale</code>. All variables have been converted to factor type usi
 <a href='https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V'>https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V</a>
 Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter
 John, 2020, "2019 Canadian Election Study - Online Survey",
-<a href='https://doi.org/10.7910/DVN/DUS88V'>https://doi.org/10.7910/DVN/DUS88V</a>, Harvard Dataverse, V1</p></div>
+doi: <a href='https://doi.org/10.7910/DVN/DUS88V'>10.7910/DVN/DUS88V</a>
+, Harvard Dataverse, V1</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'><span class='co'># call decon dataset</span></span>
+    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='co'># call decon dataset</span></span>
 <span class='r-in'><span class='fu'>get_decon</span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Online Survey',</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>            https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> LINK: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'># preview decon</span></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>decon</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 6 x 22</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>   ces_code    citizenship  yob   gender province_territ~ education  lr    lr_bef</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;fct&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;fct&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;fct&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;fct&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;fct&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> ces2019_web Canadian ci~ 1989  A wom~ Quebec           Master's ~ 2     <span style='color: #BB0000;'>NA</span>    </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> ces2019_web Canadian ci~ 1998  A wom~ Quebec           Master's ~ 2     <span style='color: #BB0000;'>NA</span>    </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span> ces2019_web Canadian ci~ 2000  A wom~ Ontario          Some univ~ 4     4     </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>4</span> ces2019_web Canadian ci~ 1998  A man  Ontario          Some univ~ 7     7     </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>5</span> ces2019_web Canadian ci~ 2000  A wom~ Ontario          Completed~ 4     4     </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>6</span> ces2019_web Canadian ci~ 1999  A wom~ Ontario          Some univ~ 4     4     </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># ... with 14 more variables: lr_aft &lt;chr&gt;, religion &lt;fct&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   sexuality_selected &lt;fct&gt;, sexuality_text &lt;chr&gt;, language_eng &lt;fct&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   language_fr &lt;fct&gt;, language_abgl &lt;fct&gt;, employment &lt;fct&gt;, income &lt;dbl&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   income_cat &lt;fct&gt;, marital &lt;fct&gt;, econ_retro &lt;fct&gt;, econ_fed &lt;fct&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   econ_self &lt;fct&gt;</span></span>
-<span class='r-in'></span>
+<span class='r-in'><span class='op'>}</span></span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
